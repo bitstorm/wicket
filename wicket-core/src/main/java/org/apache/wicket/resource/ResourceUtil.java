@@ -37,30 +37,47 @@ import org.apache.wicket.util.string.Strings;
  */
 public class ResourceUtil
 {
-
-	public static ResourceReference.UrlAttributes decodeResourceReferenceAttributes(String attributes)
+	/**
+	 * Reads resource reference attributes (style, locale, variation) encoded in the given string. 
+	 * 
+	 * @param encodedAttributes
+	 * 			the string containing the resource attributes
+	 * @return the encoded attributes
+	 * 
+	 * @see ResourceReference.UrlAttributes
+	 */
+	public static ResourceReference.UrlAttributes decodeResourceReferenceAttributes(String encodedAttributes)
 	{
 		Locale locale = null;
 		String style = null;
 		String variation = null;
 	
-		if (Strings.isEmpty(attributes) == false)
+		if (Strings.isEmpty(encodedAttributes) == false)
 		{
-			String split[] = Strings.split(attributes, '-');
+			String split[] = Strings.split(encodedAttributes, '-');
 			locale = parseLocale(split[0]);
 			if (split.length == 2)
 			{
-				style = Strings.notEmpty(unescapeAttributesSeparator(split[1]), null);
+				style = Strings.defaultIfEmpty(unescapeAttributesSeparator(split[1]), null);
 			}
 			else if (split.length == 3)
 			{
-				style = Strings.notEmpty(unescapeAttributesSeparator(split[1]), null);
-				variation = Strings.notEmpty(unescapeAttributesSeparator(split[2]), null);
+				style = Strings.defaultIfEmpty(unescapeAttributesSeparator(split[1]), null);
+				variation = Strings.defaultIfEmpty(unescapeAttributesSeparator(split[2]), null);
 			}
 		}
 		return new ResourceReference.UrlAttributes(locale, style, variation);
 	}
-
+	
+	/**
+	 * Reads resource reference attributes (style, locale, variation) encoded in the given URL. 
+	 * 
+	 * @param url
+	 * 			the url containing the resource attributes
+	 * @return the encoded attributes
+	 * 
+	 * @see ResourceReference.UrlAttributes
+	 */
 	public static ResourceReference.UrlAttributes decodeResourceReferenceAttributes(Url url)
 	{
 		Args.notNull(url, "url");
@@ -76,6 +93,15 @@ public class ResourceUtil
 		return new ResourceReference.UrlAttributes(null, null, null);
 	}
 
+	/**
+	 * Encodes the given resource reference attributes returning the corresponding textual representation.
+	 * 
+	 * @param attributes
+	 * 		the resource reference attributes to encode
+	 * @return the textual representation for the given attributes
+	 * 
+	 * @see ResourceReference.UrlAttributes
+	 */
 	public static String encodeResourceReferenceAttributes(ResourceReference.UrlAttributes attributes)
 	{
 		if (attributes == null ||
@@ -111,7 +137,17 @@ public class ResourceUtil
 			return res.toString();
 		}
 	}
-
+	
+	/**
+	 * Encodes the attributes of the given resource reference in the specified url.
+	 * 
+	 * @param url
+	 * 			the resource reference attributes to encode
+	 * @param reference
+	 * 
+	 * @see ResourceReference.UrlAttributes
+	 * @see Url
+	 */
 	public static void encodeResourceReferenceAttributes(Url url, ResourceReference reference)
 	{
 		String encoded = encodeResourceReferenceAttributes(reference.getUrlAttributes());
@@ -134,7 +170,14 @@ public class ResourceUtil
 		CharSequence tmp = Strings.replaceAll(attribute, "~", "~~");
 		return Strings.replaceAll(tmp, "-", "~");
 	}
-
+	
+	/**
+	 * Parses the string representation of a {@link java.util.Locale} (for example 'en_GB').
+	 * 
+	 * @param locale
+	 * 		the string representation of a {@link java.util.Locale}
+	 * @return the corresponding {@link java.util.Locale} instance
+	 */
 	public static Locale parseLocale(String locale)
 	{
 		if (Strings.isEmpty(locale))

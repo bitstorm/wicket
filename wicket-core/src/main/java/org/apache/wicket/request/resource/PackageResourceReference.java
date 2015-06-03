@@ -125,6 +125,7 @@ public class PackageResourceReference extends ResourceReference
 		final PackageResource resource;
 		
 		final Url url = RequestCycle.get().getRequest().getUrl();
+		//resource attributes (locale, style, variation) might be encoded in the URL
 		final UrlAttributes urlAttributes = ResourceUtil.decodeResourceReferenceAttributes(url);
 
 		if (CSS_EXTENSION.equals(extension))

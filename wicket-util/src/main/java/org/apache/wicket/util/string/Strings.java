@@ -1563,15 +1563,18 @@ public final class Strings
 		}
 	}
 
-	public static String notEmpty(String originalString, String normalizedValue)
+	/**
+	 * Returns the original string if this one is not empty (i.e. {@link #isEmpty(CharSequence)} returns false), 
+	 * otherwise the default one is returned. The default string might be itself an empty one.
+	 * 
+	 * @param originalString
+	 * 				the original sting value
+	 * @param defaultValue
+	 * 				the default string to return if the original is empty
+	 * @return 	the original string value if not empty, the default one otherwise
+	 */
+	public static String defaultIfEmpty(String originalString, String defaultValue)
 	{
-		if (isEmpty(originalString))
-		{
-			return normalizedValue;
-		}
-		else
-		{
-			return originalString;
-		}
+		return isEmpty(originalString) ? defaultValue : originalString;		
 	}
 }
