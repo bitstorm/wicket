@@ -23,7 +23,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
 
 import org.apache.wicket.core.util.string.ComponentStrings;
 import org.apache.wicket.markup.ComponentTag;
@@ -95,7 +94,7 @@ import org.slf4j.LoggerFactory;
  * @author Jonathan Locke
  * 
  */
-public abstract class MarkupContainer extends Component implements Iterable<Component>
+public abstract class MarkupContainer extends Component implements Iterable<Component>, IMarkupOwner
 {
 	private static final long serialVersionUID = 1L;
 	
@@ -378,13 +377,10 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		return null;
 	}
 
-	/**
-	 * Gets a fresh markup stream that contains the (immutable) markup resource for this class.
-	 * 
-	 * @param throwException
-	 *            If true, throw an exception, if markup could not be found
-	 * @return A stream of MarkupElement elements
+	/* (non-Javadoc)
+	 * @see org.apache.wicket.IMarkupOwner#getAssociatedMarkupStream(boolean)
 	 */
+	@Override
 	public MarkupStream getAssociatedMarkupStream(final boolean throwException)
 	{
 		IMarkupFragment markup = getAssociatedMarkup();
@@ -411,11 +407,10 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		return null;
 	}
 
-	/**
-	 * Gets a fresh markup stream that contains the (immutable) markup resource for this class.
-	 * 
-	 * @return A stream of MarkupElement elements. Null if not found.
+	/* (non-Javadoc)
+	 * @see org.apache.wicket.IMarkupOwner#getAssociatedMarkup()
 	 */
+	@Override
 	public Markup getAssociatedMarkup()
 	{
 		try
@@ -469,16 +464,10 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		return getMarkupSourcingStrategy().getMarkup(this, child);
 	}
 
-	/**
-	 * Get the type of associated markup for this component.
-	 * 
-	 * @return The type of associated markup for this component (for example, "html", "wml" or
-	 *         "vxml"). The markup type for a component is independent of whether or not the
-	 *         component actually has an associated markup resource file (which is determined at
-	 *         runtime). If there is no markup type for a component, null may be returned, but this
-	 *         means that no markup can be loaded for the class. Null is also returned if the
-	 *         component, or any of its parents, has not been added to a Page.
+	/* (non-Javadoc)
+	 * @see org.apache.wicket.IMarkupOwner#getMarkupType()
 	 */
+	@Override
 	public MarkupType getMarkupType()
 	{
 		MarkupContainer parent = getParent();
@@ -1726,8 +1715,8 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	{
 		if (this instanceof IQueueRegion)
 		{
-			DequeueContext dequeue = newDequeueContext();
-			dequeuePreamble(dequeue);
+			//DequeueContext dequeue = newDequeueContext();
+			dequeuePreamble();
 		}
 		else
 		{
@@ -1792,7 +1781,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * @param dequeue
 	 *            the dequeue context to use
 	 */
-	protected void dequeuePreamble(DequeueContext dequeue)
+	protected void dequeuePreamble()
 	{
 		if (getRequestFlag(RFLAG_CONTAINER_DEQUEING))
 		{
@@ -1802,19 +1791,42 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		setRequestFlag(RFLAG_CONTAINER_DEQUEING, true);
 		try
 		{
-			if (dequeue == null)
-			{
-				return;
-			}
-
-			if (dequeue.peekTag() != null)
-			{
-				dequeue(dequeue);
-			}
+			MarkupStream markupStream = getAssociatedMarkupStream(false);
+			dequeueChildren(markupStream);
 		}
 		finally
 		{
 			setRequestFlag(RFLAG_CONTAINER_DEQUEING, false);
+		}
+	}
+
+	private void dequeueChildren(MarkupStream markupStream)
+	{
+		
+		while (markupStream.skipUntil(ComponentTag.class))
+		{
+			ComponentTag tag = markupStream.getTag();
+			// see if child is already added to parent
+			Component child = get(tag.getId());
+			System.out.println(tag);
+			if (child == null)
+			{
+				// the container does not yet have a child with this id, see if we can
+				// dequeue
+				child = findComponentToDequeue(tag);
+
+				if (child != null)
+				{
+					addDequeuedComponent(child, tag);					
+				}
+			}
+
+			if (child instanceof IQueueRegion)
+		    {
+			    markupStream.skipToMatchingCloseTag(tag);
+		    }
+			
+			markupStream.next();
 		}
 	}
 
@@ -1833,30 +1845,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 */
 	public void dequeue(DequeueContext dequeue)
 	{
-		while (dequeue.isAtOpenOrOpenCloseTag())
-		{
-			ComponentTag tag = dequeue.takeTag();
-	
-			// see if child is already added to parent
-			Component child = get(tag.getId());
-
-			if (child == null)
-			{
-				// the container does not yet have a child with this id, see if we can
-				// dequeue
-				child = dequeue.findComponentToDequeue(tag);
-
-				if (child != null)
-				{
-					addDequeuedComponent(child, tag);					
-				}
-			}
-
-			if (tag.isOpen() && !tag.hasNoCloseTag())
-            {
-			    dequeueChild(child, tag, dequeue);
-            }
-		}
+		
 
 	}
 	
@@ -1870,34 +1859,34 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * @param dequeue
 	 *             the dequeue context to use
 	 */
-	private void dequeueChild(Component child, ComponentTag tag, DequeueContext dequeue)
-	{
-		if (child == null || child instanceof IQueueRegion)
-		{
-			// could not dequeue, or is a dequeue container
-			dequeue.skipToCloseTag();
-
-		}
-		else if (child instanceof MarkupContainer)
-		{
-			// propagate dequeuing to containers
-			MarkupContainer childContainer = (MarkupContainer)child;
-
-			dequeue.pushContainer(childContainer);
-			childContainer.dequeue(dequeue);
-			dequeue.popContainer();
-		}
-
-		// pull the close tag off
-		ComponentTag close = dequeue.takeTag();
-		if (!close.closes(tag))
-		{
-			// sanity check
-			throw new IllegalStateException(String.format(
-				"Tag '%s' should be the closing one for '%s'", close, tag));
-		}
-
-	}
+//	private void dequeueChild(Component child, ComponentTag tag, DequeueContext dequeue)
+//	{
+//		if (child == null || child instanceof IQueueRegion)
+//		{
+//			// could not dequeue, or is a dequeue container
+//			dequeue.skipToCloseTag();
+//
+//		}
+//		else if (child instanceof MarkupContainer)
+//		{
+//			// propagate dequeuing to containers
+//			MarkupContainer childContainer = (MarkupContainer)child;
+//
+//			dequeue.pushContainer(childContainer);
+//			childContainer.dequeue(dequeue);
+//			dequeue.popContainer();
+//		}
+//
+//		// pull the close tag off
+//		ComponentTag close = dequeue.takeTag();
+//		if (!close.closes(tag))
+//		{
+//			// sanity check
+//			throw new IllegalStateException(String.format(
+//				"Tag '%s' should be the closing one for '%s'", close, tag));
+//		}
+//
+//	}
 
     /** @see IQueueRegion#newDequeueContext() */
 	public DequeueContext newDequeueContext()
@@ -1972,6 +1961,22 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * @return
 	 */
 	public Component findComponentToDequeue(ComponentTag tag)
+	{
+		MarkupContainer parentContainer = this;
+		while (parentContainer != null)
+		{
+			Component child = parentContainer.findComponentInQueue(tag);
+			if (child != null)
+			{
+				return child;
+			}
+			
+			parentContainer = getParent();
+		}
+		return null;
+	}
+
+	private Component findComponentInQueue(ComponentTag tag)
 	{
 		return queue == null ? null : queue.remove(tag.getId());
 	}

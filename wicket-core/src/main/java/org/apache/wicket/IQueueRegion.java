@@ -16,7 +16,9 @@
  */
 package org.apache.wicket;
 
+import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.IMarkupFragment;
+import org.apache.wicket.util.IHierarchical;
 
 
 /**
@@ -31,7 +33,7 @@ import org.apache.wicket.markup.IMarkupFragment;
  * @author igor
  * 
  */
-public interface IQueueRegion
+public interface IQueueRegion extends IComponentContainer<MarkupContainer>, IHierarchical<Component>, IMarkupOwner
 {
 	/** 
 	 * TODO Wicket 8: this interface might be a perfect candidate for Java 8 interface default methods.
@@ -56,8 +58,65 @@ public interface IQueueRegion
 	 * {@link org.apache.wicket.MarkupContainer#dequeue(DequeueContext)} method which performs the
 	 * actual dequeueing. The context's markup is retrieved using the {@link MarkupContainer#getAssociatedMarkup()}.
 	 */
-	public void dequeue();
+	default public void dequeue()
+	{
+		DequeueContext dequeue = newDequeueContext();
+		while (dequeue.isAtOpenOrOpenCloseTag())
+		{
+			ComponentTag tag = dequeue.takeTag();
 	
+			// see if child is already added to parent
+			Component child = get(tag.getId());
+
+			if (child == null)
+			{
+				// the container does not yet have a child with this id, see if we can
+				// dequeue
+				child = dequeue.findComponentToDequeue(tag);
+
+				if (child != null)
+				{
+					addDequeuedChild(child);					
+				}
+			}
+
+			if (tag.isOpen() && !tag.hasNoCloseTag())
+            {
+				if (child instanceof IQueueRegion)
+				{
+					// could not dequeue, or is a dequeue container
+					dequeue.skipToCloseTag();
+
+				}
+				else if (child instanceof MarkupContainer)
+				{
+					// propagate dequeuing to containers
+					MarkupContainer childContainer = (MarkupContainer)child;
+
+					dequeue.pushContainer(childContainer);
+					childContainer.dequeue(dequeue);
+					dequeue.popContainer();
+				}
+
+				// pull the close tag off
+				ComponentTag close = dequeue.takeTag();
+				if (!close.closes(tag))
+				{
+					// sanity check
+					throw new IllegalStateException(String.format(
+						"Tag '%s' should be the closing one for '%s'", close, tag));
+				}
+            }
+		}
+		
+	}
+	
+	
+	default public void addDequeuedChild(Component child)
+	{
+		add(child);
+	}
+
 	/**
 	 * Returns the markup to use for queuing. Normally, this is the markup of the component 
 	 * implementing this interface.
