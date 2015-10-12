@@ -1716,7 +1716,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		if (this instanceof IQueueRegion)
 		{
 			//DequeueContext dequeue = newDequeueContext();
-			dequeuePreamble();
+			dequeuePreamble(this, getAssociatedMarkupStream(false));
 		}
 		else
 		{
@@ -1777,56 +1777,74 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * throws an exception if the container is already dequeuing, and it also takes care of setting
 	 * flag {@code RFLAG_CONTAINER_DEQUEING} to true before running {@link #dequeue(DequeueContext)}
 	 * and setting it back to false after dequeuing is completed.
+	 * @param markupContainer 
 	 * 
 	 * @param dequeue
 	 *            the dequeue context to use
 	 */
-	protected void dequeuePreamble()
+	protected void dequeuePreamble(MarkupContainer markupContainer, MarkupStream markupStream)
 	{
-		if (getRequestFlag(RFLAG_CONTAINER_DEQUEING))
+		if (markupContainer.getRequestFlag(RFLAG_CONTAINER_DEQUEING))
 		{
-			throw new IllegalStateException("This container is already dequeing: " + this);
+			throw new IllegalStateException("This container is already dequeing: " + markupContainer);
 		}
 
-		setRequestFlag(RFLAG_CONTAINER_DEQUEING, true);
+		markupContainer.setRequestFlag(RFLAG_CONTAINER_DEQUEING, true);
 		try
-		{
-			MarkupStream markupStream = getAssociatedMarkupStream(false);
-			dequeueChildren(markupStream);
+		{			
+			dequeueChildren(markupContainer, markupStream);
 		}
 		finally
 		{
-			setRequestFlag(RFLAG_CONTAINER_DEQUEING, false);
+			markupContainer.setRequestFlag(RFLAG_CONTAINER_DEQUEING, false);
 		}
 	}
 
-	private void dequeueChildren(MarkupStream markupStream)
+	private void dequeueChildren(MarkupContainer markupContainer, MarkupStream markupStream)
 	{
 		
-		while (markupStream.skipUntil(ComponentTag.class))
+		while (markupStream.hasMore())
 		{
+			markupStream.skipUntil(ComponentTag.class);
 			ComponentTag tag = markupStream.getTag();
+			
 			// see if child is already added to parent
-			Component child = get(tag.getId());
-			System.out.println(tag);
+			Component child = markupContainer.get(tag.getId());
+
 			if (child == null)
 			{
 				// the container does not yet have a child with this id, see if we can
 				// dequeue
-				child = findComponentToDequeue(tag);
+				child = markupContainer.findComponentToDequeue(tag);
 
 				if (child != null)
 				{
-					addDequeuedComponent(child, tag);					
+					markupContainer.addDequeuedComponent(child, tag);					
 				}
 			}
-
-			if (child instanceof IQueueRegion)
+			
+			if(child == null && tag.isOpen())
+			{
+				markupStream.skipToMatchingCloseTag(tag);
+			}
+			else if (child instanceof IQueueRegion && tag.isOpen())
 		    {
 			    markupStream.skipToMatchingCloseTag(tag);
-		    }
-			
-			markupStream.next();
+		    } 
+			else if (child instanceof MarkupContainer && tag.isOpen())
+			{
+				markupStream.next();
+				
+				if (markupStream.getTag().isOpen())
+				{					
+					IMarkupFragment markupFragment = markupStream.getMarkupFragment();
+					System.out.println(markupFragment);
+					markupContainer.dequeuePreamble((MarkupContainer)child, 
+							markupStream);
+				}
+			}
+				
+			markupStream.next();			
 		}
 	}
 
@@ -1963,15 +1981,22 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	public Component findComponentToDequeue(ComponentTag tag)
 	{
 		MarkupContainer parentContainer = this;
-		while (parentContainer != null)
+		boolean queueParentFound = false;
+
+		while (parentContainer != null && !queueParentFound)
 		{
+			if (parentContainer instanceof IQueueRegion) 
+			{
+				queueParentFound = true;
+			}
+			
 			Component child = parentContainer.findComponentInQueue(tag);
 			if (child != null)
 			{
 				return child;
 			}
 			
-			parentContainer = getParent();
+			parentContainer = parentContainer.getParent();
 		}
 		return null;
 	}
