@@ -21,6 +21,8 @@ import org.apache.wicket.DequeueContext;
 import org.apache.wicket.IQueueRegion;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.IMarkupFragment;
+import org.apache.wicket.markup.Markup;
+import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.lang.Args;
@@ -132,7 +134,25 @@ public class Fragment extends WebMarkupContainer implements IQueueRegion
 		return associatedMarkupId;
 	}
 
-
+	@Override
+	public IMarkupFragment getAssociatedMarkup() 
+	{
+		return getMarkupSourcingStrategy().getMarkup(this, null);
+	}
+	
+	@Override
+	public MarkupStream getAssociatedMarkupStream(boolean throwException) 
+	{
+		MarkupStream stream =  super.getAssociatedMarkupStream(throwException);
+		
+		if (stream != null)
+		{
+			stream.nextOpenTag();
+		}
+		
+		return stream;
+	}
+	
 	@Override
 	public DequeueContext newDequeueContext()
 	{

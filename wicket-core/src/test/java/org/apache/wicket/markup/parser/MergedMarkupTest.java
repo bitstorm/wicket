@@ -17,6 +17,7 @@
 package org.apache.wicket.markup.parser;
 
 import org.apache.wicket.Page;
+import org.apache.wicket.markup.IMarkupFragment;
 import org.apache.wicket.markup.Markup;
 import org.apache.wicket.markup.MarkupParser;
 import org.apache.wicket.markup.MarkupResourceStream;
@@ -36,7 +37,7 @@ public class MergedMarkupTest extends WicketTestCase
 	public void test1()
 	{
 		Page page = new SubPageWithoutMarkup();
-		Markup markup = page.getAssociatedMarkup();
+		IMarkupFragment markup = page.getAssociatedMarkup();
 		MarkupResourceStream stream = markup.getMarkupResourceStream();
 		assertEquals("utf-8", stream.getEncoding());
 		assertEquals(MarkupParser.WICKET, stream.getWicketNamespace());

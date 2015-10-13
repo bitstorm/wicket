@@ -737,7 +737,7 @@ public abstract class Component
 			if (this instanceof MarkupContainer)
 			{
 				MarkupContainer container = (MarkupContainer)this;
-				Markup associatedMarkup = container.getAssociatedMarkup();
+				IMarkupFragment associatedMarkup = container.getAssociatedMarkup();
 				if (associatedMarkup != null)
 				{
 					markup = associatedMarkup;

@@ -129,7 +129,7 @@ public class FragmentMarkupSourcingStrategy extends AbstractMarkupSourcingStrate
 		{
 			// There is one more option if the markup provider has associated markup
 			MarkupContainer markupProvider = getMarkupProvider(container);
-			Markup associatedMarkup = markupProvider.getAssociatedMarkup();
+			IMarkupFragment associatedMarkup = markupProvider.getAssociatedMarkup();
 			if (associatedMarkup != null)
 			{
 				markup = associatedMarkup;

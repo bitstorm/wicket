@@ -411,7 +411,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * @see org.apache.wicket.IMarkupOwner#getAssociatedMarkup()
 	 */
 	@Override
-	public Markup getAssociatedMarkup()
+	public IMarkupFragment getAssociatedMarkup()
 	{
 		try
 		{
@@ -1716,7 +1716,12 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		if (this instanceof IQueueRegion)
 		{
 			//DequeueContext dequeue = newDequeueContext();
-			dequeuePreamble(this, getAssociatedMarkupStream(false));
+			MarkupStream associatedMarkupStream = getAssociatedMarkupStream(false);
+			
+			if(associatedMarkupStream != null) 
+			{
+				dequeuePreamble(this, associatedMarkupStream);
+			}
 		}
 		else
 		{

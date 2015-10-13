@@ -1,5 +1,6 @@
 package org.apache.wicket;
 
+import org.apache.wicket.markup.IMarkupFragment;
 import org.apache.wicket.markup.Markup;
 import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.MarkupType;
@@ -22,7 +23,7 @@ public interface IMarkupOwner
 	 * 
 	 * @return A stream of MarkupElement elements. Null if not found.
 	 */
-	Markup getAssociatedMarkup();
+	IMarkupFragment getAssociatedMarkup();
 
 	/**
 	 * Get the type of associated markup for this component.
