@@ -17,6 +17,8 @@
 package org.apache.wicket.markup;
 
 import org.apache.wicket.Component;
+import org.apache.wicket.DequeueTagAction;
+import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.string.Strings;
@@ -315,7 +317,7 @@ public class MarkupStream
 			if (elem instanceof ComponentTag)
 			{
 				ComponentTag tag = (ComponentTag)elem;
-				if (tag.isOpen() || tag.isOpenClose())
+				if (tag.isOpen())
 				{
 					return current = get(currentIndex);
 				}
@@ -561,5 +563,34 @@ public class MarkupStream
 	{
 		return "[markup = " + String.valueOf(markup) + ", index = " + currentIndex +
 			", current = " + ((current == null) ? "null" : current.toUserDebugString()) + "]";
+	}
+
+	public boolean nextChildContainerTag(MarkupContainer container, ComponentTag componentTag) 
+	{
+		while (hasMore() && !get().closes(componentTag))
+		{
+			MarkupElement elem = get();
+			
+			if (elem instanceof ComponentTag)
+			{
+				ComponentTag tag = (ComponentTag)elem;
+				DequeueTagAction canDequeue = container.canDequeueTag(tag);
+				
+				if (canDequeue.equals(DequeueTagAction.DEQUEUE) && 
+					!componentTag.equals(tag) && tag.isOpen())
+				{
+					return true;
+				}
+				
+//				if (canDequeue.equals(DequeueTagAction.SKIP))
+//				{
+//					skipToMatchingCloseTag(tag);
+//				}
+			}
+			
+			next();
+		}
+		
+		return false;
 	}
 }

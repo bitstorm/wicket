@@ -583,7 +583,7 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	}
 
 	@Override
-	protected DequeueTagAction canDequeueTag(ComponentTag tag)
+	public DequeueTagAction canDequeueTag(ComponentTag tag)
 	{
 		if ((tag instanceof WicketTag) && ((WicketTag)tag).isBodyTag())
 		{

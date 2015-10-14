@@ -36,6 +36,7 @@ import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.MarkupType;
 import org.apache.wicket.markup.WicketTag;
 import org.apache.wicket.markup.html.border.Border;
+import org.apache.wicket.markup.parser.XmlTag.TagType;
 import org.apache.wicket.markup.resolver.ComponentResolvers;
 import org.apache.wicket.model.IComponentInheritedModel;
 import org.apache.wicket.model.IModel;
@@ -1720,40 +1721,14 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			
 			if(associatedMarkupStream != null) 
 			{
-				dequeuePreamble(this, associatedMarkupStream);
+				dequeuePreamble(this, associatedMarkupStream, new ComponentTag("dummyTag",TagType.OPEN_CLOSE));
 			}
 		}
 		else
 		{
 			MarkupContainer containerWithQueue = this;
-
-			// check if there are any parent containers that have queued components, up till our
-			// queue region
-			while (containerWithQueue.isQueueEmpty() &&
-				!(containerWithQueue instanceof IQueueRegion))
-			{
-				containerWithQueue = containerWithQueue.getParent();
-				if (containerWithQueue == null)
-				{
-					// no queued components are available for dequeuing, so we can stop
-					return;
-				}
-			}
-
-			// when there are no components to be dequeued, just stop
-			if (containerWithQueue.isQueueEmpty())
-				return;
-
-			// get the queue region where we are going to dequeue components in
-			MarkupContainer queueRegion = containerWithQueue;
-
-			// the container with queued components could be a queue region, if not, find the region
-			// to dequeue in
-			if (!queueRegion.isQueueRegion())
-			{
-				queueRegion = (MarkupContainer)queueRegion.findParent(IQueueRegion.class);
-			}
-
+			MarkupContainer queueRegion = (MarkupContainer)containerWithQueue.findParent(IQueueRegion.class);
+			
 			if (queueRegion != null && !queueRegion.getRequestFlag(RFLAG_CONTAINER_DEQUEING))
 			{
 				queueRegion.dequeue();
@@ -1783,11 +1758,12 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * flag {@code RFLAG_CONTAINER_DEQUEING} to true before running {@link #dequeue(DequeueContext)}
 	 * and setting it back to false after dequeuing is completed.
 	 * @param markupContainer 
+	 * @param componentTag 
 	 * 
 	 * @param dequeue
 	 *            the dequeue context to use
 	 */
-	protected void dequeuePreamble(MarkupContainer markupContainer, MarkupStream markupStream)
+	protected void dequeuePreamble(MarkupContainer markupContainer, MarkupStream markupStream, ComponentTag componentTag)
 	{
 		if (markupContainer.getRequestFlag(RFLAG_CONTAINER_DEQUEING))
 		{
@@ -1797,7 +1773,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		markupContainer.setRequestFlag(RFLAG_CONTAINER_DEQUEING, true);
 		try
 		{			
-			dequeueChildren(markupContainer, markupStream);
+			dequeueChildren(markupContainer, markupStream, componentTag);
 		}
 		finally
 		{
@@ -1805,12 +1781,11 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		}
 	}
 
-	private void dequeueChildren(MarkupContainer markupContainer, MarkupStream markupStream)
+	private void dequeueChildren(MarkupContainer markupContainer, MarkupStream markupStream, ComponentTag componentTag)
 	{
 		
-		while (markupStream.hasMore())
+		while (markupStream.nextChildContainerTag(markupContainer, componentTag))
 		{
-			markupStream.skipUntil(ComponentTag.class);
 			ComponentTag tag = markupStream.getTag();
 			
 			// see if child is already added to parent
@@ -1828,28 +1803,16 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 				}
 			}
 			
-			if(child == null && tag.isOpen())
+			if (!IQueueRegion.class.isInstance(child) && child instanceof MarkupContainer)
+			{
+				markupContainer.dequeuePreamble((MarkupContainer)child, 
+						markupStream, tag);
+			}
+			else 
 			{
 				markupStream.skipToMatchingCloseTag(tag);
-			}
-			else if (child instanceof IQueueRegion && tag.isOpen())
-		    {
-			    markupStream.skipToMatchingCloseTag(tag);
-		    } 
-			else if (child instanceof MarkupContainer && tag.isOpen())
-			{
-				markupStream.next();
+			} 
 				
-				if (markupStream.getTag().isOpen())
-				{					
-					IMarkupFragment markupFragment = markupStream.getMarkupFragment();
-					System.out.println(markupFragment);
-					markupContainer.dequeuePreamble((MarkupContainer)child, 
-							markupStream);
-				}
-			}
-				
-			markupStream.next();			
 		}
 	}
 
@@ -1871,45 +1834,6 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		
 
 	}
-	
-	/**
-	 * Propagates dequeuing to child component.
-	 * 
-	 * @param child
-	 *             the child component
-	 * @param tag
-	 *             the child tag
-	 * @param dequeue
-	 *             the dequeue context to use
-	 */
-//	private void dequeueChild(Component child, ComponentTag tag, DequeueContext dequeue)
-//	{
-//		if (child == null || child instanceof IQueueRegion)
-//		{
-//			// could not dequeue, or is a dequeue container
-//			dequeue.skipToCloseTag();
-//
-//		}
-//		else if (child instanceof MarkupContainer)
-//		{
-//			// propagate dequeuing to containers
-//			MarkupContainer childContainer = (MarkupContainer)child;
-//
-//			dequeue.pushContainer(childContainer);
-//			childContainer.dequeue(dequeue);
-//			dequeue.popContainer();
-//		}
-//
-//		// pull the close tag off
-//		ComponentTag close = dequeue.takeTag();
-//		if (!close.closes(tag))
-//		{
-//			// sanity check
-//			throw new IllegalStateException(String.format(
-//				"Tag '%s' should be the closing one for '%s'", close, tag));
-//		}
-//
-//	}
 
     /** @see IQueueRegion#newDequeueContext() */
 	public DequeueContext newDequeueContext()
@@ -1941,7 +1865,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * 
 	 * @param tag
 	 */
-	protected DequeueTagAction canDequeueTag(ComponentTag tag)
+	public DequeueTagAction canDequeueTag(ComponentTag tag)
 	{
 		if (tag instanceof WicketTag)
 		{
@@ -1962,15 +1886,24 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			{
 				return DequeueTagAction.IGNORE;
 			}
+			else if (wicketTag.isPanelTag())
+			{
+				return DequeueTagAction.IGNORE;
+			}
+			else if (wicketTag.isBodyTag())
+			{
+				return DequeueTagAction.IGNORE;
+			}
+			else if (wicketTag.isBorderTag())
+			{
+				return DequeueTagAction.IGNORE;
+			}
 			else if (wicketTag.isHeadTag())
 			{
 				return DequeueTagAction.SKIP;
 			}
-			else
-			{
-				return null; // don't know
-			}
 		}
+		
 		return DequeueTagAction.DEQUEUE;
 	}
 

@@ -18,6 +18,7 @@ package org.apache.wicket.markup.html.panel;
 
 import org.apache.wicket.IQueueRegion;
 import org.apache.wicket.markup.IMarkupFragment;
+import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.html.MarkupUtil;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
@@ -83,6 +84,21 @@ public abstract class Panel extends WebMarkupContainer implements IQueueRegion
 	{
 		return new PanelMarkupSourcingStrategy(false);
 	}
+	
+//	@Override
+//	public MarkupStream getAssociatedMarkupStream(boolean throwException) 
+//	{
+//		IMarkupFragment markup = super.getAssociatedMarkup();
+//		
+////		if (markup == null)
+////		{
+////			return null;
+////		}
+////		
+////		IMarkupFragment panelMarkup = MarkupUtil.findStartTag(markup, PANEL);
+//		
+//		return new MarkupStream(markup);
+//	}
 	
 	/**
 	 * Returns the markup inside &lt;wicket:panel&gt; tag.
