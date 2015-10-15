@@ -117,6 +117,7 @@ public class OpenCloseTagExpander extends AbstractMarkupFilter
 	protected boolean onFound(final ComponentTag tag)
 	{
 		tag.setType(TagType.OPEN);
+		tag.setOpenTag(null);
 		tag.setModified(true);
 
 		return true;

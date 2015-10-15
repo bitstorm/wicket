@@ -20,10 +20,12 @@ import org.apache.wicket.Component;
 import org.apache.wicket.DequeueContext;
 import org.apache.wicket.IQueueRegion;
 import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.IMarkupFragment;
 import org.apache.wicket.markup.Markup;
 import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.border.Border;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.lang.Args;
 
@@ -164,4 +166,17 @@ public class Fragment extends WebMarkupContainer implements IQueueRegion
 
 		return new DequeueContext(markup, this, true);
 	}
+	
+//	@Override
+//	protected Component findComponentToDequeue(ComponentTag tag)
+//	{
+//		Component componentToDequeue = super.findComponentToDequeue(tag);
+//		
+//		if (componentToDequeue != null) 
+//		{
+//		    return componentToDequeue;
+//		}
+//				
+//		return findComponentToDequeue(tag, getParent());
+//	}
 }

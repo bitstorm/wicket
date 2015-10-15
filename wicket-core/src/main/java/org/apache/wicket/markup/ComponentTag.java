@@ -650,7 +650,9 @@ public class ComponentTag extends MarkupElement
 	public final void setOpenTag(final ComponentTag tag)
 	{
 		openTag = tag;
-		getXmlTag().setOpenTag(tag.getXmlTag());
+		
+		XmlTag xmlTag = tag != null ? tag.getXmlTag() : null;
+		getXmlTag().setOpenTag(xmlTag);
 	}
 
 	/**

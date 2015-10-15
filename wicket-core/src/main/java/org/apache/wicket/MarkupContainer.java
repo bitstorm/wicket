@@ -1356,27 +1356,30 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 
 	private void dequeueAutoComponents()
 	{
-		// dequeue auto components
-		DequeueContext context = newDequeueContext();
-		if (context != null && context.peekTag() != null)
-		{
-			for (ComponentTag tag = context.takeTag(); tag != null; tag = context.takeTag())
+		MarkupStream markupStream = getAssociatedMarkupStream(false);
+		
+		while (markupStream!= null && markupStream.skipUntil(ComponentTag.class))
+		{			
+			ComponentTag tag = markupStream.getTag();
+			ComponentTag.IAutoComponentFactory autoComponentFactory = tag
+				.getAutoComponentFactory();
+			
+			if (autoComponentFactory != null)
 			{
-				ComponentTag.IAutoComponentFactory autoComponentFactory = tag
-					.getAutoComponentFactory();
-				if (autoComponentFactory != null)
-				{
-					queue(autoComponentFactory.newComponent(this, tag));
-				}
-
-				// Every component is responsible just for its own auto components
-				// so skip to the close tag.
-				if (tag.isOpen() && !tag.hasNoCloseTag())
-				{
-					context.skipToCloseTag();
-				}
+				queue(autoComponentFactory.newComponent(this, tag));
 			}
-		}
+
+			// Every component is responsible just for its own auto components
+			// so skip to the close tag.
+			if (tag.isOpen() && !tag.hasNoCloseTag())
+			{
+				markupStream.skipToMatchingCloseTag(tag);
+			}
+			else 
+			{
+				markupStream.next();
+			}
+		}	
 	}
 
 	/**
@@ -1781,7 +1784,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		}
 	}
 
-	private void dequeueChildren(MarkupContainer markupContainer, MarkupStream markupStream, ComponentTag componentTag)
+	final protected void dequeueChildren(MarkupContainer markupContainer, MarkupStream markupStream, ComponentTag componentTag)
 	{
 		
 		while (markupStream.nextChildContainerTag(markupContainer, componentTag))
@@ -1808,11 +1811,10 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 				markupContainer.dequeuePreamble((MarkupContainer)child, 
 						markupStream, tag);
 			}
-			else 
+			else
 			{
 				markupStream.skipToMatchingCloseTag(tag);
-			} 
-				
+			} 	
 		}
 	}
 
@@ -1878,10 +1880,6 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			{
 				return DequeueTagAction.DEQUEUE;
 			}
-			else if (wicketTag.isFragmentTag())
-			{
-				return DequeueTagAction.SKIP;
-			}
 			else if (wicketTag.isChildTag())
 			{
 				return DequeueTagAction.IGNORE;
@@ -1904,6 +1902,11 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			}
 		}
 		
+		if (tag.hasNoCloseTag()) 
+		{
+			return DequeueTagAction.IGNORE;
+		}
+		
 		return DequeueTagAction.DEQUEUE;
 	}
 
@@ -1916,9 +1919,13 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 	 * @param tag
 	 * @return
 	 */
-	public Component findComponentToDequeue(ComponentTag tag)
+	protected Component findComponentToDequeue(ComponentTag tag)
 	{
-		MarkupContainer parentContainer = this;
+	    return findComponentToDequeue(tag, this);	    
+	}
+	
+	protected Component findComponentToDequeue(ComponentTag tag, MarkupContainer parentContainer)
+	{
 		boolean queueParentFound = false;
 
 		while (parentContainer != null && !queueParentFound)

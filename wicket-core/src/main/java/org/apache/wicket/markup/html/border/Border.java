@@ -395,7 +395,7 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	/**
 	 * The container to be associated with the &lt;wicket:body&gt; tag
 	 */
-	public class BorderBodyContainer extends WebMarkupContainer implements IQueueRegion
+	public class BorderBodyContainer extends WebMarkupContainer
 	{
 		private static final long serialVersionUID = 1L;
 
@@ -548,37 +548,18 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 		}
 
 		@Override
-		public Component findComponentToDequeue(ComponentTag tag)
+		protected Component findComponentToDequeue(ComponentTag tag)
 		{
-			/*
-			 * the body container is allowed to search for queued components all
-			 * the way to the page even though it is an IQueueRegion so it can
-			 * find components queued below the border
-			 */
-
-			Component component = super.findComponentToDequeue(tag);
-			if (component != null)
+			Component componentToDequeue = super.findComponentToDequeue(tag);
+			
+			if (componentToDequeue != null) 
 			{
-				return component;
+			    return componentToDequeue;
 			}
-
-			MarkupContainer cursor = getParent();
-			while (cursor != null)
-			{
-				component = cursor.findComponentToDequeue(tag);
-				if (component != null)
-				{
-					return component;
-				}
-				if (cursor instanceof BorderBodyContainer)
-				{
-					// optimization - find call above would've already recursed
-					// to page
-					break;
-				}
-				cursor = cursor.getParent();
-			}
-			return null;
+			
+			Border borderParent = findParent(Border.class);
+			
+			return findComponentToDequeue(tag, borderParent.getParent());
 		}
 	}
 
@@ -632,6 +613,27 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	}
 	
 	@Override
+	protected void dequeuePreamble(MarkupContainer markupContainer, MarkupStream markupStream,
+		ComponentTag componentTag)
+	{
+		MarkupContainer containerToDequeue = markupContainer;
+		
+		if (markupContainer.equals(this) && 
+			!(markupStream instanceof BorderMarkupStream))
+		{
+			containerToDequeue = getBodyContainer();
+		}
+		
+		super.dequeueChildren(containerToDequeue, markupStream, componentTag);
+	}
+	
+	@Override
+	public MarkupStream getAssociatedMarkupStream(boolean throwException)
+	{
+		return new BorderMarkupStream(getAssociatedMarkup());
+	}
+	
+	@Override
 	protected void onBeforeRender()
 	{
 		super.onBeforeRender();
@@ -643,5 +645,20 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 		{
 			dequeue();
 		}
+	}
+	
+	private class BorderMarkupStream extends MarkupStream 
+	{
+		public BorderMarkupStream(IMarkupFragment markup)
+		{
+			super(markup);
+			
+		}		
+	}
+	
+	@Override
+	public boolean isTransparent()
+	{
+		return true;
 	}
 }

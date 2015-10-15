@@ -124,4 +124,9 @@ public interface IQueueRegion extends IComponentContainer<MarkupContainer>, IHie
 	 * @return the markup to use for queuing
 	 */
 	public IMarkupFragment getRegionMarkup();
+	
+	default public boolean isTransparent()
+	{
+		return false;
+	}
 }
