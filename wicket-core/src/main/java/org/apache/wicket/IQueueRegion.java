@@ -58,59 +58,7 @@ public interface IQueueRegion extends IComponentContainer<MarkupContainer>, IHie
 	 * {@link org.apache.wicket.MarkupContainer#dequeue(DequeueContext)} method which performs the
 	 * actual dequeueing. The context's markup is retrieved using the {@link MarkupContainer#getAssociatedMarkup()}.
 	 */
-	default public void dequeue()
-	{
-		DequeueContext dequeue = newDequeueContext();
-		while (dequeue.isAtOpenOrOpenCloseTag())
-		{
-			ComponentTag tag = dequeue.takeTag();
-	
-			// see if child is already added to parent
-			Component child = get(tag.getId());
-
-			if (child == null)
-			{
-				// the container does not yet have a child with this id, see if we can
-				// dequeue
-				child = dequeue.findComponentToDequeue(tag);
-
-				if (child != null)
-				{
-					addDequeuedChild(child);					
-				}
-			}
-
-			if (tag.isOpen() && !tag.hasNoCloseTag())
-            {
-				if (child instanceof IQueueRegion)
-				{
-					// could not dequeue, or is a dequeue container
-					dequeue.skipToCloseTag();
-
-				}
-				else if (child instanceof MarkupContainer)
-				{
-					// propagate dequeuing to containers
-					MarkupContainer childContainer = (MarkupContainer)child;
-
-					dequeue.pushContainer(childContainer);
-					childContainer.dequeue(dequeue);
-					dequeue.popContainer();
-				}
-
-				// pull the close tag off
-				ComponentTag close = dequeue.takeTag();
-				if (!close.closes(tag))
-				{
-					// sanity check
-					throw new IllegalStateException(String.format(
-						"Tag '%s' should be the closing one for '%s'", close, tag));
-				}
-            }
-		}
-		
-	}
-	
+	public void dequeue();
 	
 	default public void addDequeuedChild(Component child)
 	{
@@ -124,9 +72,4 @@ public interface IQueueRegion extends IComponentContainer<MarkupContainer>, IHie
 	 * @return the markup to use for queuing
 	 */
 	public IMarkupFragment getRegionMarkup();
-	
-	default public boolean isTransparent()
-	{
-		return false;
-	}
 }

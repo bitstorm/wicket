@@ -136,16 +136,16 @@ public class Fragment extends WebMarkupContainer implements IQueueRegion
 		return associatedMarkupId;
 	}
 
-	@Override
-	public IMarkupFragment getAssociatedMarkup() 
-	{
-		return getMarkupSourcingStrategy().getMarkup(this, null);
-	}
+//	@Override
+//	public IMarkupFragment getAssociatedMarkup() 
+//	{
+//		return getMarkupSourcingStrategy().getMarkup(this, null);
+//	}
 	
 	@Override
 	public MarkupStream getAssociatedMarkupStream(boolean throwException) 
 	{
-		MarkupStream stream =  super.getAssociatedMarkupStream(throwException);
+		MarkupStream stream =  new MarkupStream(getMarkup(null));
 		
 		if (stream != null)
 		{
@@ -155,28 +155,4 @@ public class Fragment extends WebMarkupContainer implements IQueueRegion
 		return stream;
 	}
 	
-	@Override
-	public DequeueContext newDequeueContext()
-	{
-		IMarkupFragment markup = getMarkupSourcingStrategy().getMarkup(this, null);
-		if (markup == null)
-		{
-			return null;
-		}
-
-		return new DequeueContext(markup, this, true);
-	}
-	
-//	@Override
-//	protected Component findComponentToDequeue(ComponentTag tag)
-//	{
-//		Component componentToDequeue = super.findComponentToDequeue(tag);
-//		
-//		if (componentToDequeue != null) 
-//		{
-//		    return componentToDequeue;
-//		}
-//				
-//		return findComponentToDequeue(tag, getParent());
-//	}
 }

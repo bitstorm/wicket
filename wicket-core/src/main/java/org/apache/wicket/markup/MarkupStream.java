@@ -577,15 +577,10 @@ public class MarkupStream
 				DequeueTagAction canDequeue = container.canDequeueTag(tag);
 				
 				if (canDequeue.equals(DequeueTagAction.DEQUEUE) && 
-					!componentTag.equals(tag) && tag.isOpen())
+					!componentTag.equals(tag) && (tag.isOpen() || tag.isOpenClose()))
 				{
 					return true;
 				}
-				
-//				if (canDequeue.equals(DequeueTagAction.SKIP))
-//				{
-//					skipToMatchingCloseTag(tag);
-//				}
 			}
 			
 			next();

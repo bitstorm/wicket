@@ -1773,7 +1773,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			throw new IllegalStateException("This container is already dequeing: " + markupContainer);
 		}
 
-		markupContainer.setRequestFlag(RFLAG_CONTAINER_DEQUEING, true);
+			markupContainer.setRequestFlag(RFLAG_CONTAINER_DEQUEING, true);
 		try
 		{			
 			dequeueChildren(markupContainer, markupStream, componentTag);
@@ -1811,10 +1811,15 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 				markupContainer.dequeuePreamble((MarkupContainer)child, 
 						markupStream, tag);
 			}
-			else
+			
+			if (tag.isOpen())
 			{
 				markupStream.skipToMatchingCloseTag(tag);
-			} 	
+			}
+			else if (tag.isOpenClose()) 
+			{
+			    	markupStream.next();
+			}
 		}
 	}
 
@@ -1888,10 +1893,6 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			{
 				return DequeueTagAction.IGNORE;
 			}
-			else if (wicketTag.isBodyTag())
-			{
-				return DequeueTagAction.IGNORE;
-			}
 			else if (wicketTag.isBorderTag())
 			{
 				return DequeueTagAction.IGNORE;
@@ -1946,7 +1947,7 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 		return null;
 	}
 
-	private Component findComponentInQueue(ComponentTag tag)
+	protected Component findComponentInQueue(ComponentTag tag)
 	{
 		return queue == null ? null : queue.remove(tag.getId());
 	}

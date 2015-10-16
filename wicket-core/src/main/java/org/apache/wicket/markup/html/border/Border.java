@@ -395,7 +395,7 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	/**
 	 * The container to be associated with the &lt;wicket:body&gt; tag
 	 */
-	public class BorderBodyContainer extends WebMarkupContainer
+	public class BorderBodyContainer extends WebMarkupContainer implements IQueueRegion
 	{
 		private static final long serialVersionUID = 1L;
 
@@ -532,7 +532,15 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 
 			return markup.find(child.getId());
 		}
-
+		
+		
+		@Override
+		public void dequeue() 
+		{
+		    MarkupStream markupStream = new MarkupStream(getMarkup(null));
+		    dequeuePreamble(this, markupStream, markupStream.getTag());
+		}
+		
 		@Override
 		public DequeueContext newDequeueContext()
 		{
@@ -613,52 +621,12 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	}
 	
 	@Override
-	protected void dequeuePreamble(MarkupContainer markupContainer, MarkupStream markupStream,
-		ComponentTag componentTag)
-	{
-		MarkupContainer containerToDequeue = markupContainer;
-		
-		if (markupContainer.equals(this) && 
-			!(markupStream instanceof BorderMarkupStream))
-		{
-			containerToDequeue = getBodyContainer();
-		}
-		
-		super.dequeueChildren(containerToDequeue, markupStream, componentTag);
-	}
-	
-	@Override
-	public MarkupStream getAssociatedMarkupStream(boolean throwException)
-	{
-		return new BorderMarkupStream(getAssociatedMarkup());
-	}
-	
-	@Override
-	protected void onBeforeRender()
-	{
-		super.onBeforeRender();
-		/**
-		 * https://issues.apache.org/jira/browse/WICKET-5981
-		 * dequeue border to adjust children hierarchy.
-		 */
-		if (!hasBeenRendered())
-		{
-			dequeue();
-		}
-	}
-	
-	private class BorderMarkupStream extends MarkupStream 
-	{
-		public BorderMarkupStream(IMarkupFragment markup)
-		{
-			super(markup);
-			
-		}		
-	}
-	
-	@Override
-	public boolean isTransparent()
-	{
-		return true;
+	protected Component findComponentInQueue(ComponentTag tag) {
+	    if ((tag instanceof WicketTag) && ((WicketTag)tag).isBodyTag())
+	    {
+		return getBodyContainer();
+	    }
+	    
+	    return super.findComponentInQueue(tag);
 	}
 }
