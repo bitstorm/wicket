@@ -1897,6 +1897,14 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			{
 				return DequeueTagAction.IGNORE;
 			}
+			else if (wicketTag.isExtendTag())
+			{
+				return DequeueTagAction.IGNORE;
+			}
+			else if (wicketTag.isEnclosureTag())
+			{
+				return DequeueTagAction.IGNORE;
+			}
 			else if (wicketTag.isHeadTag())
 			{
 				return DequeueTagAction.SKIP;

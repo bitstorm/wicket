@@ -17,6 +17,11 @@
 package org.apache.wicket.markup.html.list;
 
 import org.apache.wicket.IGenericComponent;
+import org.apache.wicket.IQueueRegion;
+import org.apache.wicket.markup.ComponentTag;
+import org.apache.wicket.markup.IMarkupFragment;
+import org.apache.wicket.markup.MarkupStream;
+import org.apache.wicket.markup.parser.XmlTag.TagType;
 import org.apache.wicket.model.IModel;
 
 /**
@@ -28,7 +33,7 @@ import org.apache.wicket.model.IModel;
  * @param <T>
  *            Model object type
  */
-public class ListItem<T> extends LoopItem implements IGenericComponent<T>
+public class ListItem<T> extends LoopItem implements IGenericComponent<T>, IQueueRegion
 {
 	private static final long serialVersionUID = 1L;
 
@@ -71,7 +76,19 @@ public class ListItem<T> extends LoopItem implements IGenericComponent<T>
 	{
 		super(id, index);
 	}
-
+	
+	@Override
+	public void dequeue() 
+	{
+	    	IMarkupFragment markup = getMarkup(null);
+		
+		if (markup != null) 
+		{
+		    MarkupStream associatedMarkupStream = new MarkupStream(markup);
+		    dequeuePreamble(this, associatedMarkupStream, associatedMarkupStream.getTag());
+		}
+	}
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	public final IModel<T> getModel()

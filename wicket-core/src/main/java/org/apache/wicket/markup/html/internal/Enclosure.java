@@ -318,4 +318,17 @@ public class Enclosure extends WebMarkupContainer implements IComponentResolver
 
 		return new DequeueContext(markup, this, true);
 	}
+	
+	@Override
+	public MarkupStream getAssociatedMarkupStream(boolean throwException) 
+	{
+		MarkupStream stream = new MarkupStream(getMarkupSourcingStrategy().getMarkup(this, null));
+		
+		if (stream != null)
+		{
+			stream.nextOpenTag();
+		}
+		
+		return stream;
+	}
 }

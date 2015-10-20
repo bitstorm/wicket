@@ -166,7 +166,7 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 		super(id, model);
 
 		body = new BorderBodyContainer(id + "_" + BODY);
-		addToBorder(body);
+		//addToBorder(body);
 	}
 
 	/**
@@ -205,10 +205,22 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	@Override
 	public Border add(final Component... children)
 	{
-		getBodyContainer().add(children);
-		return this;
+	    for (Component component : children)
+		{
+	    	if (component.equals(body))
+			{
+				super.add(body);
+			}
+	    	else 
+	    	{				
+	    		getBodyContainer().add(component);
+			}
+		}
+	    
+	    return this;
 	}
-
+	
+	
 	@Override
 	public Border addOrReplace(final Component... children)
 	{
@@ -317,8 +329,8 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 			// We are only interested in border body tags. The tag ID actually is irrelevant since
 			// always preset with the same default
 			if (TagUtils.isWicketBodyTag(tag))
-			{
-				return body;
+			{	
+			   return body;
 			}
 		}
 
@@ -537,8 +549,13 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 		@Override
 		public void dequeue() 
 		{
-		    MarkupStream markupStream = new MarkupStream(getMarkup(null));
-		    dequeuePreamble(this, markupStream, markupStream.getTag());
+		    IMarkupFragment bodyMarkup = getMarkup(null);
+		    
+		    if (bodyMarkup != null) 
+		    {
+			MarkupStream markupStream = new MarkupStream(bodyMarkup);
+			dequeuePreamble(this, markupStream, markupStream.getTag());			
+		    }
 		}
 		
 		@Override
