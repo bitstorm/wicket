@@ -209,7 +209,8 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 		{
 	    	if (component.equals(body))
 			{
-				super.add(body);
+	    		//body component must be added directly to the border
+				addToBorder(body);
 			}
 	    	else 
 	    	{				
@@ -553,8 +554,8 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 		    
 		    if (bodyMarkup != null) 
 		    {
-			MarkupStream markupStream = new MarkupStream(bodyMarkup);
-			dequeuePreamble(this, markupStream, markupStream.getTag());			
+				MarkupStream markupStream = new MarkupStream(bodyMarkup);
+				dequeuePreamble(this, markupStream, markupStream.getTag());			
 		    }
 		}
 		
@@ -586,17 +587,6 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 			
 			return findComponentToDequeue(tag, borderParent.getParent());
 		}
-	}
-
-	@Override
-	public DequeueTagAction canDequeueTag(ComponentTag tag)
-	{
-		if ((tag instanceof WicketTag) && ((WicketTag)tag).isBodyTag())
-		{
-			return DequeueTagAction.DEQUEUE;
-		}
-
-		return super.canDequeueTag(tag);
 	}
 
 	@Override
@@ -641,7 +631,7 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	protected Component findComponentInQueue(ComponentTag tag) {
 	    if ((tag instanceof WicketTag) && ((WicketTag)tag).isBodyTag())
 	    {
-		return getBodyContainer();
+	    	return getBodyContainer();
 	    }
 	    
 	    return super.findComponentInQueue(tag);
