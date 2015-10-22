@@ -1810,6 +1810,10 @@ public abstract class MarkupContainer extends Component implements Iterable<Comp
 			{
 				markupContainer.dequeuePreamble((MarkupContainer)child, 
 						markupStream, tag);
+			} 
+			else if (IQueueRegion.class.isInstance(child))
+			{
+				((MarkupContainer)child).dequeue();
 			}
 			
 			if (tag.isOpen())
