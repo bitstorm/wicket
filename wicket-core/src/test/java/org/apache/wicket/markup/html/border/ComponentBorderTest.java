@@ -107,7 +107,7 @@ public class ComponentBorderTest extends WicketTestCase
 		FormTester formTester = tester.
 			newFormTester("borderContainer:formBorder:borderContainer:form");
 		
-		formTester.setValue("formBorder_body:text", TEST_TEXT);
+		formTester.setValue("border_body:text", TEST_TEXT);
 		formTester.submit();
 		
 		assertEquals(TEST_TEXT, model.getObject());

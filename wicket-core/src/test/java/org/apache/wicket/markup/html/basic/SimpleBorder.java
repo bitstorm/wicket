@@ -38,4 +38,11 @@ public class SimpleBorder extends Border
 		super(id);
 		setRenderBodyOnly(true);
 	}
+	
+	@Override
+	public void dequeue()
+	{
+		// TODO Auto-generated method stub
+		super.dequeue();
+	}
 }

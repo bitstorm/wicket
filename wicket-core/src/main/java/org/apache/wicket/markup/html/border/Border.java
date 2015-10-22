@@ -31,6 +31,7 @@ import org.apache.wicket.markup.TagUtils;
 import org.apache.wicket.markup.WicketTag;
 import org.apache.wicket.markup.html.MarkupUtil;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.border.Border.BorderBodyContainer;
 import org.apache.wicket.markup.html.panel.BorderMarkupSourcingStrategy;
 import org.apache.wicket.markup.html.panel.IMarkupSourcingStrategy;
 import org.apache.wicket.markup.parser.XmlTag.TagType;
@@ -137,7 +138,7 @@ import org.apache.wicket.util.lang.Args;
  * @author Jonathan Locke
  * @author Juergen Donnerstag
  */
-public abstract class Border extends WebMarkupContainer implements IComponentResolver, IQueueRegion
+public abstract class Border extends WebMarkupContainer implements IQueueRegion
 {
 	private static final long serialVersionUID = 1L;
 
@@ -165,8 +166,8 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	{
 		super(id, model);
 
-		body = new BorderBodyContainer(id + "_" + BODY);
-		//addToBorder(body);
+		body = new BorderBodyContainer(BORDER + "_" + BODY);
+		queue(body);
 	}
 
 	/**
@@ -205,19 +206,7 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	@Override
 	public Border add(final Component... children)
 	{
-	    for (Component component : children)
-		{
-	    	if (component.equals(body))
-			{
-	    		//body component must be added directly to the border
-				addToBorder(body);
-			}
-	    	else 
-	    	{				
-	    		getBodyContainer().add(component);
-			}
-		}
-	    
+	    getBodyContainer().add(children);
 	    return this;
 	}
 	
@@ -317,26 +306,7 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 		return this;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Component resolve(final MarkupContainer container, final MarkupStream markupStream,
-		final ComponentTag tag)
-	{
-		// make sure nested borders are resolved properly
-		if (body.rendering == false)
-		{
-			// We are only interested in border body tags. The tag ID actually is irrelevant since
-			// always preset with the same default
-			if (TagUtils.isWicketBodyTag(tag))
-			{	
-			   return body;
-			}
-		}
-
-		return null;
-	}
+	
 
 	/**
 	 * {@inheritDoc}
@@ -590,16 +560,6 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	}
 
 	@Override
-	public Component findComponentToDequeue(ComponentTag tag)
-	{
-		if ((tag instanceof WicketTag) && ((WicketTag)tag).isBodyTag())
-		{
-			return getBodyContainer();
-		}
-		return super.findComponentToDequeue(tag);
-	}
-
-	@Override
 	protected void addDequeuedComponent(Component component, ComponentTag tag)
 	{
 		// components queued in border get dequeued into the border not into the body container
@@ -628,10 +588,12 @@ public abstract class Border extends WebMarkupContainer implements IComponentRes
 	}
 	
 	@Override
-	protected Component findComponentInQueue(ComponentTag tag) {
+	protected Component findComponentInQueue(ComponentTag tag) 
+	{
 	    if ((tag instanceof WicketTag) && ((WicketTag)tag).isBodyTag())
 	    {
-	    	return getBodyContainer();
+	    	tag.setId(getBodyContainer().getId());
+	    	tag.setModified(true);
 	    }
 	    
 	    return super.findComponentInQueue(tag);
