@@ -108,7 +108,12 @@ public class MarkupVariationTest extends WicketTestCase
 			add(new Label("nestedChild", "Nested Inline Enclosure child text"));
 
 		}
-
+		@Override
+		protected void onInitialize()
+		{
+			// TODO Auto-generated method stub
+			super.onInitialize();
+		}
 		@Override
 		public String getVariation()
 		{

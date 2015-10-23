@@ -300,6 +300,8 @@ public abstract class Page extends MarkupContainer
 
 		final IPageManager pageManager = getSession().getPageManager();
 		pageManager.touchPage(this);
+		
+		dequeue();
 	}
 
 	/**

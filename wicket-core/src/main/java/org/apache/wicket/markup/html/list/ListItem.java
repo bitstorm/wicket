@@ -80,7 +80,7 @@ public class ListItem<T> extends LoopItem implements IGenericComponent<T>, IQueu
 	@Override
 	public void dequeue() 
 	{
-	    	IMarkupFragment markup = getMarkup(null);
+	    IMarkupFragment markup = getMarkup(null);
 		
 		if (markup != null) 
 		{
