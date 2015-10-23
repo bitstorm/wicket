@@ -69,7 +69,7 @@ public class AjaxLinkTest extends WicketTestCase
 		executeTest(AjaxPage2.class, "AjaxPage2_ExpectedResult.html");
 
 		Page page = tester.getLastRenderedPage();
-		Component ajaxLink = page.get("pageLayout:pageLayout_body:ajaxLink");
+		Component ajaxLink = page.get("pageLayout:border_body:ajaxLink");
 		AbstractAjaxBehavior behavior = (AbstractAjaxBehavior)ajaxLink.getBehaviors().get(0);
 
 		executeBehavior(behavior, "AjaxPage2-1_ExpectedResult.html");

@@ -79,7 +79,7 @@ public class InnerFeedbackTest extends WicketTestCase
 		tester.assertInfoMessages("page onbeforerender");
 
 		formTester = tester.newFormTester("form");
-		formTester.setValue("fieldborder:border:fieldborder_body:field", "some text");
+		formTester.setValue("fieldborder:border:border_body:field", "some text");
 		formTester.submit();
 
 		tester.assertErrorMessages();
