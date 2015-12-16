@@ -21,6 +21,13 @@ import org.apache.wicket.settings.SecuritySettings;
 import org.apache.wicket.util.crypt.ClassCryptFactory;
 import org.apache.wicket.util.crypt.NoCrypt;
 
+import de.agilecoders.wicket.core.Bootstrap;
+import de.agilecoders.wicket.core.settings.BootstrapSettings;
+import de.agilecoders.wicket.core.settings.IBootstrapSettings;
+import de.agilecoders.wicket.core.settings.ThemeProvider;
+import de.agilecoders.wicket.themes.markup.html.bootswatch.BootswatchTheme;
+import de.agilecoders.wicket.themes.markup.html.bootswatch.BootswatchThemeProvider;
+
 
 /**
  * Wicket Example Application class.
@@ -65,5 +72,13 @@ public abstract class WicketExampleApplication extends WebApplication
 			new ClassCryptFactory(NoCrypt.class, SecuritySettings.DEFAULT_ENCRYPTION_KEY));
 
 		getDebugSettings().setDevelopmentUtilitiesEnabled(true);
+		
+		final IBootstrapSettings settings = new BootstrapSettings();
+        final ThemeProvider themeProvider = new BootswatchThemeProvider(BootswatchTheme.United);
+
+        settings.setThemeProvider(themeProvider);
+        settings.setDeferJavascript(true);
+        
+        Bootstrap.install(this, settings);
 	}
 }

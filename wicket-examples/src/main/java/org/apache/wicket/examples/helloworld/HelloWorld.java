@@ -16,7 +16,7 @@
  */
 package org.apache.wicket.examples.helloworld;
 
-import org.apache.wicket.examples.WicketExamplePage;
+import org.apache.wicket.examples.BootstrapBasePage;
 import org.apache.wicket.markup.html.basic.Label;
 
 
@@ -25,7 +25,7 @@ import org.apache.wicket.markup.html.basic.Label;
  * 
  * @author Jonathan Locke
  */
-public class HelloWorld extends WicketExamplePage
+public class HelloWorld extends BootstrapBasePage
 {
 	/**
 	 * Constructor
