@@ -107,3 +107,25 @@ body {
 .width-auto {
 	width: auto;
 }
+
+.btn-primary {
+    background-color: #FF9925;
+    border-color: #FF9925;
+}
+
+.btn-primary:hover {
+    background-color: #FFB158;
+    border-color: #FFB158;
+}
+
+.navbar-default {
+    background-color: #FF7A00;  
+}
+
+a {
+    color: #FF9925;
+}
+
+a:hover {
+    color: #FFB158;
+}

@@ -123,6 +123,8 @@ public class FeedbackPanel extends Panel implements IFeedback
 	/** Message view */
 	private final MessageListView messageListView;
 
+	private final WebMarkupContainer messagesContainer;
+
 	/**
 	 * @see org.apache.wicket.Component#Component(String)
 	 */
@@ -140,7 +142,7 @@ public class FeedbackPanel extends Panel implements IFeedback
 	public FeedbackPanel(final String id, IFeedbackMessageFilter filter)
 	{
 		super(id);
-		WebMarkupContainer messagesContainer = new WebMarkupContainer("feedbackul")
+		messagesContainer = new WebMarkupContainer("feedbackul")
 		{
 			private static final long serialVersionUID = 1L;
 
@@ -373,7 +375,15 @@ public class FeedbackPanel extends Panel implements IFeedback
 	 *            The model object of the item
 	 * @return Container that holds components of the feedback MessageListView.
 	 */
-	protected ListItem<FeedbackMessage> newMessageItem(int index, IModel<FeedbackMessage> itemModel) {
+	protected ListItem<FeedbackMessage> newMessageItem(int index, IModel<FeedbackMessage> itemModel) 
+	{
         return new ListItem<>(index, itemModel);
     }
+	
+	public FeedbackPanel setMessageContainerCssClass(AttributeModifier attributeModifier)
+	{
+		messagesContainer.add(attributeModifier);
+		
+		return this;
+	}
 }
