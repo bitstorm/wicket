@@ -38,7 +38,7 @@ public class BeanValidationPage extends BootstrapBasePage
 	public BeanValidationPage()
 	{
 		add(new FeedbackPanel("feedbackErrors", new ExactLevelFeedbackMessageFilter(FeedbackMessage.ERROR))
-			.setMessageContainerCssClass(new AttributeAppender("class", "alert alert-danger")));
+			.setMessagesContainerCssClass(new AttributeAppender("class", " alert alert-danger")));
 
 		Form<?> form = new Form<Void>("form") {
 			@Override
@@ -59,6 +59,6 @@ public class BeanValidationPage extends BootstrapBasePage
 		form.add(new TextField<String>("password", new PropertyModel<String>(this, "person.password")).add(new PropertyValidator<>()));
 		
 		add(new FeedbackPanel("feedbackSuccess", new ExactLevelFeedbackMessageFilter(FeedbackMessage.INFO))
-			.setMessageContainerCssClass(new AttributeAppender("class", "alert alert-success")));
+			.setMessagesContainerCssClass(new AttributeAppender("class", " alert alert-success")));
 	}
 }

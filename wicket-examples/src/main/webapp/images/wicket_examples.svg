@@ -20,7 +20,7 @@
   <title>Layer 1</title>
   <g id="svg_1">
    <circle cx="231" cy="39" r="32" fill="rgb(255,255,255)" id="svg_2"/>
-   <path d="m199,7m20,20l0,24l8,0l8,0l8,0l0,-24l-8,16l-4,-8l-4,8l-8,-16z" fill="#FF9925" id="svg_3"/>
+   <path d="m199,7m20,20l0,24l8,0l8,0l8,0l0,-24l-8,16l-4,-8l-4,8l-8,-16z" fill="#E9601A" id="svg_3"/>
    <text x="6" y="71" fill="#FFF" font-family="'League Gothic'" font-size="86px" id="svg_4" transform="matrix(1.04, 0, 0, 1, -0.24, 0)">WICKET</text>
    <text x="273" y="71" fill="#FFF" font-family="'League Gothic'" font-size="86px" id="svg_5">EXAMPLES</text>
   </g>

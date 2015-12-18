@@ -5,6 +5,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
+  background-color: #F3F3F3;
 }
 
 
@@ -119,7 +120,15 @@ body {
 }
 
 .navbar-default {
-    background-color: #FF7A00;  
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #dd5c14;
+    background-image: -moz-linear-gradient(top, #EB5A0A, #dd7a14);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#EB5A0A), to(#dd7a14));
+    background-image: -webkit-linear-gradient(top, #EB5A0A, #dd7a14);
+    background-image: -o-linear-gradient(top, #EB5A0A, #dd7a14);
+    background-image: linear-gradient(to bottom, #EB5A0A, #dd7a14);
+    background-repeat: repeat-x;
 }
 
 a {

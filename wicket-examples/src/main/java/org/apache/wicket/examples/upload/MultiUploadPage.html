@@ -2,17 +2,19 @@
 <head>
     <title>Wicket Examples - upload</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-	<style>
-		legend { border: 1px solid #e9601a; background-color: #bbb; color: #fff; padding: 4px;}
-		fieldset { border: 1px solid #e9601a; padding: 10px; margin-top: 10px;}
-		.mfuex { padding:5px;margin:5px;background:#eee; }
-		.mfuex .wicket-mfu-container { padding: 5px; margin-top: 3px; background-color: white; border:1px solid black; font-size: xx-small; }
-		.mfuex .wicket-mfu-caption { font-weight: bold; }
-		.mfuex .wicket-mfu-container input { margin-left: 5px; font-size: xx-small; }
-	</style>
+	<wicket:head>
+		<style>
+			legend { border: 1px solid #e9601a; background-color: #bbb; color: #fff; padding: 4px;}
+			fieldset { border: 1px solid #e9601a; padding: 10px; margin-top: 10px;}
+			.mfuex { padding:5px;margin:5px;background:#eee; }
+			.mfuex .wicket-mfu-container { padding: 5px; margin-top: 3px; background-color: white; border:1px solid black; font-size: xx-small; }
+			.mfuex .wicket-mfu-caption { font-weight: bold; }
+			.mfuex .wicket-mfu-container input { margin-left: 5px; font-size: xx-small; }
+		</style>
+	</wicket:head>
 </head>
 <body>
-    <span wicket:id="mainNavigation"/>
+    <wicket:extend>
 
 	<p>The multi upload field is based on javascript found <a target="_blank" href="http://the-stickman.com/web-development/javascript/upload-multiple-files-with-a-single-file-element/">here</a>.<br /><br />
 	Wicket can also handle file uploads via AJAX, please see AJAX examples section. AJAX Functionality is not included in this example to keep things simple.</p>
@@ -45,7 +47,7 @@
     </div>
 
 
-
+ </wicket:extend>
 
 </body>
 </html>

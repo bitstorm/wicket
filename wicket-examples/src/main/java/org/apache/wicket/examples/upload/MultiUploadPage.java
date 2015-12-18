@@ -23,7 +23,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.wicket.Application;
-import org.apache.wicket.examples.WicketExamplePage;
+import org.apache.wicket.examples.BootstrapBasePage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
@@ -46,7 +46,7 @@ import org.apache.wicket.util.lang.Bytes;
  * 
  * @author Eelco Hillenius
  */
-public class MultiUploadPage extends WicketExamplePage
+public class MultiUploadPage extends BootstrapBasePage
 {
 	/**
 	 * List view for files in upload folder.

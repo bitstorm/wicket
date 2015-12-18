@@ -380,7 +380,13 @@ public class FeedbackPanel extends Panel implements IFeedback
         return new ListItem<>(index, itemModel);
     }
 	
-	public FeedbackPanel setMessageContainerCssClass(AttributeModifier attributeModifier)
+	/**
+	 * 
+	 * 
+	 * @param attributeModifier
+	 * @return
+	 */
+	public FeedbackPanel setMessagesContainerCssClass(AttributeModifier attributeModifier)
 	{
 		messagesContainer.add(attributeModifier);
 		
