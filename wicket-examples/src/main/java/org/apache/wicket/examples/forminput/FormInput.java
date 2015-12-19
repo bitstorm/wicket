@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.wicket.examples.BootstrapBasePage;
 import org.apache.wicket.examples.WicketExamplePage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
@@ -57,7 +58,7 @@ import org.apache.wicket.validation.validator.RangeValidator;
  * @author Eelco Hillenius
  * @author Jonathan Locke
  */
-public class FormInput extends WicketExamplePage
+public class FormInput extends BootstrapBasePage
 {
 	/**
 	 * Form for collecting input.

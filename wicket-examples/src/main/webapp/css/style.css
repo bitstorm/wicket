@@ -5,9 +5,23 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
-  background-color: #F3F3F3;
+  background-color: #FFFFFF;
+  height: 100%;
 }
 
+html {
+  height: 100%;
+}
+
+.footer {
+  height: 100%;	
+  background-color: #F3F3F3;
+  padding: 70px 0px;
+  margin-top: 70px;
+  border-top: 1px solid #E5E5E5;
+  color: #777;
+  text-align: 
+}
 
 /*
  * Global add-ons
@@ -132,9 +146,9 @@ body {
 }
 
 a {
-    color: #FF9925;
+    color: #DD4814;
 }
 
 a:hover {
-    color: #FFB158;
+    color: #97310E;
 }
