@@ -7,6 +7,7 @@ body {
   padding-top: 50px;
   background-color: #FFFFFF;
   height: 100%;
+  font-size: 16px;
 }
 
 html {
@@ -21,6 +22,20 @@ html {
   border-top: 1px solid #E5E5E5;
   color: #777;
   text-align: 
+}
+
+.footer p {
+	text-align: center;
+}
+
+.footer ul {
+	text-align: center;
+	padding-top: 15px;
+}
+
+.footer li {
+	display: inline;
+	padding-right: 10px
 }
 
 /*

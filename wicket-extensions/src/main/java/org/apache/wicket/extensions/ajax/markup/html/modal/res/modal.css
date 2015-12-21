@@ -110,13 +110,13 @@ div.wicket-modal div.w_content_1 {
 
 
 div.wicket-modal div.w_caption {
-	height: 1.4em; 
+	height: 1.8em; 
 	overflow: hidden; 
 	cursor: default;
 	position: relative;
 	background-color: white;
 	cursor: default;
-	line-height: 1.4em;
+	line-height: 1.8em;
 	color: #666;
 }
 

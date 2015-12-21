@@ -16,6 +16,7 @@
  */
 package org.apache.wicket.examples.ajax.builtin;
 
+import org.apache.wicket.examples.BootstrapBasePage;
 import org.apache.wicket.examples.WicketExamplePage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 
@@ -23,7 +24,7 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 /**
  * Base page for ajax example
  */
-public class BasePage extends WicketExamplePage
+public class BasePage extends BootstrapBasePage
 {
 	/**
 	 * Constructor
