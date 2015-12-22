@@ -8,10 +8,7 @@
 		div {
 			aborder : 1px solid red;
 		}
-		.item {
-		}
 		.itemCheck {
-			float : left;
 			width : 50px;
 			text-align : right;
 			padding-right : 10px;
@@ -26,9 +23,9 @@
   <wicket:extend>
     <a href="#" wicket:id="ajaxback">Ajax Back</a>
 	<div wicket:id="showItems">
-		<div class="item" wicket:id="item">
-			<div class="itemCheck"><input type="checkbox" wicket:id="check" /></div>
-			<div class="itemText"><span wicket:id="text">item text</span></div>
+		<div wicket:id="item">
+			<span class="itemCheck"><input type="checkbox" wicket:id="check" /></span>
+			<span class="itemText"><span wicket:id="text">item text</span></span>
 		</div>
 	</div>
 

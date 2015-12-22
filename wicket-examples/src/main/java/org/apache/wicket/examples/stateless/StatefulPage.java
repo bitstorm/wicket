@@ -16,7 +16,7 @@
  */
 package org.apache.wicket.examples.stateless;
 
-import org.apache.wicket.examples.WicketExamplePage;
+import org.apache.wicket.examples.BootstrapBasePage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.StatelessForm;
 import org.apache.wicket.markup.html.form.TextField;
@@ -31,7 +31,7 @@ import org.apache.wicket.model.PropertyModel;
  * 
  * @author Eelco Hillenius
  */
-public class StatefulPage extends WicketExamplePage
+public class StatefulPage extends BootstrapBasePage
 {
 	/**
 	 * 

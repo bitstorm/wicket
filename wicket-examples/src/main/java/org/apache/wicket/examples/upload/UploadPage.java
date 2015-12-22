@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.wicket.Application;
-import org.apache.wicket.examples.WicketExamplePage;
+import org.apache.wicket.examples.BootstrapBasePage;
 import org.apache.wicket.extensions.ajax.markup.html.form.upload.UploadProgressBar;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
  * @author Eelco Hillenius
  */
 @SuppressWarnings("serial")
-public class UploadPage extends WicketExamplePage
+public class UploadPage extends BootstrapBasePage
 {
 	/**
 	 * List view for files in upload folder.
