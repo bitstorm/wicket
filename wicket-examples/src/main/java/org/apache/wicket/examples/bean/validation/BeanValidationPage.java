@@ -19,7 +19,6 @@ package org.apache.wicket.examples.bean.validation;
 import java.util.Date;
 
 import org.apache.wicket.bean.validation.PropertyValidator;
-import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.datetime.StyleDateConverter;
 import org.apache.wicket.datetime.markup.html.form.DateTextField;
 import org.apache.wicket.examples.BootstrapBasePage;
@@ -37,8 +36,8 @@ public class BeanValidationPage extends BootstrapBasePage
 
 	public BeanValidationPage()
 	{
-		add(new FeedbackPanel("feedbackErrors", new ExactLevelFeedbackMessageFilter(FeedbackMessage.ERROR))
-			.setMessagesContainerCssClass(new AttributeAppender("class", " alert alert-danger")));
+		add(new FeedbackPanel("feedbackErrors", new ExactLevelFeedbackMessageFilter(FeedbackMessage.ERROR)));
+			//.setMessagesContainerCssClass(new AttributeAppender("class", " alert alert-danger")));
 
 		Form<?> form = new Form<Void>("form") {
 			@Override
@@ -58,7 +57,7 @@ public class BeanValidationPage extends BootstrapBasePage
 			new StyleDateConverter("S-", true)).add(new PropertyValidator<>()));
 		form.add(new TextField<String>("password", new PropertyModel<String>(this, "person.password")).add(new PropertyValidator<>()));
 		
-		add(new FeedbackPanel("feedbackSuccess", new ExactLevelFeedbackMessageFilter(FeedbackMessage.INFO))
-			.setMessagesContainerCssClass(new AttributeAppender("class", " alert alert-success")));
+		add(new FeedbackPanel("feedbackSuccess", new ExactLevelFeedbackMessageFilter(FeedbackMessage.INFO)));
+//			.setMessagesContainerCssClass(new AttributeAppender("class", " alert alert-success")));
 	}
 }
