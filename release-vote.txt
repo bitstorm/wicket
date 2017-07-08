@@ -1,0 +1,107 @@
+This is a vote to release Apache Wicket 7.8.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 7.8.0
+[ ] No, don't release Apache Wicket 7.8.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/7.8.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-7.8.0
+    Release tag: rel/wicket-7.8.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-7.8.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZYLxvAAoJEAzCjx+CMhBVTZYQAK+meFQ369uBzF9I5/slF5B7
+IDkchyU4HESUSJq6F+oGYYPBx5d6uDelk0yrGFC5h0jPys7PmjjjKzIrWrp8asbg
+b9arUJsbEYvXqxY3/6jv7cA5e8/jZQVmL4gn1Y0zOZLL4i71haS6syafmuSMhqrN
++qcbr0X8SquDSlfBXHUGl5HYfggvM8ryfn9BHp0LXUmByHPvipCxaAW2iAH08Uws
+sUrkVgQxPlsDeb+TRqDU2oEO3JGMBam7lc5lL7OUJihIBiYXTKUAFmoHZ93w34uA
+HhkddE4IS+JppAgBJUYTtnZau8nwoimNlipmzPLbP7f81DRBAl4g7YyhN80uMRrC
+Hf+pfjhHDK9MDZDJ3fvZKJI3SRoLDDogkCO5VWdSrm327YU3noauJaQfI16CPQQ0
+KLv5oX8G2qnj1waJxrymPRfKv8H4EaODleH3SPY6tFez0YqVnPdVCN+8ivveS7LC
+Xhm27wiIBiBWqnYNdFXu1+bul06rVoZINjohMx5ehQ8Be5t/ffwd+abEBXPEZvWc
+82LuSzjZyTYztGwCq5zTjaqu07k1VEfs+YUwyMsxYhLiCE7FFvtBxprHJxW0pXni
+ZohPCJ/0Wu+4q9O9D02FieZQmJBqmWH5wND7JQw98LWZQVqz56rmA3qqJLzqezuK
+opP+d0HegKBF0uC2YvlE
+=Hwk8
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-7.8.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZYLxvAAoJEAzCjx+CMhBVjy4P/0OGngs8Uk2GQ+dMmhnzo6d3
+yIg7CRnJtX16nZu58hyE5kUyWIq2ySpomlbD6cBxP16R1nzUHNDdijroWC8zAx2q
+y7F/f7vDXcKhW8P8y21lZqffGHhEwaey1b3aTmUmqiZGjohtvZx3ED+Y3JdIGxHL
+VmO7deEirPJGyptSB0pu+STcltbU3+9H1pcfuaPKxB9Ucr08AIEtTWwuZWg9DHdb
+5U26S5VX0gNNd2Otivf49I6G6BWml5Kpx5z4yBFolgajbKHJ+vveBOND0d8fw4te
+c6nKFV1hIR4eXXhfI584+MuLcI83V86Tc/sFQgNk/1uIGIdBE0mcRd7YqemNLu+u
+tF52Zii0HHScp8ocOU+B+lYL5Keek4WkCQ7oZqjKZx5rjZS9AsF1041PcZ31JDlk
+c8Y4qhF1Add/msFuyeo3nsiu6xky/wHef5pCTcjLi66+8X+53tjUQed8BqiZDCcm
+NeOfwOQ4MWUWNz7Sfs/gayI4vZ9uFksJik7g/XR/o2L2Dny+J0PsA/kCHurhT0rb
+IfhcyrGgLn6zDpDafullJv9N0mwyBUGW//4GhhHmM1SmCKr57sDobalZFjeMTv4p
+b/3JYMD6O7AdS5Eyj+LU6Pg2vK10oW2fP/H0clCKqIzsF5rdNDcjVTDCwnal5y+W
+S0QhZQSTWuzVS8MA4W4b
+=sf4k
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 7.8.0:
+    
+** Bug
+
+    * [WICKET-4324] - [wicket-ioc] LazyInitProxyFactory CGLIB proxies naming strategy may cause java.lang.IllegalAccessError
+    * [WICKET-6362] - HeaderItems with different PageParameters are treated as identical
+    * [WICKET-6366] - Autocomplete race condition makes page unresponsive
+    * [WICKET-6373] - Edge not recognized in UserAgent
+    * [WICKET-6374] - Exception caused by border extending another border with <wicket:extend>
+    * [WICKET-6376] - Ajax redirects to non http(s)-urls are interpreted as relative
+    * [WICKET-6377] - Autolinking breaks hierarchy for nested elements
+    * [WICKET-6386] - Simplification of the code in WICKET-3347 is not consistent with previous behavior
+    * [WICKET-6387] - ModalWindow PageReference broken
+    * [WICKET-6393] - NestedStringResourceLoader ignores hard-coded default values and throws MissingResourceException
+    * [WICKET-6398] - WICKET-6204 breaks jQuery.noConflict()
+    * [WICKET-6399] - Dequeuing of Border component with nested body fails
+    * [WICKET-6400] - Object with array property fails on NPE when construction JSON object
+
+** Improvement
+
+    * [WICKET-6372] - Consider to switch to a sans-serif typeface in the Wicket guide
+    * [WICKET-6385] - Allow using custom port for web socket connections
+    * [WICKET-6389] - Introduce CsrfPreventionRequestCycleListener that is aware of Web Socket requests
+    * [WICKET-6401] - OSGi-Manifest: wicket-util should decalre its dependency to 'commons-io' and 'commons-fileupload'
+
+** Task
+
+    * [WICKET-6391] - Deprecate the classes and methods which now throw runtime exception after the switch to OpenJson
+
