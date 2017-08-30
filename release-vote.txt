@@ -1,0 +1,85 @@
+This is a vote to release Apache Wicket 6.27.1
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 6.27.1
+[ ] No, don't release Apache Wicket 6.27.1, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/6.27.1
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-6.27.1
+    Release tag: rel/wicket-6.27.1
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-6.27.1.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZpxvcAAoJEAzCjx+CMhBVoTEP/iMglgkMgcDe0ahuQqa4rBmn
+xdWMm+QC5KjoHUwCEsAvEvsjvApMHZA/piy22IlywvZNS1Y/s/lEmg4inresHPWV
+Js0YCamvtDz0ltMVgSt469jdkWKKZGzFSrlkUcdBgNcBWzq/zXFzIbNXCAJ2aK8o
+X5UP3OlyHYiU5+HPX+XN7SPKZl0pzkTRw09p3eUffKEvH3nppXamTG6+C6R1VQho
+UsSJFHFahbgoqQHVArn9Nl5TkoZUkdEZUzCbM96rvx9SYogZ+rmAma6EHOKxe4hK
+LEef7iKkEkrAj797tuo0Tqj1NhWgNhTrtDkzRR1KvZJSpx9G2M1rc8qR9VK5ZsVA
+DOS1azF4GqHO4nKUM3rJDwMdmt4EA05zVZ4McmQTnuGdC1bRUADIeDvaUG+1ir+m
++ja++LjPnp6VCLUCsrh2s1Pw3JZI6yL3iz74hbhdWWE0SBhnsqNJC+LmReUzblSz
+0mTD9MuTGgK+fsImAZo99Gig0NGjj1nubi7Pd2w7Bf/kVW9ArFduz9frW3bDXANo
+gsgb1RQRzF9X4pMH1WizJW6ljt+skOByfL7BS/Khqan6FKbOBUT6eG+gJEP2NOAt
+iOEvidqC5mxNHZDq2KnVwMu7nUJ5vPeJFVPcTkavTQAgVtQosoFY8iqmZTYp5fFb
+PNsn/S9fSWrs09+lktdc
+=DrbJ
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-6.27.1.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZpxvcAAoJEAzCjx+CMhBV2pMP/iUx51Xhdzhq8jt/WdM/WzQM
+CVB3fvICZmt1eyHPvJMI5UQgadwBE69Oc1MgbF1IHmjX/aSa8V47LsNTFHi9bqs7
+x0MziT86mQi9gzkWp5LIMNYT2cFU0yATHkjP6QHJxFidEbSfIObLfZZ1V7UJfDqv
+DJO3wdRTdWqter47JCms2z6Mh0IRUPNW66D8HnD8lBHCN0NYXKK/szE6kARUiKQY
+JifvF4Z1xvllQBO36j8YBGUDEscq8eEvhScPBUx8nLz8gfibB/ozHF2UqwGmU75l
+6rC/Ngwlss2ZxavVaZYdhiitYbCu2PrrWmgivXUs+QEIHhCefusfcjSpJMk6RK5s
+Fpq0Rcp3RTlOM4fDL0SUSZqBcTG9rKQpGI0sBpCgtx3ahxp8wgHXFDksOAA+p/RF
+VY5A2IvnbcDSvvJwO79h7fT27ipl7BUg5l07SC49fA5T2gyT6rtfMvh9Lxj9uvFL
+EZ3COF+6HkAeY6FxhgSb+8XAUg6qlrEETvYiCvEJmcZhAltsfM2fqwKV4ApFl4oD
+7+K8NB2ZD9ZSHJDR0L8R7vQeeEhP0mTx4Gpk5TcAbZmiTfr3OjV2Lsz10k09w8W6
+ijmd7Zwv5/f2x0hFvePbFot4TodsgFIzv4zFdOFKbF3VLRlBg0pCR9aePVZcubwA
+GegIbLap6l+p0kCi8UFQ
+=msXC
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 6.27.1:
+    
+
+** Bug
+
+    * [WICKET-6457] - PageStore not cleared at session end
+
