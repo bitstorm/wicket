@@ -2,6 +2,12 @@ This file contains all changes done in releases for Apache Wicket 7.x.
 
 =======================================================================
 
+Release Notes - Wicket - Version 7.8.1
+
+** Bug
+
+    * [WICKET-6457] - PageStore not cleared at session end
+
 Release Notes - Wicket - Version 7.8.0
 
 ** Bug
