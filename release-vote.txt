@@ -1,0 +1,94 @@
+This is a vote to release Apache Wicket 7.9.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 7.9.0
+[ ] No, don't release Apache Wicket 7.9.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/7.9.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-7.9.0
+    Release tag: rel/wicket-7.9.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-7.9.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZvBu5AAoJEAzCjx+CMhBVaPMP/0pZ+1p6uIfnzV7EHDNqv35F
+WJ82gFCqWZov29EUFcb+2YOCjFOU6BG61pgP98IzB+qhXomHf34hhrzomuEZCtlR
+hxYjMxnvaPHR5C/2SEkbtGtHs8YFE5SylmKB2V9Qchpx0ClicApSu1JvAb8q3rnL
+CDLIOEDEtKsioLcsVZpXT67ctgKc/Pp5Gdd0lRClnEOUONQ1WJ7yQ1uy5JfxS+Xv
+48zdiIumzgdTWgm1HJXzM41Lp4NdpwZx6/GVvD/9RjNMMOxxsPw5ZZUG/P9jtPTg
+anSXIjA2q40Y2NDRwdMMgKFNBsPoef4QHqgniiNTTZVsitGHo/jl0LqSjyXZ7MSE
+VwzSv/FOQcEfiVCMklJG+8JFIpq2/CLDCIWvlNpBC1QTqzw97xLW0gw/R88rcAoe
+ESrl7k4OSKS/YWilDRgCgaw5nBhGwqpN/Luv5Yzvxe91BFi1RXcBVq4xs/ceQd8c
+r7Sa8ZC2uvCFGdRBbMK1OjYU7Y8DjTJb3Fp2EzQRjIqAqaj6PMINEYdYvKJG8d3Y
+Z90qMv2QqF3q5BNbBU9Lf9z0Kau/W3jGXFC0wxj9tYj5gz3F5EEWDLbHj3pRiH0/
+vAHPPMZekI7GQbsYel+nGtkHBj3osPGUQ/ESQDLutJiqJ9t1e1Eijd/CdX+r5pUL
+JG97c19NWfJaKfKdCT60
+=ReUR
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-7.9.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZvBu5AAoJEAzCjx+CMhBVtzkQAKjDi4eBTH9A/gl0e4r5VQxP
+E+RPPVzo1Jf2+1Szz4gR4cLgFGGFqLQoqBM7YGWRSSaxdI1/ys7sn91MTg+pLCSB
+I5Xh145t/Ok58czr1N5VsIPLo3pU0pHMZwmPv+xDjv42EbogpsoFaEQsN3XorKyo
+DlrtN9WAh3pXj2y05nHqFNsUUuWACPmo+CCAuAPsTIqYbxDyB0OjlFA54ovSY41Q
+sP5UP7EuhM7W9Px38RzArUUT2WNIJlDdHogISZrurkj3aS5K5qTe1KGx2u15B6Gi
+gjU9P2aw3pzpHiBXsBInAthwGXWecIkvvRst85mQo3ivLydmyIla00+DZCe3vgkE
+cJHDCFig8QwF9kC1rtma3Rep3aXDiq+mLdDWXPqMC66s1BzzuH4xeX78/OadyVOB
+7PIjs3vUfJUIwITVG4RlLNQebDeIeFaWubT19zjcelet325WlAJpwAOGtWxj31bG
+7pWmUUAkJo0yUuK1wLBb+TN+GHQBsjwSMTxs/PTAAsq6m53fPkOFerzL5ygCshvt
+dlFAd48VZVIzWZTc0yYq0X5oHtQETIDgIKcFuJp88uBfTc0Io9r+QMdAWTgUIuzH
+OqMV4TXjaM/YBWurQ4B/Xz1KPgR7gtSjifnw3hytEIT7RHq/Av+3bJTjvby4t7r9
+CeQiIicC2Ghx4BrN1Lxk
+=b9ky
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 7.9.0:
+    
+** Bug
+
+    * [WICKET-6429] - AbstractRequestLogger should not create new Sessions
+    * [WICKET-6455] - AjaxFormSubmitBehavior doesn't submit inner forms
+    * [WICKET-6457] - PageStore not cleared at session end
+    * [WICKET-6459] - Ajax re-renders of enclosures do not render their children's header contributions
+    * [WICKET-6462] - When an Ajax Button is submitted, AjaxFormSubmitBehavior # onSubmit is called twice
+    * [WICKET-6465] - PageStore not cleared at session end
+
+** Improvement
+
+    * [WICKET-6454] - WicketApplication behind a proxy with restrictive internet access can not initialized
+    * [WICKET-6463] - Please add additional constructor to Roles
+
