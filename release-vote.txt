@@ -1,0 +1,89 @@
+This is a vote to release Apache Wicket 6.28.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 6.28.0
+[ ] No, don't release Apache Wicket 6.28.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/6.28.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-6.28.0
+    Release tag: rel/wicket-6.28.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-6.28.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZy+bZAAoJEAzCjx+CMhBV6NIQAJcLGcLKjUpGG7zgXphVgOsh
+Zlx0oJH6H2FfB/CTXrjPgvfFLyr4UZQ0/KqZIidRQx06O1oQGiBEobBv5W2rFpAL
+eMUTVEKOYQyLfLJB1ngP9GvUAMjiuFnK1rJvE8mjjYbtVXHQ7jqRjsKqK7y3o+/u
+CvzVPTL21ggJ790LOkkhPSPhuY6R0lLUWSdOqs600n5gxi7UoN67Y9JqcQSMiGwm
+TbzlcG0dZCkskBHl+GIBuuyyB2IFT5gSB2DU0jKOjouhfSSxjuY48yWJ2lWqfUnP
+iLvGABHtsSD3i4psyoFEbW2PVON8obJgnBqYNq+ERt9t0BF2eFcCHvxb6wJTZwHs
+pINSc9J/OM7K4FAnORXAoaQSsdRBVD8USIAjlYpB5H3SJZlvVi7fUlCa5mfNtUER
+rL2HZjRWGyiJx8GQzGf56jpZ9ZTlhpanhQNiGJsMMMY0P1BN0HlMUBHoVSeozyAe
+QyqJTiPYPdUY+8HpkWTO3hE6b2c01pGIfz+7fDeYDKZ/Azl0hg4UQDFQPAPU/pjz
+S0F5j3aSwpmcloHqX2tNaBmq7um0mVvBTpUOEWoagKA+7/eKMhRzjJblIoV5OBb2
+9YjtcSoHYsMzVIauDw1hREhOKEAvAEvSvE4ZkB+rb4COCEar8K5ulENKosIjmS+K
+BcfSYelcMrMY1EOlYsIb
+=QAWQ
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-6.28.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZy+bZAAoJEAzCjx+CMhBVNNgP/iYb2lby8HrHXZvFI2ei7bE7
+nfvh/UckkD0IDyVoSYJU9mNIcY6DqU+lPZrX8gA039IT3WztT4GOrEcj1L8yAwpI
+lwuf4kIu9CyRT15ExeagSZl6RXzkxr6BjV27zT50Z21L4k1kLPD4Iy0cQpym3E4k
+UDayPdN5O5U7u75CbetSppsiC3Tr3THYYzA3QRLNacXM8j9EFI9YQ6XlqHGpQY7s
+cZx31EyoVSNfx5CwPps6cv42uYvf2cQpf5LTyj55o1Tta5FYZ9dgj7OnaXTUIBK4
+Nf0b7xd3JSKwoUNP+yV9Y+NVGPsktkxQFh4ycNF+NrBuIk9+3WcV7lp7oxNv9qKA
+pbvRHEaf6hRKug5RGaw+zvdcHQ6g1N+FQRUj3SGx8E+nqler05l9LHHuMMK1gqAj
+H2kp4XskfXSdtUquagUzXuyKA4CaSMdRl3MYTF1wX3wOwkWOVafIqNNs+JKaodKx
+5wo+bg24XPMO4u2NHIcNou/GsZfUTBViEcAAKbJzhu9DZkzh1f8CTM37E6dOe/7o
+og+fgROhrYgt+TpRhPfe7zqnkBPYcT5X/27tPEg5JE5nheTjP+zeury3R7pQ6Q47
+yZ/07TB4ICGeCRpYAVdiZRWNyqtTpDjy+QiqVjr/08IqYq8zSmUxiKjFCreklsyl
+WSEJobCokQDT80UChQRB
+=CrLw
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 6.28.0:
+    
+** Bug
+
+    * [WICKET-6457] - PageStore not cleared at session end
+    * [WICKET-6465] - PageStore not cleared at session end
+
+** Improvement
+
+    * [WICKET-6308] - Add an extra constructor to EmailTextField with a custom validator but without model
+
