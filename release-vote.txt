@@ -1,0 +1,106 @@
+This is a vote to release Apache Wicket 8.0.0-M8
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.0.0-M8
+[ ] No, don't release Apache Wicket 8.0.0-M8, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.0.0-M8
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.0.0-M8
+    Release tag: rel/wicket-8.0.0-M8
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.0.0-M8.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZ62FxAAoJEAzCjx+CMhBV/iEQAIRmBBmSNIe0yGvUAaIQgbKl
+SdqX8E7Z+SO593DgZu/2j/PNHiwtZd0nNHsL2Uc4wOX1ZyH5AutQ0S/ldWkz3Ktj
+BfdBqSK83+CsSU3PRY2Bc5djxIEx+D+/AMjBOVyOKKvzC+LajFFg3gYYt0tEQwfg
+6KRt1vV+IscDnAy1832GjMuYdtmi0LhBZ0ARVUNN5SC1D1M8BGpSLHnrdTUflBIa
+nE/oP1Ju/uDw52B4NPwuKviVxRma78hNkSrYI6fVAhhJVOKEz5WOOkLK+IbeL6F1
+zoSAVAsxwSYmrhYU3WGMeJT7JGJqtmgKFA6wPhjn26fJ66y0JTIIr1XGjcSk9tg+
+RDIoRwjWvJ+AqMt2/VXZ17B/V+/uts8kZyUmph2Vuy+QpOgbVGbqY7D5Fx2fnQ6r
+oK3w8+2SZZAZSNtVhF7en+lCs6m1WpYgnRYUK2+9P59eTaLuLjx3WSmMZNxu45XR
+CJkc3IfuIZGtAbQiU0pzZHqLP3ckc87zVFZmfA06Xvd762itM0MYhhoK+AdGoWpV
+WTyni0e/JXYNaWpwRUkn3c3JJD8ivgi6Vn3W37XlHSBnD1+Zywjm+Xz4L7HAnqaz
+UlWruT8oMnwYffY4O+2nl48FVxe4ee6GjQAA4vALHqvQKB6t+s4DanVHgIwY4gsw
+fVpE0/MGZNaeUY/Nc98g
+=LrGP
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.0.0-M8.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJZ62FxAAoJEAzCjx+CMhBV9NwQALKSqm3U22D8oFcBcs1ZB4nz
+ULfg1Cm1CLzXfjYDgQKbq39kbR5+HzNYIj7a4S3LBX+YJLZhcS7i7uNELuS01K2U
+5AoEhqMDGs5Qyw5oxOa5VUEcDOqZ1ND1WQTZY9+CU/tUXNOCMqjAoi8KdovBGwLC
+1F504rsqUVJvkVV5RYWDxSYVQJlbdVN6ma7wkjIq+sTManEFT8wzkDdF9UH27Rt8
+Lu3dbg9i8H7w9/X+J0svPW24O3edVQjMxREefXHfnL6DwhY/VBWvVVJm8G1WOlM3
+qYYs+YWPlCYk1kvfXtNYqRzY6MJqfjHM8q5gzeVcYMqVbsek9ygPkHKzE12B+NOa
+nuJHtbuIpNHbqLN5XUliUqZRn04QoSOirxSpiVT9xyfOZCrdxFnipo2e27dvyqqi
+L8Erhbs481/KPKO5XuL0+20YG6gSB7CWLu39BdLVRSE1vmhsS3o1t/tiit6IZmNj
+XujQpATsEOsNwFOC6fVuH3tfzpgce75LJzwYBUEHQQrCGNfCr5VkgcQssjsiuJha
+SQKXJG5YhYEzwly/ut480JTmP4uzjOpoEDJF4VysoQl1ciUC+B7iesCwXQIQcEbF
+dc5BGkN6Q41sqBxJQ7OZ5+gcwUtwpJd8nQLuhPoVng30Vvnq6hpNONrxpEjMFkKX
+NibTg1y/uwyVloPYyRp1
+=cIyW
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.0.0-M8:
+    
+** Bug
+
+    * [WICKET-6455] - AjaxFormSubmitBehavior doesn't submit inner forms
+    * [WICKET-6457] - PageStore not cleared at session end
+    * [WICKET-6459] - Ajax re-renders of enclosures do not render their children's header contributions
+    * [WICKET-6461] - Default constructor is incorrectly called if optional param is not provided in parameter placeholder URL with additional required parameter
+    * [WICKET-6462] - When an Ajax Button is submitted, AjaxFormSubmitBehavior # onSubmit is called twice
+    * [WICKET-6465] - PageStore not cleared at session end
+    * [WICKET-6471] - FileSystemResource file descriptor leak
+    * [WICKET-6476] - It is impossible to use multiple WebSocketTester with the same WebApplication
+    * [WICKET-6479] - AjaxNewWindowNotifyingBehavior erroneously reports new window
+    * [WICKET-6481] - NullPointerException in MountedMapper
+    * [WICKET-6485] - IllegalArgumentException: Argument 'pageClass' may not be null
+
+** Improvement
+
+    * [WICKET-6396] - Model should provide other Optional's methods
+    * [WICKET-6451] - Components with collection models do not support unmodifiable or empty sets
+    * [WICKET-6460] - Rename AjaxDownload to AjaxDownloadBehavior
+    * [WICKET-6463] - Please add additional constructor to Roles
+    * [WICKET-6482] - CompoundValidator should implement all Behavior methods
+
+** Task
+
+    * [WICKET-6105] - Decommission wicket-datetime
+
