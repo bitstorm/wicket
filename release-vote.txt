@@ -1,0 +1,123 @@
+This is a vote to release Apache Wicket 8.0.0-M9
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.0.0-M9
+[ ] No, don't release Apache Wicket 8.0.0-M9, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.0.0-M9
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.0.0-M9
+    Release tag: rel/wicket-8.0.0-M9
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.0.0-M9.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJagFiiAAoJEIePAfqo01bhPxsP/jgrMjf/3IVHWSOftoHEYf+j
+Wtb8gvB0Y3sY8L6syj5GQCuhceaovbq3NCnAz0qrn/tLRuUnybyj8GfyMrQv4wNP
+rDj7zPRqhsldgbSTsjDP98b0V99F5ct68HsxOr3LzxNijFNFRxIDnF+73QZNjUcA
+YL4xuxP80WvMb1mmwASg+l9MxhEWpeYWoyOBHNWFmjgI/4r3ineq2YSjAq3MZKOC
+Vu4CqYS+ajEFMqduHU4aa9j4Lj4X81by34c9xCKERaioI7kFhoZzhws6ufoA/wNo
+EPBPBft9oG72rUfX9VwyZxHMBmU50eKmEtFeCtWXqu5v8Js2rVTxmw4EGKENj3+8
+Kiup7+zXu9t07mvoS4mCJ8fcl7P+g24e02pdqHDBea/a7zAKUdrIe6MCMJ2Qlw0g
+E/xlDJ4utPcU7E88IQiCLpmarN3uBZKnivzm3Uir5U0dJtffu4IacABg5Svp3DAl
+TcUOmM9QxKYjD8Ey6uORoGTm3gZmx4FcnNjSw0ch27fyNUpYVfEyU88KH9vz2dQP
+Tcs9LxRpII4pBGXu0nK5zWZfXBgqxYfUUrIroCrzVWub+wqEw8pXo2K9GdrUYpcg
+K12TIpW3X43zNG7L6lTJtFe2yffVLdyS1DDoqU3QI4gHe/vdIC3atd4BP0Aeauj1
+jIvOQJKU+bwlubLLneTg
+=MOtP
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.0.0-M9.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAABAgAGBQJagFihAAoJEIePAfqo01bheU8QAIkUJK3zjjVeARkAbN3Zi1hE
+b5qnaSiXkuxZyTfVzDS4Ui7OZwIOY1RJ1YlJ4fZwio+BJhpxnCiPjPLRC1VNwA4q
+oMBsOfwePU92kJYQERfVfJgNkk1ixyh52k3qsoS4EIdKT+bOW52hT8zaXRNazhG3
+nwyDTe00c/ibj5KM68L7R4LXef6tbnZAjegKBDNUsvWQltwE2xc1lVapnNoqtOAM
+B26gWh5G8QDQxjWJESk9ik+Vyyg9We8lABV5+Hkqrugv3yECiD9ObcYE29bE/OHN
+hfgzo5EX+umXzTkoHltQ0ZxAxPiWWquH3tjsy1/z/8r3BT4YBZs+PIoOCSPem6kK
+aUoJiBEZ55WsBVd5NdYY7PiSwZ2KWsuE1XmqADY+USuhytPln04YNK9srdVESnCL
+sBxGP0kgHKrD92O1aTLpzan3VhD1O8KzjH/8MMEWJxevQbW/gorlAjh7+iCVcH7g
+YurqMjtq91YFFlZwU5YlczfhnZmR4/Efp3/O57S76HOyaMWYloj0vs2OQH3TJTm7
+GLvO/b9R46mgnnlHVhxN2z1f0xTOFwpeXIjchb+jHs0SuxOVAqrIpGmsFG8Siv/V
+3spQEzAzM/Enl2PgaCNlU0aus/i35FRLEmlCf7nyuwVQCbsE3d5W/fKLYeJOD9Wq
+CCJOHO3iofZ0wlGnB5J7
+=/qPh
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.0.0-M9:
+    
+** Bug
+
+    * [WICKET-6332] - NullPointerException in PageParameters#equals()
+    * [WICKET-6441] - MockHttpSession and MockSessionStore don't call onInvalidate() on invalidate()
+    * [WICKET-6448] - Provide behavior that disables a button after click
+    * [WICKET-6477] - Component.getDefaultModelObject() wraps in RuntimeException instead of WicketRuntimeException
+    * [WICKET-6484] - Wicket.Cookie.set does not set 'secure' flag
+    * [WICKET-6489] - Exception when "identifier|code" javascript is not start on PrependJavaScript
+    * [WICKET-6491] - AjaxDownload is not working in blob mode for Microsoft browsers
+    * [WICKET-6492] - javascript files are not minified in deployment mode and not united
+    * [WICKET-6493] - WebSocket SessionIds are wrong (HttpSession one used instead of Websocket one) + NPE if no HttpSession is found during Handshake Request
+    * [WICKET-6496] - Duplicate definition of interface JSONString
+    * [WICKET-6501] - DefaultPageManagerProvider does not honour StoreSettings.setAsynchronous(false)
+    * [WICKET-6506] - Performance issue when large component isn't visible
+    * [WICKET-6512] - pageId is being reset during Session::replaceSession() call
+    * [WICKET-6513] - NullPointerException at PageStoreManager$SessionEntry after login
+    * [WICKET-6518] - Memory leaks on quickstart restart in tomcat
+    * [WICKET-6522] - ThreadLocal leak in PageStoreManager
+    * [WICKET-6523] - Two AbstractAjaxTimerBehaviors on same component timeId conflict
+    * [WICKET-6524] - Do not require bean validation 2.0.0
+    * [WICKET-6529] - Feedback from onSubmit not rendered on stateless pages
+    * [WICKET-6530] - Race-condition in session invalidation
+
+** New Feature
+
+    * [WICKET-6497] - unify javascript files
+    * [WICKET-6498] - wicket 8 - js to asnyc and or defer
+
+** Improvement
+
+    * [WICKET-6055] - AjaxLazyLoadPanel should provide non-blocking lazy load
+    * [WICKET-6284] - Introduce lambda-enhanced factory method in ResourceReference 
+    * [WICKET-6499] - Support for Bean Validation 2.0
+    * [WICKET-6503] - Ajax refresh and feedback panel
+    * [WICKET-6504] - Use a serializable model for FileSystemResource's path
+    * [WICKET-6509] - Import junit packages as optional
+    * [WICKET-6514] - FeedbackCollector(Component) should not collect session-scoped feedback messages
+    * [WICKET-6517] - use Ajax for multipart instead of iframe
+
+** Task
+
+    * [WICKET-6148] - Remove AjaxEventBehavior#onCheckEvent() before Wicket 8.0.0
+
