@@ -14,9 +14,31 @@ use semantic versioning for the development of Wicket, and as such no
 API breaks are present breaks are present in this release compared to
 8.0.0.
 
-<OPTIONAL> New and noteworthy
-<OPTIONAL> ------------------
-<OPTIONAL>
+New and noteworthy
+------------------
+
+Before [WICKET-6498](https://issues.apache.org/jira/browse/WICKET-6498) users used to create a custom implementation of IHeaderResponseDecorator to place JavaScript items inside page body:
+{% highlight java%}
+    @Override
+    public void init()
+    {
+       setHeaderResponseDecorator(new JavaScriptToBodyCustomResponseDecorator("footer-container"));
+    }
+{% endhighlight%}
+
+See [user guide](https://ci.apache.org/projects/wicket/guide/7.x/single.html#_put_javascript_inside_page_body) for more details. Now each application has a default IHeaderResponseDecorator, which decorates header responses with a ResourceAggregator. Applications have to make sure, that each response is now explicitly decorated with a ResourceAggregator too:
+
+{% highlight java%}
+    @Override
+    public void init()
+    {
+       setHeaderResponseDecorator(response -> 
+       {
+            return new ResourceAggregator(new JavaScriptFilteredIntoFooterHeaderResponse(response, "footer-container"));
+       });
+    }
+{% endhighlight%}
+
 Using this release
 ------------------
 
