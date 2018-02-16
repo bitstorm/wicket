@@ -39,6 +39,12 @@ See [user guide](https://ci.apache.org/projects/wicket/guide/7.x/single.html#_pu
     }
 {% endhighlight%}
 
+
+Caveats
+------------------
+[WICKET-6498](https://issues.apache.org/jira/browse/WICKET-6498) might not work as expected due to a known issues with all major browsers (Chrome, Firefox, IE > 10) which allows deferred scripts to be executed before DOMContentLoaded is fired. For this reason WICKET-6498 should be avoided for production applications and used carefully.
+
+
 Using this release
 ------------------
 
