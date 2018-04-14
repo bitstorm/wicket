@@ -18,7 +18,6 @@ package org.apache.wicket.extensions.ajax;
 
 import java.util.Locale;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 
 import org.apache.wicket.Component;
