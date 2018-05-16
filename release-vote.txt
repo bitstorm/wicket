@@ -1,0 +1,99 @@
+This is a vote to release Apache Wicket 8.0.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.0.0
+[ ] No, don't release Apache Wicket 8.0.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.0.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.0.0
+    Release tag: rel/wicket-8.0.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.0.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlr8jGsACgkQh48B+qjT
+VuHk1xAAnJ2iPogwXIc1ieWjPatVvWGB258zYmrOtuhgwil5ThWF/Fx3PrNfhUVQ
+l1oiFSvRftuJm7YKIKZyg2sMQjosVx1o8ELOHxyvZWlyycycfjdggQCkEGIdP3Ot
+oNHu2aIqbO1fwFPiXzQUPP5cYYw7/5AXcBYOanasjYbtPDtmcrQlKo6NJZOyxjF+
+Oi2/J+yC0RGa0NaYGsrWvi0ZgYNbyA2XinnpWm0FOiyCtNv86/tWPUoJUNnx2t2k
+nEwgrcmpJAer3o85xFhO/KXG/Ibd9Fa62GcFi9H13lD/A4XoZ169xVaeujMTSCVR
+JIcCFmUuibnCd75MLqoWHwu8cGkxMQ5xgBvgp2AUAflki/iv2Uw4enF0+GV/1mCq
+Age/HHiTtBif7vGQ6yHCak7woLnCucMgVHulT3HIXgLbDu5PIpVGbJtJvB0PgOiM
+vOthGtisMrwQujj3m432ONG0aAAHEWvfmIdyXVZhRa3vwQ8JxwM6HeNYdpsbVezW
+gTinuMktBnmZzJeTEqXYxnC5AOfARAsx/GY45aSaSLZobloau2b+CpaHP3MVkDr6
+44BjpoCffpDF90iFh6UEfwF3zGR8CkWLWxU4LHaQDXqWQ5dLCoQ/Dj7sJYE5ylgm
+QujE4mkLFcFPRO+wsKK503lfYOjz0Ud9wf43Q2m/DNiRqkbEeMM=
+=b1+3
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.0.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlr8jGsACgkQh48B+qjT
+VuHbxQ//UpfnaQUxkEUzUp04lZ7nMrh/RblfvhQOHRD+EXo/2CgbyMXSkzZV6oLd
+APF6QTEoSJnxvuH7x1wlTUeleJ3VQw3+3pPh/6AcsoQ9KnN///rGtIL8YDDrP6FD
+L5MPw8l9g2z73dioVv/OCRJD1Q6DjG/uiB0yYD+BpAWAvsZX5L22tBKl0Bsho3IV
+nc/xPI91NPXkv0Jouxfa6VMbjvCNBYRFoYQP2OSmoVOmyflRAeINysSmdQoyaLXD
+Q22CTRQCxmANb/5r3jN7cmCQIOMTDMQqmgvJKqbOYwgi0SPPYBCRBy07394uWXNu
+3yo6yPu0dtdLH33pbk7yBpS6aY3JAs9RuHuJ++a5N10veEqbhh0sNHy7tlRkGhWa
+sHNSY0ez3wqnL2rYEI6FALWGGyXEAgYr1yqkZiLLxm1YLW08PQO46Zv5ybf5vtky
+MLYK+zYNKK8MQiMWsU6QjmVrWNl1/upfAyJSCLskFMpZ5hPwBn+3jXc0kFjT26MB
+WCcbaJhDWgo0XMIyZPO54ELeKzz4FTuwQtViIkLUC4KLX4Abxza5DPAS2KPOBviY
+FBm/LdFTte1WN/YU0qKwEvYuRqt7mEXyUbQuVT27R6kRfWoXF/dTJCrjbLv5g8ze
+cqwRxMPaZgKMSKpBlOnwWS5l6q1jN8FSFLdunm9Hdnn06aQbrdI=
+=OAcW
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.0.0:
+    
+** Bug
+
+    * [WICKET-6473] - Double slash break 404page
+    * [WICKET-6525] - SubmitLink.onSubmit not invoked when using GET-method
+    * [WICKET-6528] - Component part of Page check in AjaxRequestHandler breaks applications
+    * [WICKET-6533] - Error while parsing xml using AjaxButton
+    * [WICKET-6540] - When form.setDefaultButton(button) is called, the form is not displayed
+    * [WICKET-6542] - Wrong message for IllegalArgumentException in ConverterLocator.java
+    * [WICKET-6543] - onConfigure() Javadoc claims Overrides must call super, but there is no check to enforce it
+    * [WICKET-6545] - Argument 'markup' may not be null.
+    * [WICKET-6546] - CssContentHeaderItem comments CSS code with HTML comments
+
+** Improvement
+
+    * [WICKET-6055] - AjaxLazyLoadPanel should provide non-blocking lazy load
+    * [WICKET-6321] - Support Integrity and Crossorigin attributes for JavaScriptUrlReferenceHeaderItem 
+    * [WICKET-6503] - Ajax refresh and feedback panel
+    * [WICKET-6527] - no possibility to override fixed html appended directly to response by FilterForm
+    * [WICKET-6541] - Allow wizard finish before last step
+    * [WICKET-6548] - CSVDataExporter custom converters and resource strings
+
