@@ -17,6 +17,8 @@
 package org.apache.wicket.page;
 
 import java.io.Serializable;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -27,8 +29,6 @@ import org.apache.wicket.pageStore.IPageStore;
 import org.apache.wicket.settings.ExceptionSettings.ThreadDumpStrategy;
 import org.apache.wicket.util.LazyInitializer;
 import org.apache.wicket.util.lang.Threads;
-import org.apache.wicket.util.time.Duration;
-import org.apache.wicket.util.time.Time;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,9 +69,10 @@ public class PageAccessSynchronizer implements Serializable
 		this.timeout = timeout;
 	}
 
-	private static long remaining(Time start, Duration timeout)
+	private static long remaining(Instant start, Duration timeout)
 	{
-		return Math.max(0, timeout.subtract(start.elapsedSince()).getMilliseconds());
+		Duration elapsedTime = elapsedSince(start);
+		return Math.max(0, timeout.minus(elapsedTime).toMillis());
 	}
 
 	/**
@@ -96,17 +97,16 @@ public class PageAccessSynchronizer implements Serializable
 	{
 		final Thread thread = Thread.currentThread();
 		final PageLock lock = new PageLock(pageId, thread);
-		final Time start = Time.now();
+		final Instant start = Instant.now();
 
 		boolean locked = false;
 
 		final boolean isDebugEnabled = logger.isDebugEnabled();
 
 		PageLock previous = null;
-
 		Duration timeout = getTimeout(pageId);
-
-		while (!locked && start.elapsedSince().lessThan(timeout))
+		
+		while (!locked && elapsedSince(start).compareTo(timeout) < 0)
 		{
 			if (isDebugEnabled)
 			{
@@ -145,7 +145,7 @@ public class PageAccessSynchronizer implements Serializable
 				logger.warn(
 					"Thread '{}' failed to acquire lock to page with id '{}', attempted for {} out of allowed {}." +
 							" The thread that holds the lock has name '{}'.",
-					thread.getName(), pageId, start.elapsedSince(), timeout,
+					thread.getName(), pageId, Duration.between(start, Instant.now()), timeout,
 							previous.thread.getName());
 				if (Application.exists())
 				{
@@ -381,7 +381,7 @@ public class PageAccessSynchronizer implements Serializable
 			if (isDebugEnabled)
 			{
 				logger.debug("{} waiting for lock to page {} for {}",
-					thread.getName(), pageId, Duration.milliseconds(remaining));
+					thread.getName(), pageId, Duration.ofMillis(remaining));
 			}
 			try
 			{
@@ -402,5 +402,10 @@ public class PageAccessSynchronizer implements Serializable
 			released = true;
 			notifyAll();
 		}
+	}
+	
+	private static Duration elapsedSince(Instant start)
+	{
+		return Duration.between(start, Instant.now());
 	}
 }

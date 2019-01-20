@@ -17,6 +17,7 @@
 package org.apache.wicket.protocol.http.servlet;
 
 import java.io.IOException;
+import java.time.Instant;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +29,6 @@ import org.apache.wicket.request.UrlRenderer;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.http.WebResponse;
 import org.apache.wicket.util.lang.Args;
-import org.apache.wicket.util.time.Time;
 
 /**
  * WebResponse that wraps a {@link ServletWebResponse}.
@@ -84,10 +84,10 @@ public class ServletWebResponse extends WebResponse
 	}
 
 	@Override
-	public void setDateHeader(String name, Time date)
+	public void setDateHeader(String name, Instant date)
 	{
 		Args.notNull(date, "date");
-		httpServletResponse.setDateHeader(name, date.getMilliseconds());
+		httpServletResponse.setDateHeader(name, date.toEpochMilli());
 	}
 
 	@Override

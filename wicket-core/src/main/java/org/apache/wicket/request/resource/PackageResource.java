@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -50,7 +51,6 @@ import org.apache.wicket.util.resource.IResourceStream;
 import org.apache.wicket.util.resource.ResourceStreamNotFoundException;
 import org.apache.wicket.util.resource.ResourceStreamWrapper;
 import org.apache.wicket.util.string.Strings;
-import org.apache.wicket.util.time.Time;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -331,7 +331,7 @@ public class PackageResource extends AbstractResource implements IStaticCacheabl
 		}
 
 		// add Last-Modified header (to support HEAD requests and If-Modified-Since)
-		final Time lastModified = resourceStream.lastModifiedTime();
+		final Instant lastModified = resourceStream.lastModifiedTime();
 
 		resourceResponse.setLastModified(lastModified);
 

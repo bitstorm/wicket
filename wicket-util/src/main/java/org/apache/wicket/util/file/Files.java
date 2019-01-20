@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.Instant;
 
 import org.apache.wicket.util.encoding.UrlDecoder;
 import org.apache.wicket.util.io.IOUtils;
@@ -413,7 +414,7 @@ public class Files
 	 * 
 	 * @return timestamp
 	 */
-	public static Time getLastModified(File file)
+	public static Instant getLastModified(File file)
 	{
 		// get file modification timestamp
 		long millis = file.lastModified();
@@ -425,7 +426,7 @@ public class Files
 		}
 
 		// last file modification timestamp
-		return Time.millis(millis);
+		return Instant.ofEpochMilli(millis);
 	}
 
 	/**

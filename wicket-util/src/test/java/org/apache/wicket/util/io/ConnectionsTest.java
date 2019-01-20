@@ -16,12 +16,11 @@
  */
 package org.apache.wicket.util.io;
 
-import org.apache.wicket.util.WicketTestTag;
-import org.apache.wicket.util.time.Time;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.net.URL;
+import java.time.Instant;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -39,8 +38,8 @@ public class ConnectionsTest
 	public void getLastModified() throws Exception
 	{
 		URL url = new URL("http://wicket.apache.org/learn/books/wia.png");
-		Time lastModified = Connections.getLastModified(url);
+		Instant lastModified = Connections.getLastModified(url);
 		assertNotNull(lastModified);
-		assertNotEquals(lastModified.getMilliseconds(), 0L);
+		assertNotEquals(lastModified.toEpochMilli(), 0L);
 	}
 }
