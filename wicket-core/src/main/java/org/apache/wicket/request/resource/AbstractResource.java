@@ -18,6 +18,8 @@ package org.apache.wicket.request.resource;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -40,7 +42,6 @@ import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.lang.Classes;
 import org.apache.wicket.util.string.Strings;
 import org.apache.wicket.util.time.Duration;
-import org.apache.wicket.util.time.Time;
 
 /**
  * Convenience resource implementation. The subclass must implement
@@ -140,7 +141,7 @@ public abstract class AbstractResource implements IResource
 		private ContentRangeType contentRangeType = null;
 		private String textEncoding;
 		private long contentLength = -1;
-		private Time lastModified = null;
+		private Instant lastModified = null;
 		private WriteCallback writeCallback;
 		private Duration cacheDuration;
 		private WebResponse.CacheScope cacheScope;
@@ -407,7 +408,7 @@ public abstract class AbstractResource implements IResource
 		 *
 		 * @return {@code this}, for chaining.
 		 */
-		public ResourceResponse setLastModified(Time lastModified)
+		public ResourceResponse setLastModified(Instant lastModified)
 		{
 			this.lastModified = lastModified;
 			return this;
@@ -416,7 +417,7 @@ public abstract class AbstractResource implements IResource
 		/**
 		 * @return last modification timestamp
 		 */
-		public Time getLastModified()
+		public Instant getLastModified()
 		{
 			return lastModified;
 		}
@@ -424,7 +425,7 @@ public abstract class AbstractResource implements IResource
 		/**
 		 * Check to determine if the resource data needs to be written. This method checks the
 		 * <code>If-Modified-Since</code> request header and compares it to lastModified property.
-		 * In order for this method to work {@link #setLastModified(Time)} has to be called first.
+		 * In order for this method to work {@link #setLastModified(Instant)} has to be called first.
 		 * 
 		 * @param attributes
 		 *            request attributes
@@ -434,7 +435,7 @@ public abstract class AbstractResource implements IResource
 		public boolean dataNeedsToBeWritten(Attributes attributes)
 		{
 			WebRequest request = (WebRequest)attributes.getRequest();
-			Time ifModifiedSince = request.getIfModifiedSinceHeader();
+			Instant ifModifiedSince = request.getIfModifiedSinceHeader();
 
 			if (cacheDuration != Duration.NONE && ifModifiedSince != null && lastModified != null)
 			{
@@ -443,9 +444,9 @@ public abstract class AbstractResource implements IResource
 				// that's stupid, since changes within one second will not be reliably
 				// detected by the client ... any hint or clarification to improve this
 				// situation will be appreciated...
-				Time roundedLastModified = Time.millis(lastModified.getMilliseconds() / 1000 * 1000);
+				Instant roundedLastModified = lastModified.truncatedTo(ChronoUnit.SECONDS);
 
-				return ifModifiedSince.before(roundedLastModified);
+				return ifModifiedSince.isBefore(roundedLastModified);
 			}
 			else
 			{
@@ -771,7 +772,7 @@ public abstract class AbstractResource implements IResource
 			WebResponse webResponse = (WebResponse)response;
 
 			// 1. Last Modified
-			Time lastModified = resourceResponse.getLastModified();
+			Instant lastModified = resourceResponse.getLastModified();
 			if (lastModified != null)
 			{
 				webResponse.setLastModifiedTime(lastModified);

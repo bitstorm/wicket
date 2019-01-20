@@ -17,6 +17,7 @@
 package org.apache.wicket;
 
 import java.io.Serializable;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -44,7 +45,6 @@ import org.apache.wicket.util.LazyInitializer;
 import org.apache.wicket.util.io.IClusterable;
 import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.lang.Objects;
-import org.apache.wicket.util.time.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -983,7 +983,7 @@ public abstract class Session implements IClusterable, IEventSink, IMetadataCont
 			}
 			else
 			{
-				timeout = Duration.minutes(1);
+				timeout = Duration.ofMinutes(1);
 				log.warn(
 					"PageAccessSynchronizer created outside of application thread, using default timeout: {}",
 					timeout);

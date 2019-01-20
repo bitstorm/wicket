@@ -31,6 +31,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.SecureRandom;
 import java.security.Security;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +41,6 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.resource.DynamicImageResource;
 import org.apache.wicket.util.io.IClusterable;
-import org.apache.wicket.util.time.Time;
 
 
 /**
@@ -254,7 +254,7 @@ public class CaptchaImageResource extends DynamicImageResource
 		{
 			data = render();
 			imageData = new SoftReference<>(data);
-			setLastModifiedTime(Time.now());
+			setLastModifiedTime(Instant.now());
 		}
 		return data;
 	}

@@ -18,14 +18,17 @@ package org.apache.wicket.protocol.http;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.time.Duration;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.util.function.Function;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.apache.wicket.Application;
 import org.apache.wicket.Page;
 import org.apache.wicket.RuntimeConfigurationType;
@@ -77,7 +80,6 @@ import org.apache.wicket.util.file.Path;
 import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.lang.PackageName;
 import org.apache.wicket.util.string.Strings;
-import org.apache.wicket.util.time.Duration;
 import org.apache.wicket.util.watch.IModificationWatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -963,7 +965,7 @@ public abstract class WebApplication extends Application
 	 * is no need to configure these parameters externally.
 	 */
 	private final StoredResponsesMap storedResponses = new StoredResponsesMap(1000,
-		Duration.seconds(60));
+		Duration.ofSeconds(60));
 
 	/**
 	 * 

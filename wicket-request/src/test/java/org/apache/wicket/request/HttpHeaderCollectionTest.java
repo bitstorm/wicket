@@ -23,11 +23,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.time.Instant;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
 
-import org.apache.wicket.util.time.Time;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("javadoc")
@@ -89,15 +89,15 @@ public class HttpHeaderCollectionTest
 	{
 		final HttpHeaderCollection headers = new HttpHeaderCollection();
 
-		final Time time1 = Time.millis(1000000);
-		final Time time2 = Time.millis(2000000);
+		final Instant time1 = Instant.ofEpochMilli(1000000);
+		final Instant time2 = Instant.ofEpochMilli(2000000);
 
 		headers.setDateHeader("date", time1);
 		headers.addDateHeader("date", time2);
 		headers.addHeader("date", "not-a-date");
 
 		assertEquals(time1, headers.getDateHeader("date"));
-		assertEquals("Thu, 01 Jan 1970 00:16:40 GMT", headers.getHeader("date"));
+		assertEquals("Thu, 1 Jan 1970 00:16:40 GMT", headers.getHeader("date"));
 
 		// a change of the locale or timezone must not affect the date format
 		final Locale defaultLocale = Locale.getDefault();
@@ -105,7 +105,7 @@ public class HttpHeaderCollectionTest
 
 		try
 		{
-			final String expected = "Thu, 01 Jan 1970 00:16:40 GMT";
+			final String expected = "Thu, 1 Jan 1970 00:16:40 GMT";
 
 			Locale.setDefault(Locale.CHINESE);
 			TimeZone.setDefault(TimeZone.getTimeZone("CET"));
@@ -121,14 +121,14 @@ public class HttpHeaderCollectionTest
 			TimeZone.setDefault(defaultLocaleefaultTimezone);
 		}
 
-		assertArrayEquals(new String[] { "Thu, 01 Jan 1970 00:16:40 GMT",
-				"Thu, 01 Jan 1970 00:33:20 GMT", "not-a-date" },
+		assertArrayEquals(new String[] { "Thu, 1 Jan 1970 00:16:40 GMT",
+				"Thu, 1 Jan 1970 00:33:20 GMT", "not-a-date" },
 			headers.getHeaderValues("date"));
 
 		headers.setHeader("date", "foobar");
 		try
 		{
-			Time date = headers.getDateHeader("date");
+			Instant date = headers.getDateHeader("date");
 			fail();
 		}
 		catch (IllegalStateException e)

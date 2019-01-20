@@ -19,13 +19,13 @@ package org.apache.wicket.request.resource;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.time.Instant;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.util.lang.Args;
-import org.apache.wicket.util.time.Time;
 
 /**
  * Base class for dynamically generated ImageResources.
@@ -38,7 +38,7 @@ public abstract class DynamicImageResource extends AbstractResource
 	private String format = "png";
 
 	/** The last modified time of this resource */
-	private Time lastModifiedTime;
+	private Instant lastModifiedTime;
 
 
 	/**
@@ -84,7 +84,7 @@ public abstract class DynamicImageResource extends AbstractResource
 	 * 
 	 * @param time
 	 */
-	protected synchronized void setLastModifiedTime(Time time)
+	protected synchronized void setLastModifiedTime(Instant time)
 	{
 		lastModifiedTime = time;
 	}
@@ -115,7 +115,7 @@ public abstract class DynamicImageResource extends AbstractResource
 
 	/**
 	 * Get image data for our dynamic image resource. If the subclass regenerates the data, it
-	 * should set the {@link DynamicImageResource#setLastModifiedTime(Time)} when it does so. This
+	 * should set the {@link DynamicImageResource#setLastModifiedTime(Instant)} when it does so. This
 	 * ensures that image caching works correctly.
 	 * 
 	 * @param attributes
@@ -143,7 +143,7 @@ public abstract class DynamicImageResource extends AbstractResource
 		}
 		else
 		{
-			response.setLastModified(Time.now());
+			response.setLastModified(Instant.now());
 		}
 
 		if (response.dataNeedsToBeWritten(attributes))

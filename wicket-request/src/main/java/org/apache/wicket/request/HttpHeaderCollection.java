@@ -16,6 +16,9 @@
  */
 package org.apache.wicket.request;
 
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -43,6 +46,8 @@ public class HttpHeaderCollection
 
 	/** returned in case no header values were found */
 	private static final String[] NO_VALUES = new String[0];
+	
+	private static final DateTimeFormatter formatter = DateTimeFormatter.RFC_1123_DATE_TIME.withZone(ZoneOffset.UTC);
 
 	/**
 	 * Constructor.
@@ -115,7 +120,7 @@ public class HttpHeaderCollection
 	 * @param time
 	 *            timestamp
 	 */
-	public void addDateHeader(String name, Time time)
+	public void addDateHeader(String name, Instant time)
 	{
 		internalAdd(name, time);
 	}
@@ -128,7 +133,7 @@ public class HttpHeaderCollection
 	 * @param time
 	 *            timestamp
 	 */
-	public void setDateHeader(String name, Time time)
+	public void setDateHeader(String name, Instant time)
 	{
 		// remove previous values
 		removeHeader(name);
@@ -161,9 +166,9 @@ public class HttpHeaderCollection
 
 	private String valueToString(Object value)
 	{
-		if (value instanceof Time)
+		if (value instanceof Instant)
 		{
-			return ((Time)value).toRfc1123TimestampString();
+			return formatter.format((Instant)value);
 		}
 		else
 		{
@@ -261,7 +266,7 @@ public class HttpHeaderCollection
 	 * @param name
 	 * @return {@code null} when the header was not found
 	 */
-	public Time getDateHeader(String name)
+	public Instant getDateHeader(String name)
 	{
 		final List<Object> objects = headers.get(new HeaderKey(name));
 
@@ -271,11 +276,11 @@ public class HttpHeaderCollection
 		}
 		Object object = objects.get(0);
 
-		if ((object instanceof Time) == false)
+		if ((object instanceof Instant) == false)
 		{
 			throw new IllegalStateException("header value is not of type date");
 		}
-		return (Time)object;
+		return (Instant)object;
 	}
 
 	/**
