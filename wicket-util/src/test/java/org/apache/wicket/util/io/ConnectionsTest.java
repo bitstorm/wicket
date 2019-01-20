@@ -24,10 +24,7 @@ import java.time.Instant;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * Tests for {@link Connections}
- */
-@Tag(WicketTestTag.SLOW)
+@SuppressWarnings("javadoc")
 public class ConnectionsTest
 {
 	/**
