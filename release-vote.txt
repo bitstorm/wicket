@@ -1,0 +1,104 @@
+This is a vote to release Apache Wicket 8.4.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.4.0
+[ ] No, don't release Apache Wicket 8.4.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.4.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.4.0
+    Release tag: rel/wicket-8.4.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.4.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlyiZeUACgkQh48B+qjT
+VuGjYxAAkpJi5GiJTIh/w+YJMDpt4I1wrkPXOl6IaUdeyiOPlibne/ZAuJXl0llu
++xR5Evj4uEKbG+IAtRsBWXSU1EkyjqbuujGzJ2Isof1ntHBMr6lGSZkqkR+ua3cY
+ODx4CYf0L7j0Of2ueZ9K1cpcTar+49cbBXYwsGpyS95E/m0ADzAW5aeaefDW0XOd
+xJnqkWzPZ8k86PxE4BnHu6k+pOCg0gojn6RU15i/6CU9iL+rdVizm/5Oz5XNSGUx
+NLQxQ8YHYaEZ/b2ZqgmkOHJIK51vns16FeVjHrUXrdGuZarOL/NC1aFo974OprxI
+DEplQA6qbZKIufOzIP9cG58z3lo1XCgLRK7u7WioY8LnaS4vZdFjW3ZoHXMy8VEW
+yzSrFHuvCks61GE113OjUzUhG3d/MXZJ/SMUEER952bLnObErB8mXRJvtPdf0wAJ
+dloaTQ2+nQB+z8yykFoCn+2X9QvvjfOfpQMTETVCQ6PXdpyMqiXIvhHh2Yl/PhPQ
++adFHiTjfbR08iFqpWzXWM6DcfKXP70Mhd5FlxOFv57U3HCiJH9QAj7tyMg1EkmL
+8NOa/XE78oPv8SpGS8vuO7QCFnidkWINMY6Xwsv7AjC6BPThkIz6dYjxERVCYWHH
+7NTmXFNkab3RsTFWDS4c2g7Lykx0bcuQy7kSYvGaRI9CMXj3D4w=
+=K8rq
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.4.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlyiZeQACgkQh48B+qjT
+VuGl5BAAk3AZcj9hlt5PsnN8/0hCCrR3nGwh0aEw9h0BFOnRV7CupSh6DMhd9/OW
+w+sI2Q7XzCljMNDTcz4y9yY9uExQez9V8X8oZ/SrME5EC47lMotrJgMgkruORcM4
+imfhv/r6ixJmNTHUI9LQMJ2vrc8qFmbClDfekBzSZS8jLRZ7cS5J8R/oGrahG2Xb
+TWrKh7b3I47NJKYWqqMa2v4J2IMsHb3YRmg0ek+D9yBwvWIiORW895aSCCwahcJY
+31uTbazjJ1aDcg15P0HWZzGLTfoDq5W/A9I86NNCoipmXRLKw2/NrQ8pf6JGFAHP
+P3muMdlGWiN5TfxdS5G8Jh3hELb4kQYECfEzTZibhxvmWFyrlTGrzSwmjOaIbao4
+WZ2ogRsQDvuOmmiKuC7KlfKzIH4fZ83425xUwIZqkyoRCDu074oYRkLbBJYk0TR6
+UOQBNRKMcDJmxUzO8kvBRE66LA8dntGTz2IupLZ6p5XULX36/l5CraB50QI0t869
+tbP7o12xdAfmdea7ezltTJO1cwkLPZlbpB6BxaXlkZQWT5CRU71aTeogWELbepgX
+QT4JsLuXvTGPqMjEXqP274uWequD53X9i3ZKyfHNZmkV7WZpvp6w/4esvZ5GRU7W
+NvHQMYC6hiTbZq5ufwVlTfe519gNoy0VVML+JXamBb8bec9VVmc=
+=9vQ/
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.4.0:
+    
+** Bug
+
+    * [WICKET-6637] - Handling exception Wicket 8
+    * [WICKET-6639] - PageStoreManager$SessionEntry.clear produces NullPointerException
+    * [WICKET-6642] - Form.findSubmittingComponent returns null instead of SubmitLink
+    * [WICKET-6645] - Concurrent web socket response message processing on the client
+
+** New Feature
+
+    * [WICKET-6641] - Extract an interface for classes allowing to register feedback messages
+
+** Improvement
+
+    * [WICKET-6634] - Save the closeCode and message in WebSocket's ClosedMessage
+    * [WICKET-6638] - RedirectRequestHandler does not support Ajax
+    * [WICKET-6640] - Add settings for customizing the ModalWindow's spacing, header height and overflow
+    * [WICKET-6644] - AbstractPageableView can only be serialized with Java built-in serialization
+
+** Wish
+
+    * [WICKET-6646] - Upgrade jquery to 3.3.x
+
+** Task
+
+    * [WICKET-6647] - Upgrade asm to 7.1
+
