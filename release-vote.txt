@@ -1,0 +1,90 @@
+This is a vote to release Apache Wicket 7.13.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 7.13.0
+[ ] No, don't release Apache Wicket 7.13.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/7.13.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-7.13.0
+    Release tag: rel/wicket-7.13.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-7.13.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlyjvbEACgkQh48B+qjT
+VuEUpw/9EdhvP18NKyL08P9dh/IVDW7DAUq95hhrOWPwLS9HJVDHJOJY+FbK6zzd
+HHrHEHFWe6syz83xkl8za69SUHB8mdKbwLG7UAcXojzBb6MVRIZCsdYfF4pMfC+f
+bDSrB+XvvBEXllrJySA2akJVfrgf0U6oxfs6vqUgTOzx/pUda5MTZRiZBeO7nmT0
+aHHgyaP96ecvtjIDyR9lwhmkzxS7VkGmT8XWpaQ2wT9mln2Ff4/SKd3ZtIHEpKrY
+qWRbuC0JFf7EdEH1NEbrOYbXL3hnM9CEvlQunDJGWv6VtbEXyx30EmVbSylStrfZ
+LnIXyIDDOVZ/Exx4Y/ijwP1nPnaVRF19PVaCeiWuJd/OvbYjMMBxYhkz5BqJPp2I
+mJuipjE4Ao4yoOmlPo53RnWf83gueosqO7rD55XkJI47GLN7pwbcdRXcUcxUqTL5
+glZZC3VFPPvLloKHmDvAVgxAwjO0qI3zeNfL0CmZDYGLJZeW9DnxCiS1mi/4gURf
+DHQzK6OFTgy1nUcqH3utOGT9Dwys3WGxeaT4oucvmi8yqiq5RRl+jXghqjI93Tvh
+qdraUy+DvbTtCMnw3JRJl4pusbIaGkQfwFXri3l7V+kpUR/K8taFJiWeO/8GdVBO
+jhP0dAyO8pvH1wXmobVFDw5o5UNa5y3A+Rr/PvI85hsHeTHQYS8=
+=UPy5
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-7.13.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlyjvbEACgkQh48B+qjT
+VuGevA//aTrkqeHG/0QB03gZ7eya6BArgrkyK2vTP5gBRzCc571mBe7N3mdpV1di
+6YnMEV25DJZwVIwQ9KoPtVs1KBGCX/2U/JqYf4YaQQJM1uEM2bQ3bVjwYJcG6xHI
+P82cqhQDBGZGIydHWzBwrkf1GACF2K5DzqvK7y5fd1BGtrJIM52fLY5INVeYeVih
+S4W84xlA+57HppsYdgR69c30qkI178903+iYcdlL9qtf1B3beKTJo/NkjJks/0a/
+Yps0Za40/RwHSFDJM+G4Ks8LZ/wfHKW9OacAF4JT5vzLX6g5vOT0yy0jDQYsUx1C
+BxHUeRcYv82yMdhR2pZ+F2htTQINEBdYL0GLx6TU5cwsU2GHQex8ZXJaNa6Xp/QS
+TTADPaV3yIwJo8i4jpo6Br6/LZQTMuoOwfbkEVoNPsyoR89Rp67Bkqragg5gNnQH
+IunybqbFBEpuyfMhoq7V1wYiPKGJwQXRy8J8A6Ozck+Lql2XsOgg71vnh1PjOmPa
+s/cHnBFH6ravgnk+y6pAKG51mtPceR7TMNfm/zhu2qKYsp3C6t0A/OjeeqDTvWQz
+0RuRWs47aXFRwLlQNqKJLO3YXJKRReZMRmJml/lBVXnqWLcsz3DKsrrdCZ91F5/f
+AlaQslKTwi97uzUNSvG+Hm8+GnKGu63I3WPTqrsjKKVNcbLjNZE=
+=H6X1
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 7.13.0:
+    
+** Bug
+
+    * [WICKET-6645] - Concurrent web socket response message processing on the client
+
+** Improvement
+
+    * [WICKET-6638] - RedirectRequestHandler does not support Ajax
+
+** Wish
+
+    * [WICKET-6646] - Upgrade jquery to 3.3.x
+
