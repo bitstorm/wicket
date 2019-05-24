@@ -1,0 +1,100 @@
+This is a vote to release Apache Wicket 8.5.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.5.0
+[ ] No, don't release Apache Wicket 8.5.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.5.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.5.0
+    Release tag: rel/wicket-8.5.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.5.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlzoLa8ACgkQh48B+qjT
+VuEg3w//Uuco8T5CsMz0HaKelBp+4NnkzpexvK19MDYLsk2Dr3+OlV3jFwDssK/n
+iLpnXVlQg5mIoH3XYh8yJ/7WLmKz9NuaentvR0kb3ukOR57SoB5b9Aiqp2+4KbRx
+fFh9a+clLh4MYhrkMhHRcYKbUNdmaTQvBvG0Ayennvu7ZrvncYK5LcYiIKs6yaYw
+FeLNTjdrQmAY4mlQilfPQaQP7BeQeLb1cVVWDIKMJSvIWBo2P415mo+UaB4D86vE
+9EmR2dnGAbkZXTUqwnQLEtholELN/WxgDTA1nSzCKgBLC/QyrN830qV34EpVQx8Z
+vnTW6vLuSr4hFTBBgeo7qhnRiRHYjh9CGvuuEZEJwQZADiBrZK3CRQrkGPpy9H6e
+mDag2u7/dpSXzbgG3+XEerKlg/zXQ963dVf9SVduUmL53Hh15oTbmgqJlJ8BKuG9
+OEi3+OfgpNg/vSY2guQ6Rr55PlVlml16b4JBOIA1ZYIjRbBWB/ycXbHdj0W3X5Ov
+ixhWnkJJvqHO0YwPhT0Q3cpYPoNxGxcVHQiQAhmTWQeFjI3CPk7GPtEcgFQSo8aq
++Da4UpEQcswVV/qz3DerM4HrVs9/6uqRqm8P4zo3WBDEjsRoKVWHdOkhInPFWyHf
+/bh9MiSOdpbTnCUn977MCbCrgGTb5GymuHxJrK3gDMPJbSFWrWI=
+=NiYR
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.5.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAlzoLa4ACgkQh48B+qjT
+VuEtHg//V0t6olb+2uKScDFX4uEFM14WKtX9Q5HV9MkZ6VNvPZkqlWutmNf0eVh7
+vJ2J2eJl5UHB1TL82+O+koX3uJCLMshSniezNiwLVkIY93yaZbxqYyi5J07Tax9t
+nGqc1YLFjVoiXTHK8Rmg8tOuqhEHMv9d6StYQ1P3mHv8oBnS2ouhS+Z9c2QxATK2
+BQJgBHPOd8DOW9dsVcxO7Ag8lOZ6O6R+4hAdISw/+d5v0Tyv3LQmvGhyEz+TbduG
+IlUEv2/YbUDKD5bixNfGusYjQUkTLZ25dpv4lwSeIChUhd6bqZ4AE/T2G/Rq6FWr
+5hnvoH1xq2FqWja375T/xquQ+VIkZqNDaTqm/kmuxuV4P2Y/n8tW/Px/3Te0TtQL
+GJDaJr9cjafaGfW2M2uq4VnihEjVYUXmeZbq10DHQTSPV6vQ7Ntda1tp0AK4fmOT
+9pV5lUjxqxGiPhdzlbL+3YfRNEQNDu6Avd7/INqcHERIOpGCHjiHNwx0CGTj5xZx
+GfKCRLAWM9m77GQfPubouSgLOjtGRvr0Ul5emjmyXqGKbnVwCuANl8bYQp4qJxww
+bFODc2pLzQ5hE31MdJuFFu+A0+4J7/yskeqFIghB0TKX+csQRzPeK4pC9qnOFcre
+hJ3Vo/O2QUVaTuzaDGSux7glRlIbJ/SgKzAeat8uKt9FvyR2q4g=
+=JpiS
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.5.0:
+    
+** Bug
+
+    * [WICKET-6611] - Missing check for IScopeAwareTextResourceProcessor when concatenating resources
+    * [WICKET-6650] - Url decode the name of the file after AjaxDownload with Location == Blob
+    * [WICKET-6651] - Redirecting with ResetResponseException does not work anymore
+    * [WICKET-6669] - CSS Resource Bundling throws exception when used with CssUrlReplacer
+
+** Improvement
+
+    * [WICKET-6648] - It is impossible to initiate AjaxDownloadBehavior with IPartialPageRequestHandler
+    * [WICKET-6655] - ExportToolbar should set cache duration to none on the served file and also provide a way to easily change that
+    * [WICKET-6656] - JSR 303 - @NotNull validation problems 
+    * [WICKET-6658] - Allow nested forms on non-<form> tag
+    * [WICKET-6659] - commons-io:commons-io is used in multiple versions at same time
+    * [WICKET-6668] - Sign out the existing session if a sign in attempt has failed
+
+** Task
+
+    * [WICKET-6654] - Upgrade JQuery to 3.4.0
+    * [WICKET-6661] - Upgrade jquery to 3.4.x
+    * [WICKET-6665] - Upgrade various dependencies
+
