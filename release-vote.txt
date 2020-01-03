@@ -1,0 +1,98 @@
+This is a vote to release Apache Wicket 8.7.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.7.0
+[ ] No, don't release Apache Wicket 8.7.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.7.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.7.0
+    Release tag: rel/wicket-8.7.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.7.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl4PkkYACgkQh48B+qjT
+VuERUA//a8+ZT8QhHuNxR8YD/c8YtMTHffwvrg90TujAH0rvD0b9MksNJJFE4Wz8
+FVmVvFFpeccvEUa+Aj4CPLeQwlnToKD0Ddb6svtfSboYcKl0F97r0TUZFV3Yd/mf
+ZkfbQSsZ6wuBbk01zDPsqZdH5bi8jVxyyTgX6/Er8TpIBGD4FjAO/O3R/La30wUs
+rI+k54I/JcCMsu6GGfTX43JixUnhIzUkkQwI81AEv05f428XkEUpfQFCx5iKxQZd
+uR8OO36SEAEjCyGjoxD5tzaqU+UDPmtmTheHHsX6rrkrnAjhXP90KFt1s14Gmvqp
+gGhDRiVpJjYshhvzKBsoFOl4VxPQVc9Drv+kAS2bJnIsLMHbgmkvK8co5Mk78LwB
+ug0RFXEEOBX1jp9TDyfMRVpSzlDdn1XI4GROpB8cvptRkE22ZnsU6ew657fy+4zK
+Uzh1j0QpBF5YNQL9GkM+qkIlWbbgxUGZK+Tkfsfl3hGMA6y8NzStixZjVsdsrL3l
+tMcz/325A/QeFwvFRpKWFQzeUGwngstgJxyndcBpPEMyWSL+nCJV7lOYFvrj3HdM
++JwZfsf44F6zkLTVq5ReOuW7ig/NTqwoai39eU7cAqG5q3/KjSqNBQGxqmvqim0p
+6SAVjTWYj4lMTFmiIEpla+SvI4IK4YHpiGKRFRtUH+RvEM1NOpM=
+=HNEm
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.7.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl4PkkYACgkQh48B+qjT
+VuGjmw/+KufMKaI6fdWJoxZlofBXDJObylbtCE3fI0Cv8xsd0dTpTANNKbH2tlCi
+/tG2PLwqX3wk74P8YZgkPqmb7HTC1S4qNI9CsGxt3Eo2lrGAQtcGJD7Vzpv5lkHp
+bmpZGNLPCKUgZZz31271QMfj/CSgY6J2vlPWC+O83LGCKaAO1XL5w2gvoRXoZo/t
+oJJVZ+ejHvGlw/OAyEC/KP4dasqMp1K6eq2BlBM9UkZEt1JbevgkTInDlzrJTtJr
+eDIknfv3Efxjx8JNCdPVXoVQSZkp3xnE7BisaSJ74tdm5gR4LFyttBl7X3zeG4hX
+GyHE3CT3VtnEHGSSTEScewu2Tx7DrBJc1ZUNH5Lzg8/oRXY/tiPgsuG3z2Abbxr3
+IYjGFUYPMLAT5PWIwMzB9K4spPOucsG6ipnPGJsYTa3OmEIAgzJDYloinvpSmH5N
+0YxloR5KXVyH3uyn94Je6DftdDWTe3NYkkWrTwTXVdSex73WJZ5fXiZHRcmghal8
+6sOs38BCoa49WChUeMYpUuGvHcss8UOrDQjad2j3prRwUqy1Sw35nYDsAfvNt2Hh
+KxO0XHcT/jhDmHF9GSvVI4DTr1EvkW0jwOZgdKVfTzYt5xDVZjFD6EEA/7hY55P1
+F6t2ZY52dmHVv0d6CTZWEcIZbTEQTpiwWb4EF+FD+DVM2D08qUE=
+=sCFf
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.7.0:
+    
+** Bug
+
+    * [WICKET-6531] - Crash in Unsafe.getObject when running on the J9 VM
+    * [WICKET-6650] - Url decode the name of the file after AjaxDownload with Location == Blob
+    * [WICKET-6704] - JavaSerializer.serialize causes the JVM crash !
+    * [WICKET-6705] - URL filename not decoded when downloading via AjaxDownload blob mode
+    * [WICKET-6706] - Websocket Endpoint logs exception when user leaves page
+    * [WICKET-6707] - Property setter parameter type is assumed to be equal to getter return type
+    * [WICKET-6708] - FormComponent should read only the GET/POST parameters of the request, not both
+    * [WICKET-6713] - BaseWicketTester does not reset componentInPage field
+
+** Improvement
+
+    * [WICKET-6714] - Please add better getResource-Support for MockServletContext
+    * [WICKET-6720] - ConcatBundleResource#getResourceStream should not eagerly fetch resources
+
+** Task
+
+    * [WICKET-6698] - Non-security critical dependency updates
+
