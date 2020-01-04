@@ -1,0 +1,86 @@
+This is a vote to release Apache Wicket 7.16.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 7.16.0
+[ ] No, don't release Apache Wicket 7.16.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/7.16.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-7.16.0
+    Release tag: rel/wicket-7.16.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-7.16.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl4QoiAACgkQh48B+qjT
+VuEcMg//V/HLgAeFzSyvdj+GSvtq3r8aZgmTh+TLJ5zMiFVyu9hfPmh7T5V3EY3+
+Qn+CHdXh3kD/G6jLYAhEUw9iqU5duxFqBqXRzdTtmIwxK2VTdfI2iJhyTnmKGXS8
+vaUV8cjC8YMXtEjkibQGErbbV5jXRwohF029F7Zck1A7+U0PN58K0feMz7mXMIXT
+Gxl3dC0wXYa1SptctjeZSAxVCR4QZc/txIvCah00LlV0GDY24XMfxovd6oDsb6+W
++VjuNbAmleV7D534IPTh9VE9ObcHwqXi7JbPk5f/uL3BUTis+baZp0e+3kGpY4Il
+uLdUcGF4juDjc+lY1phxoPbni4XnHfEkDQLez40/jlMWO3Vx7BUkCFVolFOC5hAa
+8hmFURXSytXXDD4f3/yCMZr95Sdh4SP+FeQtryckE7K08lrblOHaQJn/dF08tcVN
+QOrFJ5k1LfDk3biB7U8bzGQJ1py0UctKyDzw15QY3FQb/stypn/brs7hMAXLQbZp
+knu9AhuTGvu2Q2kqqn78UwG+zq6hcZBVR4+XGkX9KHMxN3K16nKBnkdv2v6bLt1E
+Qyw1lBZj20Uo2dkpidyN6esDzX8j8US8c0CNylak/4xA1er7+MvkiAQhVjDlvqTH
+LbIO5Pyszlq9n1Vw6RSZjbWnhZL/Tv7CIux4zsdTLYMbaohZPZM=
+=9BT0
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-7.16.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl4QoiAACgkQh48B+qjT
+VuFEoQ//VxsVwquHRi4ZAHQK6KOlEmqRvF1DGqu9Eawqb8SQGNiqAmkWEjkfIaG0
+gBwpZUr1g0CY2F3NbPQMuPaokIn41QIGoeKCMapCYtzI8NjeEHEBHydDqs+9vHLw
+mbmuZdZeFmrUFH1DhhuBZY6XgczvlTKxw17HW6OBkqLqE0G6WTFVjMDTlFnXPqOd
+7IdXmIfSynxCSORzDvwjZUrtRSrrc/6T10kiaIDNNoBkwqBva2Dnk20i6yLgwoZW
+PBZyjosQhKj0FeP8RfD30S51MfJ3QMflY9iOYdN3oGxxNcAxQCHZXkzZA/dqvLcj
+TB1VJtmJ/O2wuASNDfa85FmbH7B+sFM4yp6rYsTsWLcWFLXm6y2r8iBER9AD04P8
+vUbqh4s7x8wWHX4T6n5xMq8nlSyoMokAEu+sEA2vkd32a1qrUSnKhI0qJK8Xlgz1
+DCeca2txqWTTr2qmK9xydBEcNUo9uNDS6Z6YpOY3AX3P9oA7TXBKBAyzRvZ/I5aN
+iZUVgYwvGPH7VfIF7YR3fRBvik2LwpfAq1kE19WZugKTCXWihgjHDKfZKxpnzOL+
+p5+WcEnf6NzsHSzoaAU/az0Wvem4yCj2B49uZUeMZfrgRoLt/DWB4mOBj/uhb+8K
+GkN/vehn3d9ZHJ76ImhkV1EGGgfAkSq1O7nHE2E2NxrZOVe8Ueo=
+=3rL9
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 7.16.0:
+    
+** Bug
+
+    * [WICKET-6531] - Crash in Unsafe.getObject when running on the J9 VM
+    * [WICKET-6704] - JavaSerializer.serialize causes the JVM crash !
+    * [WICKET-6706] - Websocket Endpoint logs exception when user leaves page
+    * [WICKET-6707] - Property setter parameter type is assumed to be equal to getter return type
+    * [WICKET-6708] - FormComponent should read only the GET/POST parameters of the request, not both
+
