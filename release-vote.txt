@@ -1,0 +1,97 @@
+This is a vote to release Apache Wicket 8.8.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.8.0
+[ ] No, don't release Apache Wicket 8.8.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.8.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.8.0
+    Release tag: rel/wicket-8.8.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.8.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl6coLEACgkQh48B+qjT
+VuFdGBAAiHikGIh0UtFE1rABkPus9Vj3OltyM7pqtAw1hyn75OXiDUXHIs00RWCJ
+0h7vqKZMYDOq+syHxhEjF4m945jI+de1JMn/zXxa8lCagHk22NClHcdtFlDb+xws
+sw+8bY0RkQbImA/kag/yFLpJ8Is/YrHsH76HmHvHHuHFrfXsRI7DNerhokb5BtAM
+Z89D4UFzZbHm0iiv6jjExrA7gmXGBKVRI3kG8AO2zmRRfG5gKUcfRh8tQGa80JGO
+CGU6peeLsodM1fw29SvT8r49SE2noqDaTuM6GicxREgo/pZVhpJkpNEKtJtM5NQ2
+slcX58mpCYkTBYFoMRW1poYlDOU+vfMKYUx5EfrvA1akfg7J+NnsbiWcOM/sjw+y
+h8ys7JnoW4jeVelF7xSHcDP8bWW/0ipgW8NfOOcQaMcm49ImAO0VhdFr4M3LvUpd
+6Q0K07CNhluVNUk/9XNrM2V1VAovkJACz0rYriI37+zoDUfrjqc2pGZziK7ZgbaP
++NBrvIJtjuOmn5zodwVeOMhA5QSw3qIGg4Tg+jqsIealzMcguJrPPMUFzO3bnRgs
+7uCQ6MQ2QXSCFTR3cXWvQh7tkSmtfNrmUz34lU9VcZLUw+6neKAOtmSwsxrATH5X
+4iipMYkS81GHnFPPnNP1uQDBUA5X3JktCNa71kmmIMnOrzbjgmM=
+=OZ+0
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.8.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl6coLAACgkQh48B+qjT
+VuEZAA/7BrVnFLoLBr+XOfkvM38XM/+SU/kb7dSzAs8TaaGawyUPnpDRT/JCtjv+
+7g5NvK/1vc7rKJ3ainskwUEI8zfpeegVFMBovabSy70QAF6Lj97Eoz58tLJrkpHU
+qTRsBUi8a9vceRuxz/INYM3dbRNylrpFga+jab9hrqK86L1wOhTLQfq6ZJ+nChMb
+POUnR8y9jLL4AzR/Me67F9VD4ucVP6xUCJen5baqC1FfXB3cLWOhVS1t46t+Y5r/
+7Opv1SWAiumyPpZjcIsnydma2xKtYxMa8tCphgHesgQWpQ/uTG9uuL9k0bim1XwN
+G0bewSKa6LVOrLwn2vFwSOWEjrPcK4Zs/M9J4lEA5Ak/ri5U5fT4OzvKmNkUiKUL
+2mxMpcstq6UFUJf117bdSqLQ3X3ViJAORrbyqIxR+P0/pn18ybTAsLUXOvMTkM8H
+UDtu4UQVFtIhD/quHgSZjMJr0m8hRnVNvZgLjXTT92cmMeCxtfTCfUbZjrwjSPM4
+6fQDilKXss25CjC63cM2Ztvd/8KGU7W1vQgdiD56XuduYZ2DHwWWm2QVbazmhegV
+tOZfAfYcXcNJagPSNgDLtnhgYCiNyZnvhlOSIQgD5vkVfhskf3RjZgX6J1Y7F+w0
+Sb0UwH933TRrxYQBMxv6P+apBhnKCMTAk3UVC0BWzZT1dFGup4s=
+=UYoM
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.8.0:
+    
+
+** Bug
+
+    * [WICKET-6746] - HttpsMapper cannot deal with resources over websockets
+    * [WICKET-6752] - Some dependencies contain CVEs
+    * [WICKET-6753] - res/modal.js using aria-labelledby where it should be using aria-label
+    * [WICKET-6754] - Iteration stops with nested containers
+    * [WICKET-6755] - MockServletContext does not decode real path
+    * [WICKET-6756] - Avoid URL.getFile() when actually expecting paths.
+    * [WICKET-6757] - Avoid URL.getFile during mime type detection.
+    * [WICKET-6758] - NPE in AbstractWebSocketProcessor after session times out
+
+** Improvement
+
+    * [WICKET-6759] - Support disabling error notification for websockets
+    * [WICKET-6760] - Nested Form placeholder should preserve tag name
+    * [WICKET-6761] - Support multiple connections to the same websocket resource from a single session
+    * [WICKET-6762] - Support manual initialization of websocket connections
+
