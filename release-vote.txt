@@ -1,0 +1,98 @@
+This is a vote to release Apache Wicket 7.17.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 7.17.0
+[ ] No, don't release Apache Wicket 7.17.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/7.17.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-7.17.0
+    Release tag: rel/wicket-7.17.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-7.17.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl8Qh/kACgkQh48B+qjT
+VuFaKQ//YHutIO2mTuZuWqOsR+B00aTJax372YZsAXB24vERxgrsOXUuKixmxojZ
+Mlx0NbXncIKSO9cAfaklJbn8NpqMp6WNVUJeg5KNxmGVVI4a2ivmZEguTU39xJy8
+6qYZ5+wOZRNx3owD9Um7OCvb9/osMhL7VkhoUnlH68gFVw/P/Nn9bYVfE5CTc6Tu
+1HcnaX37YnYPG2jC7fUNHRSw2gYziwWmPLkdXHwgwepjKif1WqKsYuAU+anhpspi
++K89lQzWBo4/ACjsienuhLaohikZOxzcIwZ1KYk4uvJA1o/3e7+aIt7v98398qBz
+lrCOOe8q07E0l+vMjYHCcnUpCiU69gMWHJKit3prSdmjnfu+D1D+uANFSEQLKRQY
+Y3RAEXw/64xLSKVM10edSpMOqNHcnQdgdPM1aicfNQ61NvWctF4JxYwviq0RF30K
+gBPed86rGBgTT9hL6ZTOEaos6Xk1PzMK55MVKfoNnVNx6s52PC78VWPIpFLXEJbo
+V84uDRWw+OaJ1QnN0GQPNdUFsHRLatKrrt3Nt4VFQpQt9hpjYr+gEmHkitbBWmZq
+V9f02IJ4vb/7Nip/2aDIm0PqSTy7hvJxkU353s6U1a1eCngpNm4TkHbNyNKJic23
+D+Ip2K9ATpBDlT+JUPWKJypv5QdWUC2SP4TrhlmUQvxN7m/goAU=
+=84lr
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-7.17.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAl8Qh/gACgkQh48B+qjT
+VuHcJA/8DDoJDGX/q+aBFua2YFor0nPZv73tURLRrSXGpcacH9S/l4xusLg50A6c
+CU5uW23wfvmJSMXy+X0mZdppHlk8hgtt66c8Bj7kuSiCN65Bfvx9VD8b9IP3clhN
+OtVDU/h5lAI5QGDQ68TvXLEfErFWzrsQ/oyIPMi7TSTpqiX0Rrz9CoPHd7Jn1K44
+S/2VFNPheKR9Vq3INkA8bYp++AT/6swIQl/iWIPKh4K3VIE3YNWiaJmRWufb6ue0
+B41GWg2IBWJK06SUJsRtThwrRPEVaVaNDM05idEI2YFhIhGAsP+ZSE0SHVG1WpBy
+CVdhuUiXROjYWJh+rX8JRmffVO51Ycp8YVw4m5TIdnJDlyHnWZjua6an9pucm+Nw
+5GSAR90zX5T/ZFneKcdpVeWsAq3YikXI68h5smj0auzNiz6Z9fsSu7OIMGcg6cbC
+6ls71lPpB7cJWCUSMoLfRADk76lvJkMX4xvonxYrgQYY/B41LmIsRfpimAvcM1uU
+CtWF26hkmU3QHpdyVBLQjMt/hRpb3Ocm/MUq/MFvPsYp5i3qw/Z5R10ymx9Ci3D9
+ibW4h/eZg5CGSj0yevCFDNv+usLMuQLwAE2U1Y4uUxR46GBICMTK2zH3tc/5tKqL
+iBaZVmeq0Ohs4/T0IigGfbELS7BEJXIDPgTvV/QYs7cISFqHSa4=
+=rLvh
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 7.17.0:
+    
+
+** Bug
+
+    * [WICKET-6758] - NPE in AbstractWebSocketProcessor after session times out
+    * [WICKET-6764] - RedirectToUrlException change the second question mark in URL from "?" to "%3F"
+    * [WICKET-6782] - WebSocket onError/onAbort is not being called
+    * [WICKET-6784] - StockQuote example does not work because the web service is no more available
+    * [WICKET-6791] - Offload WebSocket push when initiated in Wicket request cycle
+
+** Improvement
+
+    * [WICKET-6767] - Do not log error for broken pipes in websocket connections
+    * [WICKET-6781] - Timezone can be determined on client side (7.x and 8.x)
+    * [WICKET-6792] - Packages#absolutePath keeps unnecessary current dir dot "."
+    * [WICKET-6800] - Use LinkedHashSet instead of LinkedList for AjaxRequestHandler#listeners
+
+** Task
+
+    * [WICKET-6779] - Upgrade JQuery 3 to 3.5.1
+
