@@ -1,0 +1,95 @@
+This is a vote to release Apache Wicket 8.12.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.12.0
+[ ] No, don't release Apache Wicket 8.12.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.12.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.12.0
+    Release tag: rel/wicket-8.12.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.12.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmBjgYwACgkQh48B+qjT
+VuGx1hAAgWOaWkXxyH5rlNnwS2PIWi8qGyprtfEO8oQgTv7CV5CT6ZJBVPoKU5JB
+bRb91LMZr4TzsRFoTixEZKdT3+9317+RCH6J1GNfiB/oZ+jjset9luVpOOOa0Zfj
+35FLl+JeisDvJwlGQ3V1eQf4SsGWZT6KK47RE5UV2S3g/IdoP97YBJ7QiaauB+Hz
+7YH4auBGQVWcNaImYXqB2vl/12bNfj/9Rd+BTWrgps6fPjbR0olCNtc/xYyHMvZ8
+c7KNGUTjcdPpk1ag4bMLPLGvkkO8RgN6qTdMgJd15RjvSwbjj02629b1dosBxObn
+bnnHzN3X/L+0ydxtshct+sBlu0/TrxvjebeAnUmGy5lEWCTRPQ4xOM3mdg67tLTW
+Q0XGKqoP4j5ClJ1btIz+M9ip0Kh8iXDa0tTZ1OqSdYcnefFeZ6yBs/BN67F4J59G
+z7akJM7wzdl31I9IFKFFpeUA1HOXQvKTBnH1xv9TDbTzGqxYvyxOPtzyLSjd+q/J
+a2pUzF4DkRXJ9rmwbHEugy3KqR+FeoRGFvxO2hjGZH1FusGbQ+cZZprLYwzXY5MF
+bLUsZBbDPWme3ULHj50EZH5ex2DIQolIlPofRQeBTbcPxcmkjJuZqqByuP61Vs30
+jZOP0+UDFGy0N4Y3gNz3GUfvB+1A1y9vjZwCYR8zh85g2gRTwmk=
+=1+4F
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.12.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmBjgYwACgkQh48B+qjT
+VuG/SA/+KEnLeHR6CPpHzPrIgMuWu7+Y/7ueV7PawXRFeEJFa3lP6VpUSzvrFSxZ
+3Gjt8kT3N2L/tAL1RLhy+6OJ5z6frTjkM+zR5RGE0TWB+lcXuylQrukt45QQ3EFX
+ZARr57CBzYOpRucI1UeaonJHNnzGvTZx6AFE9ESwdTbMjbONesyk+BjH3WSjhWDY
+zZjsIRuoOShI45OgRdSqg5JMZSlcRuJ+nitlS8LSOoP9Y23slFDZpkDbPrTrNOz2
+1ksmI+0cJHn3nnhlNOrzZWBpATncqBGE0psy8EaGMXK83Zqkdm8d2WEnRxKYrwdY
+fSZqzKdcLT2Xi/F8JSNagYDxvsmeCIOVK86fVOoIu6x1TVYayN2q0uCtKPUd2pT1
+PQLpOkXbQP/XtuzwMvtmMVW441E6qlbFO0fP7pAQSN3rq+kcB+Xif5SnXx3v7eEe
+IuXloiKpKtkK2KMYRZ99fInyMrgQadeHpYSI9RqHqfu6oAs1BVKdzbYCu/CLVGnN
+Q6BFuV3FhGX+PBLlj43wcaOGjPbA6j4oi+floZ9cLv7SWEOf0Mzufe+P47q6hhKN
+aF3f5ZMvnxctLpdebwKsU+4NpSzzSA2oVJzK80ppkoGLep0NLdmQaTt5t+GLdFNc
+udHa8eBkkbVMLs7JPuaULYiWm+U4NqlW1lra0Mp3eViXn5jaJOs=
+=659R
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.12.0:
+    
+** Bug
+
+    * [WICKET-6815] - Incorrect parsing of html attributes
+    * [WICKET-6858] - Do not lower case the session cookie name
+    * [WICKET-6860] - ConcatBundleResource double scope processing when CssUrlReplacer is used
+    * [WICKET-6863] - Method Component.setVisibilityAllowed should call onVisibleStateChanged()
+    * [WICKET-6865] - JS Error on keyup in AutoCompleteTextField
+    * [WICKET-6867] - AutoComplete list don't choose any item, if click took more then 500 ms
+    * [WICKET-6868] - UploadProcessBar doesn't work anymore with AjaxFormSubmitBehaviour("change") out of the box
+    * [WICKET-6869] - StalePageException does not refresh page
+    * [WICKET-6870] - Wicket complains about component failing to render
+    * [WICKET-6871] - Exception with nested AjaxLazyLoadPanel
+
+** Task
+
+    * [WICKET-6873] - Upgrade jQuery to 3.6.0
+
