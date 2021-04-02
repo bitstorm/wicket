@@ -1,0 +1,78 @@
+This is a vote to release Apache Wicket 7.18.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 7.18.0
+[ ] No, don't release Apache Wicket 7.18.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/7.18.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-7.18.0
+    Release tag: rel/wicket-7.18.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-7.18.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmBnhKYACgkQh48B+qjT
+VuFrbA/+KUdB3vEBSAE9Kh8dAOqHXl/NYKe0eVvq3tYnLJS8aFZ2C6iF3tRW5XnZ
+zMwXrcwoFhFl0tTcAPzaXJuZAaMDuVR5SQ10/VjEhY15X6yjPlj6OLmxlYKj2Wtq
+NSgIQfzjTYxEflNRP5yBKap6vH7lo/JgerVeREHswu7f5VzsAJjCZ/r+CxWL4EQ+
+gyawjj+x3O0ghK7nmE4iQPQ/QUMRsDY/6ZBx8A7d0oCcKC5WYjv/g6zMJDvBtiON
+mVXMbrR4H+EVvssIATesUPj9NSm6YYE/M9KiXYxV1z1FVnzaVsZ/sKcEgpVN3GKY
+IropEoBnL0cEBlrvRws1NhYH0cZoaprmJL767lDplTqw1dZSCzPkE+HDyVDXOhRF
+L1dQKw9J9rIUO7WntJikIgvFyPnHoqAkQaYRDwA7aAFeiSwmkSZaSdXjNfeo693H
+6EVM3nnOnS+s324sPB/0B3EILEC5tNcH6A+JrDNLT424tDv6aKp3bNUiSvWcEia/
+i1MZHNwV6vh31t9lCjEAChF7S8Q6sihOZEGLd47taxGxvOapGU+2s3+5o9N1+6Yv
+dExZ66YabbDhYjfZEsSyLyVQ3nQUMEmMopX+VesQdyKRRCr341iCubs13idfZIdZ
+XfM9CkuNMP7xDL+Q8gkj1P6ntaTDY4gsyw9lftUMy0P3iHZAvfU=
+=uFpM
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-7.18.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmBnhKUACgkQh48B+qjT
+VuF/Rg//e7FPfycSb5VyzUdL3xHP+kz6SuU+ysd/C+oru3/+Q3ZYjsibq82k5arV
+lOIYbBzmyVUBGCbuc7PFrGKlNk1fYeCA3QGjnYoYQCffsAzwANGGBuYi3Y2priNC
+AAnoRmrzI6j8veUmeBu36UjbDFcB4ewXl3ZE2Dwwxjdvm1OK66LZWXns/T2a6jWx
+bTpZ5BAHV4h0KtpcvYT+XGf7hAZUoaahlO1yraF7bvL9RgTjJT/wLz5ao5QUQZ5C
+HS/V2CqVRHFJ2l6vDBhGNON1gBRsnlJCAnnmnh65Gf0X7U8GYwKAFHES2NX/T6cp
+1lc8P7rbAH/Ny/BkZ2Xx1p82Q8cIpFmHoPvBsulVy4GHb6mFNQJg82Fdd6lp9G7e
+YVg/m7z131Gvcpnm9eBA52DL/cIQfRHfK4Ukx38xbORUBVkv2fU5hbDErvDL3Hs6
+ImcK5FY75xUFhgA4ZdKQERXecahljEMNBNGgs8Zm83jz1peJDdaoSCHTGQfGvo2m
+CRvI36Li66qV5XzQis5VzqIoFy0j37Mf/GVdBQVGDeYDsAN7cWK8UzfNRDnH2CBg
+eTUcAX3GVooTMjAQHwjEa4BD7MS/vV+IRNyJ2wtHdY1HIXx9fWKpDj2kTNZepwWr
+YUVdPzyxuTNxD5Cyes6UGkrdk0OM8LsAxszdzQgNc+u0WpOyoiI=
+=nt1w
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 7.18.0:
+    
