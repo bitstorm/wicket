@@ -1,0 +1,125 @@
+---
+layout: post
+title: Apache Wicket 9.6.0 released
+---
+The Apache Wicket PMC is proud to announce Apache Wicket 9.6.0!
+
+Apache Wicket is an open source Java component oriented web application
+framework that powers thousands of web applications and web sites for
+governments, stores, universities, cities, banks, email providers, and
+more. You can find more about Apache Wicket at https://wicket.apache.org
+
+This release marks another minor release of Wicket 9. We
+use semantic versioning for the development of Wicket, and as such no
+API breaks are present in this release compared to 9.0.0.
+
+<OPTIONAL> New and noteworthy
+<OPTIONAL> ------------------
+<OPTIONAL>
+Using this release
+------------------
+
+With Apache Maven update your dependency to (and don't forget to
+update any other dependencies on Wicket projects to the same version):
+
+{% highlight xml%}
+<dependency>
+    <groupId>org.apache.wicket</groupId>
+    <artifactId>wicket-core</artifactId>
+    <version>9.6.0</version>
+</dependency>
+{% endhighlight%}
+
+Or download and build the distribution yourself, or use our
+convenience binary package you can find here:
+
+ * Download: http://wicket.apache.org/start/wicket-9.x.html#manually
+
+<!--more-->
+
+Upgrading from earlier versions
+-------------------------------
+
+If you upgrade from 9.y.z this release is a drop in replacement. If
+you come from a version prior to 9.0.0, please read our Wicket 9
+migration guide found at
+
+ * http://s.apache.org/wicket9migrate
+
+Have fun!
+
+— The Wicket team
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-9.6.0.zip:
+
+<div class='highlight'><pre>
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmF8V0cACgkQh48B+qjT
+VuFlWg//fx8VsKfQAgFNILQi3m/YuoCEIyoZ4g1DKzOeJwVnttBI+FZBq+1+p9Be
+zEkKNY+U8u6/iITuQTZXkof1mLPxXJTwm/zCeGdkzgTos1+JTARr8jMtZHaIOV+Z
+GtJ2YAQuy9TgUag2NhaIgGkmiwGpgZSzyIdf+PevaAYd+hP42G5WOAQZyXwby0RF
+4xjhp7gknxNqoVKCqTSQZ3m44GoKWnesyl/CjLZDLTj18z+KPMeI+P75xeIzCiWH
+BV4QKYtg6Mv3Q4EPp7YCncoUg+X/qxGHPsoiHJ0Bc8VlVwrAxPpqOzWHfHbQD2nj
+FpU+WBuk5UkYqKYGYfGiUwJ0lwPisUsE/TSKsLwQODtr4H9Dd3cpuzOAbXhGNyqF
+QeX6nkZwwVJci7VuKX+f94+lIfvRRtkBooZg9DHJCtRmmk1YX4/wARuEqI3ccOuI
+xpb95WgmMNzsfbcnVGU07WjY9gvJ4mYOJhOicGP8YG11MoH4U5EoXfFZWDdfhWEg
+ucsbbuS02xC08YrwXrh4vskIyqFLuGFTV9bkvMs3harsGird4VA0l2KcdqFizMyF
+Jpdt3fiq5xV3BmhN9e84pCXhOMyPVtuXXM9oub7CQ3NM0qapTLHlQvMaoL00E5yu
+OxeTIKDX8FgPaGOPCujryVzPRYm5CQzPRcVIoc4E3alPDox0kfo=
+=SGe1
+-----END PGP SIGNATURE-----
+</pre></div>
+
+    
+Signature for apache-wicket-9.6.0.tar.gz:
+
+<div class='highlight'><pre>
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmF8V0cACgkQh48B+qjT
+VuHDhg/9HfVvYbrGKOQoendIzufSDuBlLAdtKWizW2LqPGLow33FizbLrqleG9RY
+7MP+n7VmaeYRA+vxABIE8G+Ye4sV5IgXn+O3YdmEyy/eIW/gOm5SoLmYkEKVuyo1
+Lkw4cngoAVE9eGe9EZkQUsaRzQ0HrevdMWW+MN2OwIMezD0YDLH7SFudiqn/cmb0
+IUgU1HrkvuICOFAmHdwr+cMYSIOXf5kthWLw6/2UcaR+ZCSpgFUX8RYpf0YDDWNO
+IMh1Cq+wxZptkEl4iUs+MBsgT+N5rRlZi88gM3n7Z9aBfDAATQIhrP/sUirnDiDH
+idhUyatNpQ4+Qj2+tYW7diuRsnmD4rkOqQxo8/F05bVHIvUib8t93H5e0LsMDsrs
+D562EKPtfXbEdOVF2ETv/g/JEWfSpV3vOxmDFaBdc6Q5tdnb2XWAfVddecCi+yGX
+Cjfr7BhhUo4L9yC+7FnM4X1YeyIUzvrqpxCzIWeuZFQfKxB+af2tWV5bgbl/8j/v
+jYLyj1evTwfzmhwkkgZQbWk/O0dUR9eRnXKHA8u3MX+s5QnmvF52V5fwl+2y687Q
+gepHoEIZvhhLsQ6xjNYkUh3jgILEO7xtz+s2AzQS5FIQIqA9Ya6EARKv8Q3JOwC4
+rgE7xEurWPFKsZTosxIOQKC04gdJbPeZG7pBRBMSUU4qRS6QMD8=
+=deKp
+-----END PGP SIGNATURE-----
+</pre></div>
+
+    
+========================================================================
+
+### This Release
+
+#### CHANGELOG for 9.6.0:
+    
+
+##### Bug
+
+ * [WICKET-6921] - MultipartFormComponentListener breaks on hidden components
+
+##### Improvement
+
+ * [WICKET-6920] - Improve the examples to use the browser's light/dark mode
+ * [WICKET-6924] - Allow image/avif in SecurePackageResourceGuard
+ * [WICKET-6927] - Get rid of java.security.AccessController
+
+##### Task
+
+ * [WICKET-6918] - Add links to latest wicket.xsd to the web site
+ * [WICKET-6919] - Improve EnclosureContainer's javadoc to explain that it should not be used with <wicket:enclosure>
+ * [WICKET-6925] - Deprecate AbstractWrapModel
+
