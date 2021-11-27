@@ -1,0 +1,93 @@
+This is a vote to release Apache Wicket 9.7.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 9.7.0
+[ ] No, don't release Apache Wicket 9.7.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/9.7.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-9.7.0
+    Release tag: rel/wicket-9.7.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-9.7.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmGiU18ACgkQh48B+qjT
+VuHpdhAAn6C1fRjx0u1h+WNgitYNx4AfeA3+N/0a6Erbx2DUIIT+mlcD923PJvYg
+QJo3lbbChP5vQYUYFbMgbe2SgW+nmEYx4IcFwqhFgvcjCswUtk5M4pmFqI8f7Fn8
+QRkZcS+pWQXcRL7tE1nUj7TOcgsVu16qPIwSAbxwzKA7TSElgDnffwvwnc9P+TbE
+lGOHPiMSZCAcW2CUu3SEq2Ld+LnRGBCKrDbggWqyMX1Uz3tTUKZfTwpgdWQo+mKQ
+vHtheh2Btb0HYPPKyhYC5kjoAz09PVfy5/83Cm5c4GPVEZjN95+Zat21htD/VWJY
+YfSNSox9RF4q8QFwmd13qSEhJBe5xigLfggO4vZ8xqxvXc98gAE0Eo0Tw1X6L/qm
+qStQ52Jf8N4Ov9NRRrL2t6AFfS46ZgICQKbSG9mH5Mbszq5qbB++sq6GYJr1tRl3
+JJji7aOf3iFrhob8Esaqoo6ye2yP7tWun7Ur3GoZneI0xeEMYWuD3zFybyThIR05
+pMA3HvzRVKGYE8NdWIMT9+Rv+bgizSFRF1nVY/asmQQGpKYnvGpu3Fs/LNw3XH+b
+1LHR0lf0aPleEEJ63w/pNS0wu5c9rP908RZ7wVQqwHxSrsxFqlL71W+kMQsNBAlJ
+4iAOEo9elMz9Npeh4nb+4uwZ4JAJAI7S0Omad5gP3lf4jq9eTCQ=
+=n2hJ
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-9.7.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmGiU18ACgkQh48B+qjT
+VuFhoQ/9HXX3NTLTCXPEKQ3WW+x3FJ2qi7DtaqByK7LOa6T5s0F+9GfIdXEAqU00
+ZQKg2YEX9szj7gniV6uxdpFuyWDVzzo9zfw87WBmNeSe0b4qB2q7w9qr/2Z61ZYY
+LkNnfiknBknSfCTtOeqq7i3KZnmbcjg6MMkKlQVmrcWSRjIsv7XugIISqxY1qDsd
+a9Q870K0y6tDQ9xdmZ7PRMLppg4t8HXg0rPGK6Fh/YeHEdp1SNfAR6omhTvWkDhI
+GU5+UXcFp4nLeei6Vod/JxKkiKQinsm0hIDpPQJgdZalLFr+VGrc5QoQuHKt+ZRt
+ebEqglNsyYBGWlMLBzPchAhtPyI5TSIFDkcA95h8QQHbppq5jlDy6SW2xUc/0EI1
+jlqqfwbR+bfZzqzIA799V3r65L/0EeDfsT22HBByuO7wrNA6ld7LyxaXLVGpdonl
+Pe1MKhpNHNkhjpo2PseCQvJclAteaoQwx+YkLECUI0aFDvAWrmYtHX30Jq+T/Wgb
+OI0vXJMGmmAKiB7Nik7qE1lDkNf3jJUiIxIGpNGTXVrBXuo+T3Y1rNAuFI98ky8m
+EzybSQUpabAY6sVXeX6NSjyQmYLjvscfCrcMoouMWDF21mhDZ8bT1QgmQ/Bbh8Gl
+s4A+KaDA8E/LHYN+eUq+eZBvQtuGK6xU/Sl0qvNAeHWipb37io8=
+=kzR9
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 9.7.0:
+    
+** Bug
+
+    * [WICKET-6931] - User guide: 'determinate' is not a verb; should be changed into 'to determine'
+    * [WICKET-6936] - FilePageStore fails on windows 
+
+** Improvement
+
+    * [WICKET-6930] - add some web-socket improvements. 
+    * [WICKET-6933] - Ease use of InSessionPageStore as persistent store
+    * [WICKET-6935] - make some datatable related components more reusable
+
+** Task
+
+    * [WICKET-6937] - Update the keystore used by the quickstart application
+
