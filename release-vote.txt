@@ -1,0 +1,93 @@
+This is a vote to release Apache Wicket 8.14.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.14.0
+[ ] No, don't release Apache Wicket 8.14.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.14.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.14.0
+    Release tag: rel/wicket-8.14.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.14.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmH1X3QACgkQh48B+qjT
+VuGPnhAArxTlotpVmY/L4MPJ9cdHomvdSa/CoyLwUyGI/eg5DNnMvS369X4wnb92
+X3h/TAc4/U1to5yacqFu3/wcyZYwXKsUcLRx7UH840NaRJDyiJERvOT6b60CGXBG
+NW7gPF80dpuSoeP2qqIegGF8EZF2ujt2cMmOQadWBTad+S5Dc3zH2vsEFGm3rv/l
+awb9I/PjgcCaX8YLvcYh2eOLd5+05AI90R1rx7g/yY9/PvoRgFi4mRnfzMzWDhu9
+iuf8I2lHjIo4OzHoMzWoilCuiRzzQbUnhx9vL5OT7nNtJs8+SrrwDF4tz8f8r9F/
+n0GMuY9fhzzDkEmIE8Tw2T8ukL0GJrVnYZio25bTTtXfsO8Ub5R/pllSuIkPoyph
+gkDZp4eQnpuamolxEH4uls81Y06LRch7ji+Db+QLcroodLYGWAOvMpeMMDHLKxME
+8NVZe/pqHzsIbJeyTjSpsKxuBQ7Fc2vnsckZW79siXRZaeFK+dMGesGeF9TQtNeq
+g9R7I1vu65dXJ4gHPMsmGZrolUEH41z1aTHRYc8RXMQ/L6XRIX9U/sG2/XfR/7uC
+qgcnefJPhgmXOwYKosMwyxpUnz31MwLhYW5TXFV9TcRIvOvBbo3Q5ZjsR8WYrmG0
+iWtm6biS8MxnJHTV6TZgB2m3k8CrQM4zJ+ZUDNMVPBNl8rd3UOk=
+=4xUM
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.14.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmH1X3QACgkQh48B+qjT
+VuGyHg/+OQ5Mr3kzwN180JbygHOPqmU3nVjG6NdcC45oyrlgnDcmzPxTh4apwRxY
+Bbo60kXXO2kyaIqk//H8F074r1GSlMzCQLRAswn5dbakatf9eE0Nl0wEaSLQDCVC
+3/POMo4KzcWF63mqOQpKXrIFi8ztjmi9qgfzPN+vCNka37V65UBLtGbU2UZc4yrY
+Rtx19b4xFtNieisd+R47ESei91FyKNBeIOrCXCMaULAs/vb3oQpKBwMO8biR4ofm
+c/qXsYWtNR499zoNCMMO0auojDeQ0y4d1T3aAxqU90lN8b0JUWciG5tQ7uDCi7V3
+9SRK5Sr4FyBFnhLu7+uVNaAhLyWFkGKYQuhmGsePQpRTisb15xPEX3lV5JK/1WLm
+Iae3tYL7ZAOHDtCnUY/8QwGdN+OzrYovN/f1p2chqsfJCzDEpFjso7zQHqnEoChK
+ffKEFqO0wuyDQTZjmF6Qh5Wkqvn6psiG7ECm0/9+FfkGtcbz9t62RQhEC+13lhl4
+QbTj7vUeXIBaNbMyBV62is+SQDnH4KE6dNy+bfjbGtxn9gyejZ8x0jJO23hqhW1N
+ab8aF8xsMQEAmxwN1rfKcy78luPRaozkypL359/1lgAgSf2fGaPNSyF3aelS9aZ+
+y2X03dHmTeTaDLPNolObTAFQJHjU2EhiuQ4v1x+6ySO4Dh6dYK4=
+=hseu
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.14.0:
+    
+** Bug
+
+    * [WICKET-6908] - Possible bug / edge case where page is not detached
+    * [WICKET-6910] - StalePageException not thrown
+    * [WICKET-6914] - Visibility change of "File Upload" via ajax causes "missing" form-data
+    * [WICKET-6931] - User guide: 'determinate' is not a verb; should be changed into 'to determine'
+    * [WICKET-6944] - Memory leak in WicketEndpoint
+    * [WICKET-6945] - MultipartFormComponentListener modifies enctype on invisible forms, leading to javascript errors
+
+** Task
+
+    * [WICKET-6919] - Improve EnclosureContainer's javadoc to explain that it should not be used with <wicket:enclosure>
+    * [WICKET-6937] - Update the keystore used by the quickstart application
+    * [WICKET-6942] - Replace usage of log4j 1.x in tests and wicket-examples with slf4j-simple
+
