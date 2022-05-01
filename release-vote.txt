@@ -1,0 +1,51 @@
+This is a vote to release Apache Wicket 9.10.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 9.10.0
+[ ] No, don't release Apache Wicket 9.10.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/9.10.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-9.10.0
+    Release tag: rel/wicket-9.10.0
+
+
+========================================================================
+
+    CHANGELOG for 9.10.0:
+    
+** Bug
+
+    * [WICKET-6970] - Unnecessary string building in AssociatedMarkupSourcingStrategy
+    * [WICKET-6971] - NullPointerException in ModificationWatcher
+    * [WICKET-6974] - JavaxUpgradeHttpRequest returns an empty contextPath
+    * [WICKET-6975] - Behavior.renderHead may be called multiple times
+
+** Improvement
+
+    * [WICKET-6963] - Use singletons for PanelMarkupSourcingStrategy
+    * [WICKET-6967] - allow to send non-blocking web socket messages
+    * [WICKET-6969] - allow to process web socket push messages in an asynchronous way.
+    * [WICKET-6972] - Add Resource key to be logged on Warning in Localizer.java
+    * [WICKET-6976] - Reduce allocations when writing synthetic closing tags
+    * [WICKET-6977] - hashCode computations generate excessive garbage objects
+
