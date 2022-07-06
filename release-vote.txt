@@ -1,0 +1,50 @@
+This is a vote to release Apache Wicket 9.11.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 9.11.0
+[ ] No, don't release Apache Wicket 9.11.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/9.11.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-9.11.0
+    Release tag: rel/wicket-9.11.0
+
+
+========================================================================
+
+    CHANGELOG for 9.11.0:
+    
+** Bug
+
+    * [WICKET-6981] - InSessionPageStore does not trigger flushSession
+    * [WICKET-6988] - String.format used in JS generation leads to errors
+    * [WICKET-6990] - DiskPageStore loses pages when container re-binds attributes
+
+** Improvement
+
+    * [WICKET-6979] - Cut back slightly on some String instance creation in PageInfo and friends.
+    * [WICKET-6982] - Unnecessary initialization of stateful pages in ListenerRequestHandler
+    * [WICKET-6985] - Insufficient information logged by CheckingObjectOutputStream when delegation to Externalizable
+    * [WICKET-6991] - ResourceAggregator is resizing the StringBuilder several times.
+    * [WICKET-6992] - Reduce object creation and wasted memory in Url toString() methods
+    * [WICKET-6994] - Make the servlet API a runtime provided dependency when using JPMS.
+
