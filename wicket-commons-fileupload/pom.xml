@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>org.apache.wicket</groupId>
 		<artifactId>wicket-parent</artifactId>
-		<version>10.0.0-M1</version>
+		<version>10.0.0-M2-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -206,7 +206,7 @@
     <connection>scm:git:http://gitbox.apache.org/repos/asf/commons-fileupload.git</connection>
     <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/commons-fileupload.git</developerConnection>
     <url>https://gitbox.apache.org/repos/asf?p=commons-fileupload.git</url>
-    <tag>rel/wicket-10.0.0-M1</tag>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>jira</system>
