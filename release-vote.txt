@@ -1,0 +1,53 @@
+This is a vote to release Apache Wicket 9.16.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 9.16.0
+[ ] No, don't release Apache Wicket 9.16.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/9.16.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-9.16.0
+    Release tag: rel/wicket-9.16.0
+
+
+========================================================================
+
+    CHANGELOG for 9.16.0:
+    
+** Bug
+
+    * [WICKET-7056] - HttpSessionStore#getAttribute called on invalidated session
+    * [WICKET-7074] - [AJAX] malformed XML is produced if an error is produced during AJAX rendering and a redirect is issued 
+    * [WICKET-7076] - JavaScriptReferenceType newly created is not serializable
+    * [WICKET-7081] - Open packages to expose resources to other modules 
+
+** Improvement
+
+    * [WICKET-7078] - CSP: inline JS in Choices and Selection of Palette
+    * [WICKET-7080] - [Events] make default events delivery machinery pluggable and roll usable annotation based one
+    * [WICKET-7082] - Easier to work with polymorphic values inside IModel
+    * [WICKET-7083] - Trigger client side validation when using SubmitLinks
+
+** Task
+
+    * [WICKET-7073] - Update JQuery to 3.7.1
+
