@@ -1,0 +1,48 @@
+This is a vote to release Apache Wicket 9.17.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 9.17.0
+[ ] No, don't release Apache Wicket 9.17.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/9.17.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-9.17.0
+    Release tag: rel/wicket-9.17.0
+
+
+========================================================================
+
+    CHANGELOG for 9.17.0:
+    
+** Bug
+
+    * [WICKET-7086] - Injecting Spring bean may cause ClassCastException
+    * [WICKET-7091] - FilePageStore throws NPE
+    * [WICKET-7096] - stylesheets referenced via automatic linking miss nonce attribute
+    * [WICKET-7097] - ServletWebResponse allows writing headers to committed HttpServletResponse
+
+** Improvement
+
+    * [WICKET-7093] - Add support for missing CSP directives
+    * [WICKET-7094] - Make all CSP schemes configurable
+    * [WICKET-7099] - Validate FormTester constructor parameter workingForm
+
