@@ -1,0 +1,82 @@
+This is a vote to release Apache Wicket 8.16.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.16.0
+[ ] No, don't release Apache Wicket 8.16.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.16.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.16.0
+    Release tag: rel/wicket-8.16.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.16.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmZqB+QACgkQh48B+qjT
+VuGz+xAAqu5r2R39HGtVLFDQ+t26pP/0DNGZv95sJvPbAjZjlnmPvw2zrbM+p69/
+G2JC1BYn9kSae2FVPALS6bcZ+c55Lg8atoA8o7RFOsbvQmRaXCXnU+ISu02xKlvg
++6EL4a2aXka4jF4nDSWIBfU9jm9Nk3CTMwYKTVd0r7LdVEcANB/LCSq74j08/PVM
+CCh9vF0/FqLjC6GfD6uu6kL13r24aVk9RmvLXq5uZIOs/nnsfEx5jZtH818kdqre
+fvuuT3wbTUJye9DDpuKTESAzMo+aXTKP9M1+pZOmiKnTDiN2aFi02vCo7YrmWpKO
++03LiQt5WZorDUamuBZwetzWajA1lyc+SGWwgnTCTEOkvZ6hMq3zRvo1awb+w0GL
+hKGspHRWrlXuwueaIT7/ZDyE26UzIR+oo7l5C0iXPZkAz9ejG6lyoQz4B0sifJlC
+ob3j5goApWIXBZMX/FyU1pHivLEbY7Uf8PNcq0g/NYtNuSk+/3yENH1cW+79gWEW
+XvaxYfrhTjyIxhnv3cPz3erwSZTHA3r1xURrOYlrlsv8Aqd+Jj+USUhRPP60mc/W
+S9bM3o05eFsZVY1rtJVfGl+nYuFEri1T8RgWNeolAdh37S5wdJy+iHn0jUnsPMQK
+d27lFJ5neYqYC4F826vwBKDIg8FWUyrX1CDKfXidkJV/IAA03NE=
+=Wi7u
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.16.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmZqB+QACgkQh48B+qjT
+VuEdjA/+P1szVHdIcom1H1hBTFBSaVaEM8aGf2S4dGplaFiHF3tySsvXzWnbFApU
+7ycylRMheTz6BXRTpo1XGC57WNiqKCE5R9EFZkPqQiQMoFVb6lmEtTQqV+l8Tbxb
+L2D1HEN3FhZ/KfPGKm6q46bjMfvfC+hb2mFbcsA8EftnkyKkZ0QfSYfXOCFSaEmF
+mEruwXLeQAx2VRTzXgJzhQanjmNiqb1o7x0lCF26m7J6fgXMk+dl7wMg1/Lzl+tV
+8It+eD598zs19hoytO5lKLDVbLPeSVAfxYEChH5BTpR2MTjY2YDBtngo8U5HtHTs
+Sd0ICr/oOAWbu86GKCyMNk+uYNdcQCEZtdA4/qQUTq4O0UsFS5UcAUWT4Z0uoq3S
+6c4Aa6S2faPw4ThhaCWSO56PMN3xKBAmERA8gmADv41PHh4N3BDuTANB3bwSrN/3
+b1I39Hxol+OXyuKMnivMeG9OdjoalSlSMhZkA4Tu0dokiZpDVslKltQcnApZdOyd
+6BQuF7j8sQugiZLjtRPzyvIMo3oILNz1bVLOvltYEKI/AB4+C9ShBIX+EO1KlThO
+0P2PjZXgPKNPKS51EsFGZa33tMEDCiuITEDGFeH0XveEnG0BLbBkE/Yx5lJfULdr
+hZzNoF2E7tbktMsC0fSIoSQ6rCwrgeF0FTqZrkQuuKzMFJ1fdck=
+=4MXn
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.16.0:
+    
+** Bug
+
+    * [WICKET-7056] - HttpSessionStore#getAttribute called on invalidated session
+
