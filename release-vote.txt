@@ -1,0 +1,69 @@
+This is a vote to release Apache Wicket 10.2.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 10.2.0
+[ ] No, don't release Apache Wicket 10.2.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/10.2.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-10.2.0
+    Release tag: rel/wicket-10.2.0
+
+
+========================================================================
+
+    CHANGELOG for 10.2.0:
+    
+** Bug
+
+    * [WICKET-7117] - 2 tests that fail under some circumstances
+    * [WICKET-7118] - Quickstart for 10.x doesn't start HTTPS
+    * [WICKET-7119] - 5 unit tests are non-idempotent (passes in the first run but fails in subsequent runs in the same environment)
+
+** Improvement
+
+    * [WICKET-7112] - Expand error messages in Component class
+    * [WICKET-7115] - Spelling corrections, and removal of non-breaking spaces. Some doc improvements
+    * [WICKET-7116] - Spelling corrections, and consistent heading case
+    * [WICKET-7120] - Improve Accessibility of AutoCompleteBehavior
+    * [WICKET-7121] - Make it possible to disable the noisy logs by RequestCycle
+    * [WICKET-7122] - Update Wicket-CDI bean archive descriptor to use Jakarta XML namespace
+
+========================================================================
+
+    CHANGELOG for 10.2.0:
+    
+** Bug
+
+    * [WICKET-7117] - 2 tests that fail under some circumstances
+    * [WICKET-7118] - Quickstart for 10.x doesn't start HTTPS
+    * [WICKET-7119] - 5 unit tests are non-idempotent (passes in the first run but fails in subsequent runs in the same environment)
+
+** Improvement
+
+    * [WICKET-7112] - Expand error messages in Component class
+    * [WICKET-7115] - Spelling corrections, and removal of non-breaking spaces. Some doc improvements
+    * [WICKET-7116] - Spelling corrections, and consistent heading case
+    * [WICKET-7120] - Improve Accessibility of AutoCompleteBehavior
+    * [WICKET-7121] - Make it possible to disable the noisy logs by RequestCycle
+    * [WICKET-7122] - Update Wicket-CDI bean archive descriptor to use Jakarta XML namespace
+
