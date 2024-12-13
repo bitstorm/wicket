@@ -1,0 +1,48 @@
+This is a vote to release Apache Wicket 10.3.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 10.3.0
+[ ] No, don't release Apache Wicket 10.3.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/10.3.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-10.3.0
+    Release tag: rel/wicket-10.3.0
+
+
+========================================================================
+
+    CHANGELOG for 10.3.0:
+    
+** Bug
+
+    * [WICKET-3899] - IFormVisitorParticipant don't get tested when validating form validators dependent components
+    * [WICKET-7024] - Wrong static resource urls when their generation is triggered by <wicket:link>
+    * [WICKET-7124] - The quickstart archetype fails to build 
+    * [WICKET-7125] - To use cdi-unit CreationalContext to inject beans in Wicket components during tests
+
+** Improvement
+
+    * [WICKET-7123] - Form.setDefaultButton() supports only one button per form hierarchy
+    * [WICKET-7131] - Improve accessibility and screen reader support for auto-complete component
+    * [WICKET-7133] - Ability move focus back to the autocomplete field when selecting an item using the Tab key
+
