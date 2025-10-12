@@ -18,6 +18,7 @@ package org.apache.wicket.behavior;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.event.IEvent;
+import org.apache.wicket.markup.ComponentTag;
 import org.danekja.java.util.function.serializable.SerializableBiConsumer;
 import org.danekja.java.util.function.serializable.SerializableConsumer;
 
@@ -28,7 +29,8 @@ public class LambdaBehavior extends Behavior
 	private static SerializableConsumer<Component> DO_NOTHING = (component) -> {};
 	
     private SerializableBiConsumer<Component, IEvent<?>> onEventLambda = (component, e) -> {};
-    private SerializableConsumer<Component> onConfigureLambda = DO_NOTHING;
+    private SerializableBiConsumer<Component, ComponentTag> onComponentTagLambda = (component, tag) -> {};
+	private SerializableConsumer<Component> onConfigureLambda = DO_NOTHING;
     private SerializableConsumer<Component> beforeRenderLambda = DO_NOTHING;
     private SerializableConsumer<Component> afterRenderLambda = DO_NOTHING;
     private SerializableConsumer<Component> bindLambda = DO_NOTHING;
@@ -84,6 +86,12 @@ public class LambdaBehavior extends Behavior
     public void onRemove(Component component)
     {
         onRemoveLambda.accept(component);
+    }
+    
+    @Override
+    public void onComponentTag(Component component, ComponentTag tag) 
+    {
+    	onComponentTagLambda.accept(component, tag);
     }
 
 	public SerializableBiConsumer<Component, IEvent<?>> getOnEventLambda()
@@ -163,5 +171,15 @@ public class LambdaBehavior extends Behavior
 	public void setOnRemoveLambda(SerializableConsumer<Component> onRemoveLambda)
 	{
 		this.onRemoveLambda = onRemoveLambda;
+	}
+	
+	public SerializableBiConsumer<Component, ComponentTag> getOnComponentTagLambda() 
+	{
+		return onComponentTagLambda;
+	}
+
+	public void setOnComponentTagLambda(SerializableBiConsumer<Component, ComponentTag> onComponentTagLambda) 
+	{
+		this.onComponentTagLambda = onComponentTagLambda;
 	}
 }
