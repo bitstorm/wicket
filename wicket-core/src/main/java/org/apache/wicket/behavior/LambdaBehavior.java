@@ -94,6 +94,7 @@ public class LambdaBehavior extends Behavior
     	onComponentTagLambda.accept(component, tag);
     }
 
+    //lambda getters/setters
 	public SerializableBiConsumer<Component, IEvent<?>> getOnEventLambda()
 	{
 		return onEventLambda;
