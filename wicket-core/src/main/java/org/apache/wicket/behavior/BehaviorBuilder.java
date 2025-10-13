@@ -19,10 +19,22 @@ package org.apache.wicket.behavior;
 import org.apache.wicket.Component;
 import org.apache.wicket.event.IEvent;
 import org.danekja.java.util.function.serializable.SerializableBiConsumer;
-import org.danekja.java.util.function.serializable.SerializableBooleanSupplier;
 import org.danekja.java.util.function.serializable.SerializableConsumer;
 import org.danekja.java.util.function.serializable.SerializableFunction;
 
+/**
+ * USAGE:
+ * 
+ * <pre>
+ * {@code
+ * Behavior behavior = BehaviorBuilder.newBuilder()
+ *   .visibleWhen(component -> {...})
+ *   .enabledWhen(component -> {...})
+ *   // more lambda handlers
+ *   .build();
+ * }
+ * </pre>
+ */
 public class BehaviorBuilder
 {
 	private LambdaBehavior behavior;
