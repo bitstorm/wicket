@@ -1,0 +1,78 @@
+This is a vote to release Apache Wicket 8.18.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.18.0
+[ ] No, don't release Apache Wicket 8.18.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.18.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.18.0
+    Release tag: rel/wicket-8.18.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.18.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmoAjhcACgkQh48B+qjT
+VuEl7w//VcFIS7l+cujEpGHwykz+oUDdzlKrUMWDdrgj3SH3/STXooqaTyyO0vu8
+lwilX/ZWHPP1AIMa0xRZAUN3ZPXCuqpWS7boKvbqZieKH1oVpmfQhp1gDJ4yuv3M
+wF1PkDqap2+qDJOiD/bJarkwJfHLp4q5nBCObHNNwEcHNFiltZKqrBrSypONu6jR
+xr9u04SdoMVvDmqggG3VqXneILzw/YJdrl/PKYEgCJAU75gIxpEr4a/9L3LdIJK/
+bmehgvf+zr6mXqXnE3x5bM/4SsrnxdLlwJcVUbSae8q5jBO6vM9a5a4t5ntBvelD
++DHvOR51C0iDqbZO/dKTmIas2T/fE9LtW7e24Vwsq7xDIuDL2h7tjY2C/x82JgvC
+6OP9VTCpmBUGNxCLdvZ5v9gTuDkqrQr9wUHluppI0RhErI7y/QLMPfZS2mnWYHkS
+GEiSGuidKLgUj0pgS95VIQmJrAY42eGP5X8fx6gXw9vEj+Oz0L8K4fZrnDgWo0QU
+WvW442dzD9FVM5N1wbC5Md8MWaQ2mzqA4wb7FKDsZchNiARsyGjflkRc+xFXr4O8
+d0OaUCEq96UnRtiFV2ZGjm12D/ICNiK2D3cfXAn0RBVa6JfhwTA1wbUVsVQQO49d
+Gm6DYGBOre7RByWg5drtRSMsY5kq0YAsTXcphRBsgvqaN5mH3do=
+=qjtY
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.18.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmoAjhcACgkQh48B+qjT
+VuG2cw//bIhw0+osmE563g7XFeEmmWkbZSTsbuPU2k7gAQQdBsl/wxqV2layc1J/
+GD2/Y2pUhgYmOn9+zv/duW1b86LcIHAeoJ1F7LsxtP10nbxRm4rhOE6oGTTyh6OO
+zbR9IKi0I7IOEexVvdhA1nrn4mXXTqOfefwA22qh4TEsanraBpABXvWCsIBYsbND
+ssPnlHOES+wOOxADvNu99Z5JnuEUyEpQwv5eaM3aCZCa+moJZ4Ex5jPg8jrUsIke
+aWGHEyAGPdGash7Chsb5xs9bfmr8Q5jFMYerz2x68U/zQtF2WIHVcwB/qVpPzvxr
+UA2I+bPOPworDLXlopZIsavEcL0ASgDVpimtWnZ753JQkiODhAWUtyFJhhNbgW5c
+GJE9GBlbVdvvN/wfT3Jpqh9JuwUpX/47zGnpKNb76NB4IoZYb4/RJTRqmxDoePEp
+b6WHklV5p0jaZ7vQpvxU1p+eNgNlEv02o2vHzoj62pKp50/w/OAlXhwdtvacedwM
+z2O2CXQFiiv3Hqr9LKafBn2m/b4cj74mASmyWt/ZH1UDJtzgj5rJqYdRb/4hkHeC
+MR5c0b8b3K9d+4tFOGY+bkl6xSc2vjX2T4yA4DGsUQvNrZ3ThrhB6WHgcyNycTjh
+DF8M4iwiVu1p91zgp1SQ+mXMzvX+2FNs/EXSgeZ89WhRJkwdSdQ=
+=UZ5J
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.18.0:
+    
