@@ -1,0 +1,65 @@
+This is a vote to release Apache Wicket 10.10.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 10.10.0
+[ ] No, don't release Apache Wicket 10.10.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/10.10.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories/orgapachewicket-1270/
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-10.10.0
+    Release tag: rel/wicket-10.10.0
+
+
+========================================================================
+
+    CHANGELOG for 10.10.0:
+    
+** Bug
+
+    * [WICKET-7107] - CSP Header not rendered when using RedirectPolicy.AUTO_REDIRECT
+    * [WICKET-7182] - Wicket Autocomplete calls event on a non jquery object
+    * [WICKET-7186] - wicket 10.9.0 / 10.9.1 leaks File Reaper threads
+    * [WICKET-7189] - make partial page update creation pluggable.
+
+** Improvement
+
+    * [WICKET-7184] - Make <wicket:header-items/> HTML spec compliant
+    * [WICKET-7187] - JavaScript header items: `module` for content, and import maps
+    * [WICKET-7188] - Sign file upload resource constraints
+
+========================================================================
+
+    CHANGELOG for 10.10.0:
+    
+** Bug
+
+    * [WICKET-7107] - CSP Header not rendered when using RedirectPolicy.AUTO_REDIRECT
+    * [WICKET-7182] - Wicket Autocomplete calls event on a non jquery object
+    * [WICKET-7186] - wicket 10.9.0 / 10.9.1 leaks File Reaper threads
+    * [WICKET-7189] - make partial page update creation pluggable.
+
+** Improvement
+
+    * [WICKET-7184] - Make <wicket:header-items/> HTML spec compliant
+    * [WICKET-7187] - JavaScript header items: `module` for content, and import maps
+    * [WICKET-7188] - Sign file upload resource constraints
+
