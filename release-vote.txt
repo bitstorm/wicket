@@ -1,0 +1,82 @@
+This is a vote to release Apache Wicket 8.19.0
+
+Please download the source distributions found in our staging area
+linked below.
+
+I have included the signatures for both the source archives. This vote
+lasts for 72 hours minimum.
+
+[ ] Yes, release Apache Wicket 8.19.0
+[ ] No, don't release Apache Wicket 8.19.0, because ...
+
+Distributions, changelog, keys and signatures can be found at:
+
+    https://dist.apache.org/repos/dist/dev/wicket/8.19.0
+
+Staging repository:
+
+    https://repository.apache.org/content/repositories//
+
+The binaries are available in the above link, as are a staging
+repository for Maven. Typically the vote is on the source, but should
+you find a problem with one of the binaries, please let me know, I can
+re-roll them some way or the other.
+
+Staging git repository data:
+
+    Repository:  git@github.com:bitstorm/wicket.git
+    Branch:      build/wicket-8.19.0
+    Release tag: rel/wicket-8.19.0
+
+
+========================================================================
+
+    The signatures for the source release artefacts:
+
+    
+Signature for apache-wicket-8.19.0.zip:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmqMMPcACgkQh48B+qjT
+VuFTog/8CX/sJw1hcXQpF07qwgqHkViAOLkZP+PL73wy/tyk9O+QrogD0BjCzaRX
+x1Ow7Y1epIteKPGJDFcCA6JZcfzt2z+hOdU8pUlDioPihgerhhiSGPlTIoFUKdbV
+Rzpdn9n3N/nUlXMhi0fP+lB5aX+aLFDkpeoXLiuCpyY6AaHaPqT6i+8SOesGH/XB
+QDtCytaeiPhDyvieeGfh82uycigieM0575ICXlnf2fel0jV0N3LknU4TGNwLDsUG
+LKSytfNSEhbGwmgE6GjVxWC9FhF3T3kGnpxIY+rftumIqYBEpXLRRe6lmh2lnAIp
+Uum38G/UiA6unuzsIqv8GXLypWmlM8Ug4aJ0R09+5Ahm3MVnZOgWIAc0/yragGWm
+9JHUiefOS1N6ca/nv1cX8BSVHnacl6hOmzNNYbQfEIAbRGsF9ZwZMiSHDzI5dNki
+7MYXyk0NCuIH/Whf1kuSMWzalcvLyD0kS4lLHmpyhbiSPHSG0LmU/T+Sg7oAtF44
+m7xbt67qs6dy7usoVpSJ5HesYuOFPGZXON8ddt130n+We+EQp4NXNF/dwxqH5p1Q
+LIS47/moeoHfe8MEtH/UZQQjuQLZfZnNDFQlnaKxe24fV6AGDl2oawVzgoXAzePM
+Cjsp/WTS05tZj3QYert/l1oeovsOnvc8shJUU0kDooevyb0oNXA=
+=TAPz
+-----END PGP SIGNATURE-----
+    
+Signature for apache-wicket-8.19.0.tar.gz:
+
+    -----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE0a6YZHC1pJw+aieyh48B+qjTVuEFAmqMMPcACgkQh48B+qjT
+VuEqpxAAsfL8KdYP3mnQHdHZH+dVahvWQOJJdKx+P7/cY3af7Sp/7Eg6UvSrRnen
+j2gvr8i4pQbebFIwS1PFjVwsYnCBLSsOT33BX06pHIbgcEFkYMbTXrzPde4potuy
+w0u92GxOAUvJmAfFeL9bo/46yFcg++DZ3fXQz5B2mGyKEmXIn8WyoyhtGXdw0XpR
+PMk1EXCvKpfW2Zp7CLTd2Q712DDRDAhhjJ3XqZDYmgi+QVovZyNBKRhSzHi9JWqX
+Sq2JqJYTuN7/MpxiU5Ccp//qnDuLED8NwQ5U3rlEwVKvgAJQpEURCpGXOceEv8R7
+i/UBXRWfY3dxKaJ50N2UKVWTYPzal/3tzlOE0tyik5bJZi8ZiNBOH5RXColpPtuK
+gNtAqSFIXmma5iAM+KqceCL1euVuTxyiwUh1y59jbh5uWSqPio8gIA8cofuGk1Nq
+HkO/J+9mGKU6HKnFiHvma6pcLgS7YbkiejLA9vph0fk5Lr0sJha7wP11KIcZ/AfT
+sQHNOyEbehzYOJDs7CAo6YWvV0D53LezCaJ04NwrRX9/6ooAXLJdNcX8aB9k6Qc3
+QeNLL6fpAGxKsGG6ZRBXwNOpse73fvcsebHCCjytaVzhskwtoujdqSINimWzKHON
+N9pZFDkCLSpCU1RYKo1Zo78TO7FW/+/AtDD5GO8A6gajQx/n0ls=
+=jPYU
+-----END PGP SIGNATURE-----
+    
+========================================================================
+
+    CHANGELOG for 8.19.0:
+    
+** Task
+
+    * [WICKET-7193] - Deprecate and remove IAuthenticationStrategy
+
